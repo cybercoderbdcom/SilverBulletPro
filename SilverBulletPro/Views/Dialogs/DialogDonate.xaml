@@ -1,0 +1,24 @@
+<Page
+	x:Class="SilverBulletPro.Views.Dialogs.DialogDonate" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="DialogDonate"
+	Width="460"
+	Height="400" xmlns:dialogs="clr-namespace:SilverBulletPro.Views.Dialogs">
+	<Grid
+		Margin="5,0,5,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Label
+			Content="Thank you for your support"
+			FontSize="15"
+			FontWeight="Bold"
+			Foreground="{DynamicResource ForegroundCustom}" />
+		<TextBox
+			Name="textBox"
+			Grid.Row="1"
+			FontSize="14"
+			IsReadOnly="True" />
+	</Grid>
+</Page>

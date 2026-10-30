@@ -1,0 +1,63 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockReqsSmtpSendMail" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockReqsSmtpSendMail" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:SafeModeCtrl
+			Grid.Row="0"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="1"
+			Margin="0,10,0,0"
+			Label="{DynamicResource Smtp_Sender}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding SenderInputMode, Mode=TwoWay}"
+			Text="{Binding Sender, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Smtp_Recipients}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding RecipientsInputMode, Mode=TwoWay}"
+			Text="{Binding Recipients, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="3"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Smtp_Subject}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding SubjectInputMode, Mode=TwoWay}"
+			Text="{Binding Subject, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="4"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Smtp_TextBody}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding TextBodyInputMode, Mode=TwoWay}"
+			Text="{Binding TextBody, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="5"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Smtp_HtmlBody}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding HtmlBodyInputMode, Mode=TwoWay}"
+			Text="{Binding HtmlBody, Mode=TwoWay}" />
+	</Grid>
+</Page>

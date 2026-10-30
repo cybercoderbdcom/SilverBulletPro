@@ -1,0 +1,78 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.Tools.BrowserTools" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="BrowserTools" xmlns:tools="clr-namespace:SilverBulletPro.Views.Main.Tools">
+	<Grid
+		Margin="8">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<Label
+			Grid.Row="0"
+			Content="CARE: These might interfere with other Selenium-based programs you are running"
+			Foreground="{DynamicResource ForegroundBad}" />
+		<StackPanel
+			Grid.Row="1"
+			Orientation="Horizontal">
+			<Button
+				Name="killChromedriversButton"
+				BorderElement.CornerRadius="4 0 0 0"
+				IconElement.Geometry="M167.675,150 L203.0375,185.35 A12.5,12.5 1 1 1 185.35,203.0375L150,167.675 L114.65,203.0375 A12.5,12.5 0 0 1 96.9625,185.35L132.325,150 L96.9625,114.65 A12.5,12.5 0 0 1 114.65,96.9625L150,132.325 L185.35,96.9625 A12.5,12.5 0 0 1 203.0375,114.65L167.675,150 M150,25 C80.9625,25 25,80.9625 25,150 C25,219.0375 80.9625,275 150,275 C219.0375,275 275,219.0375 275,150 C275,80.9625 219.0375,25 150,25"
+				IconElement.Width="14"
+				BorderThickness="1"
+				Content="Kill Chromedrivers"
+				Foreground="{DynamicResource ForegroundMain}"
+				Click="killChromedriversButton_Click" />
+			<Button
+				Name="killGeckodriversButton"
+				BorderElement.CornerRadius="0"
+				IconElement.Geometry="M167.675,150 L203.0375,185.35 A12.5,12.5 1 1 1 185.35,203.0375L150,167.675 L114.65,203.0375 A12.5,12.5 0 0 1 96.9625,185.35L132.325,150 L96.9625,114.65 A12.5,12.5 0 0 1 114.65,96.9625L150,132.325 L185.35,96.9625 A12.5,12.5 0 0 1 203.0375,114.65L167.675,150 M150,25 C80.9625,25 25,80.9625 25,150 C25,219.0375 80.9625,275 150,275 C219.0375,275 275,219.0375 275,150 C275,80.9625 219.0375,25 150,25"
+				IconElement.Width="14"
+				BorderThickness="1"
+				Content="Kill Geckodrivers"
+				Click="killGeckodriversButton_Click" />
+			<Button
+				Name="deleteChromeCacheFoldersButton"
+				BorderElement.CornerRadius="0"
+				IconElement.Geometry="M19,4 L15.5,4 L14.5,3 L9.5,3 L8.5,4 L5,4 L5,6 L19,6 M6,19 A2,2 0 0 0 8,21L16,21 A2,2 0 0 0 18,19L18,7 L6,7 L6,19"
+				IconElement.Width="11"
+				BorderThickness="1"
+				Content="Delete Chrome Cache Folders"
+				Click="deleteChromeCacheFoldersButton_Click" />
+			<Button
+				Name="deleteFirefoxCacheFoldersButton"
+				BorderElement.CornerRadius="0 4 4 0 "
+				IconElement.Geometry="M19,4 L15.5,4 L14.5,3 L9.5,3 L8.5,4 L5,4 L5,6 L19,6 M6,19 A2,2 0 0 0 8,21L16,21 A2,2 0 0 0 18,19L18,7 L6,7 L6,19"
+				IconElement.Width="11"
+				BorderThickness="1"
+				Content="Delete Firefox Cache Folders"
+				Click="deleteFirefoxCacheFoldersButton_Click" />
+		</StackPanel>
+		<StackPanel
+			Grid.Row="2"
+			Orientation="Horizontal">
+			<Button
+				Name="killChromesButton"
+				BorderElement.CornerRadius="0 0 0 4"
+				IconElement.Geometry="M167.675,150 L203.0375,185.35 A12.5,12.5 1 1 1 185.35,203.0375L150,167.675 L114.65,203.0375 A12.5,12.5 0 0 1 96.9625,185.35L132.325,150 L96.9625,114.65 A12.5,12.5 0 0 1 114.65,96.9625L150,132.325 L185.35,96.9625 A12.5,12.5 0 0 1 203.0375,114.65L167.675,150 M150,25 C80.9625,25 25,80.9625 25,150 C25,219.0375 80.9625,275 150,275 C219.0375,275 275,219.0375 275,150 C275,80.9625 219.0375,25 150,25"
+				IconElement.Width="14"
+				BorderThickness="1"
+				Content="Kill ALL Chrome Browsers"
+				Click="killChromesButton_Click" />
+			<Button
+				Name="killFirefoxesButton"
+				BorderElement.CornerRadius="0 0 4 0"
+				IconElement.Geometry="M167.675,150 L203.0375,185.35 A12.5,12.5 1 1 1 185.35,203.0375L150,167.675 L114.65,203.0375 A12.5,12.5 0 0 1 96.9625,185.35L132.325,150 L96.9625,114.65 A12.5,12.5 0 0 1 114.65,96.9625L150,132.325 L185.35,96.9625 A12.5,12.5 0 0 1 203.0375,114.65L167.675,150 M150,25 C80.9625,25 25,80.9625 25,150 C25,219.0375 80.9625,275 150,275 C219.0375,275 275,219.0375 275,150 C275,80.9625 219.0375,25 150,25"
+				IconElement.Width="14"
+				BorderThickness="1"
+				Content="Kill ALL Firefox Browsers"
+				Click="killFirefoxesButton_Click" />
+		</StackPanel>
+	</Grid>
+</Page>

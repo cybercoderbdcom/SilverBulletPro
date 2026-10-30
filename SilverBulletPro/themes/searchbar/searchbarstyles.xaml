@@ -1,0 +1,10 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:hc="https://handyorg.github.io/handycontrol">
+	<Style xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+		BasedOn="{StaticResource SearchBarBaseStyle}"
+		TargetType="{:Type controls:SearchBar}"
+		p4:Key="{:Type controls:SearchBar}" xmlns:p4="http://schemas.microsoft.com/winfx/2006/xaml">
+		<Setter
+			Property="FrameworkElement.ContextMenu"
+			Value="{StaticResource MahApps.TextBox.ContextMenu}" />
+	</Style>
+</ResourceDictionary>

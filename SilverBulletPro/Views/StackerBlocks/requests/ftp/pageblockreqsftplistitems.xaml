@@ -1,0 +1,64 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockReqsFtpListItems" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockReqsFtpListItems" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			ModesOfOutput="ListString"
+			OutputMode="ListString"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			Label="{DynamicResource Ftp_Arguments}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding ArgumentsInputMode, Mode=TwoWay}"
+			Text="{Binding Arguments, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="3"
+			Margin="0,8,0,0">
+			<TextBlock
+				Margin="4,6,5,5"
+				VerticalAlignment="Center"
+				FontWeight="Bold"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Ftp_Kind}" /> <Run
+					Text=":" /></TextBlock>
+			<WrapPanel
+				Margin="5,0,0,0">
+				<CheckBox
+					Margin="0,6,19,0"
+					HorizontalAlignment="Left"
+					Content="{DynamicResource Ftp_File}"
+					IsChecked="{Binding File}" />
+				<CheckBox
+					Margin="0,8,17,0"
+					HorizontalAlignment="Left"
+					Content="{DynamicResource Ftp_Directory}"
+					IsChecked="{Binding Dir}" />
+				<CheckBox
+					Margin="0,8,0,0"
+					HorizontalAlignment="Left"
+					Content="{DynamicResource Ftp_Link}"
+					IsChecked="{Binding Link}" />
+			</WrapPanel>
+		</DockPanel>
+	</Grid>
+</Page>

@@ -1,0 +1,69 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockFuncJwtEncode" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ucv="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockFuncJwtEncode" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<ucv:VarCapOutputBox
+			Name="outputVar"
+			EnableHiddenVar="True"
+			ModesOfOutput="String"
+			OutputMode="String"
+			HiddenVar="{Binding HiddenVar, Mode=TwoWay}"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<ucv:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="2"
+			Margin="0,10,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource JwtEnc_Algorithm}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="algorithmBox"
+				SelectedItem="{Binding Algorithm}" />
+		</DockPanel>
+		<ucv:TextInputBox
+			Grid.Row="3"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Secret}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding SecretInputMode, Mode=TwoWay}"
+			Text="{Binding Secret, Mode=TwoWay}" />
+		<ucv:TextInputBox
+			Grid.Row="4"
+			Margin="0,5,0,0"
+			Label="{DynamicResource JwtEnc_ExtraHeaders}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding ExtraHeadersInputMode, Mode=TwoWay}"
+			Text="{Binding ExtraHeaders, Mode=TwoWay}" />
+		<ucv:TextInputBox
+			Grid.Row="5"
+			Margin="0,5,0,0"
+			Label="{DynamicResource JwtEnc_Payload}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding PayloadInputMode, Mode=TwoWay}"
+			Text="{Binding Payload, Mode=TwoWay}" />
+	</Grid>
+</Page>

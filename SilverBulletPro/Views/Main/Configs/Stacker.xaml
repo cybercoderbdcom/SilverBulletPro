@@ -1,0 +1,1391 @@
+<!--Class 'SilverBulletPro.Views.Main.Configs.Stacker' has IComponentConnector.Connect method, but cannot be parsed.-->
+<Page
+	x:Class="SilverBulletPro.Views.Main.Configs.Stacker" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:editor="http://icsharpcode.net/sharpdevelop/avalonedit" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:eo="http://schemas.essentialobjects.com/wpf/" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:hv="clr-namespace:HexView.Wpf;assembly=SilverBulletPro.HexViewer" xmlns:converters="clr-namespace:SilverBulletPro.Converters" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:configs="clr-namespace:SilverBulletPro.Views.Main.Configs"
+	Resources="{converters:DivisionConverter Key=divisionConverter}">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="1.64*" />
+			<ColumnDefinition
+				Width="5.5" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<TabControl
+			Name="stackerTabControl"
+			Grid.RowSpan="2"
+			Margin="0,0,3,0"
+			Background="#00FFFFFF">
+			<ItemsControl.ItemContainerStyle>
+				<Style
+					TargetType="{x:Type TabItem}">
+					<Setter
+						Property="Visibility"
+						Value="Collapsed" />
+				</Style>
+			</ItemsControl.ItemContainerStyle>
+			<TabItem>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="0.7*"
+							MaxWidth="372" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<DockPanel
+						Margin="14,8,0,0"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Top">
+						<iconpacks:PackIconRadixIcons
+							FrameworkElement.Margin="0,0,4,0"
+							FrameworkElement.VerticalAlignment="Center"
+							Control.Foreground="{DynamicResource ForegroundToCheck}"
+							PackIconRadixIcons.Kind="Stack" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.RadixIcons" />
+						<TextBlock
+							FontSize="15"
+							Foreground="{DynamicResource ForegroundToCheck}"
+							Text="{DynamicResource Stacker_CurrentStack}" />
+					</DockPanel>
+					<Label
+						Grid.Column="1"
+						Margin="14,8,0,0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Top"
+						Foreground="{DynamicResource ForegroundGood}">
+						<DockPanel>
+							<iconpacks:PackIconModern
+								FrameworkElement.Margin="0,0,2,1"
+								FrameworkElement.VerticalAlignment="Center"
+								PackIconModern.Kind="Information" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Modern" />
+							<TextBlock
+								VerticalAlignment="Center"
+								Foreground="{DynamicResource ForegroundGood}"
+								Text="{DynamicResource BlockInformation}" />
+						</DockPanel>
+					</Label>
+					<Grid
+						Margin="7,43,0,0">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="auto" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<Grid
+							Row="0"
+							VerticalAlignment="Center">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="29" />
+								<RowDefinition
+									Height="30" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									Width="0.72*" />
+								<ColumnDefinition
+									Width="0.72*" />
+								<ColumnDefinition
+									Width="0.72*" />
+								<ColumnDefinition
+									Width="0.72*" />
+							</Grid.ColumnDefinitions>
+							<Button
+								Grid.Row="0"
+								Grid.Column="0"
+								Width="auto"
+								Height="auto"
+								Padding="6,0,0,0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="5 0 0 0"
+								IconElement.Geometry="M35,19 L41,19 L41,35 L57,35 L57,41 L41,41 L41,57 L35,57 L35,41 L19,41 L19,35 L35,35 L35,19"
+								IconElement.Width="15"
+								Background="#00AA80"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_AddNewBlockTip}"
+								IsEnabled="{Binding ControlsEnabled}" />
+							<Button
+								Grid.Row="0"
+								Grid.Column="1"
+								Width="auto"
+								Height="auto"
+								Padding="6,0,0,0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0"
+								IconElement.Geometry="M278.6,256 L346.8,187.8 C353,181.60000000000002 353,171.4 346.8,165.20000000000002 C340.6,159.00000000000003 330.40000000000003,159.00000000000003 324.2,165.20000000000002 L256,233.4 L187.8,165.2 C181.60000000000002,159 171.4,159 165.20000000000002,165.2 C162.10000000000002,168.29999999999998 160.50000000000003,172.39999999999998 160.50000000000003,176.5 C160.50000000000003,180.6 162.10000000000002,184.7 165.20000000000002,187.8 L233.40000000000003,256 L165.20000000000005,324.2 C162.10000000000005,327.3 160.50000000000006,331.4 160.50000000000006,335.5 C160.50000000000006,339.6 162.10000000000005,343.7 165.20000000000005,346.8 C171.40000000000003,353 181.60000000000005,353 187.80000000000004,346.8 L256.00000000000006,278.6 L324.20000000000005,346.8 C330.40000000000003,353 340.6,353 346.80000000000007,346.8 C353.00000000000006,340.6 353.00000000000006,330.40000000000003 346.80000000000007,324.2 L278.6,256"
+								IconElement.Width="13"
+								Background="#D64232"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_RemoveSelectedBlockTip}"
+								Command="{Binding RemoveBlockCommand}"
+								IsEnabled="{Binding ControlsEnabled}" />
+							<Button
+								Grid.Column="2"
+								Width="auto"
+								Height="auto"
+								Padding="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius=" 0"
+								IconElement.Geometry="M765,237 C770,225 768,212 760,202 L410,-182 C404,-188 396,-192 387,-192 C378,-192 369,-188 363,-182 L8,202 C0,212 -2,225 3,237 C8,248 19,256 32,256 L256,256 L256,1504 C256,1522 270,1536 288,1536 L480,1536 C498,1536 512,1522 512,1504 L512,256 L736,256 C749,256 760,249 765,237"
+								IconElement.Height="19"
+								Background="#4D8BEE"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_MoveSelectedBlockUpTip}"
+								Command="{Binding MoveBlockUpCommand}"
+								IsEnabled="{Binding ControlsEnabled}" />
+							<Button
+								Grid.Column="3"
+								Width="auto"
+								Height="auto"
+								Padding="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0 5 0 0"
+								IconElement.Geometry="M765,1043 C760,1032 749,1024 736,1024 L512,1024 L512,-224 C512,-242 498,-256 480,-256 L288,-256 C270,-256 256,-242 256,-224 L256,1024 L32,1024 C19,1024 8,1031 3,1043 C-2,1055 0,1068 8,1078 L358,1462 C364,1468 372,1472 381,1472 C390,1472 399,1468 405,1462 L760,1078 C768,1068 770,1055 765,1043"
+								IconElement.Height="18.5"
+								Background="#4D8BEE"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_MoveSelectedBlockDownTip}"
+								Command="{Binding MoveBlockDownCommand}"
+								IsEnabled="{Binding ControlsEnabled}" />
+							<Button
+								Grid.Row="1"
+								Grid.Column="0"
+								Width="auto"
+								Height="auto"
+								Padding="6,0,0,0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0 0 0 0"
+								IconElement.Geometry="M464,0 C490.51,0 512,21.49 512,48 L512,336 C512,362.51 490.51,384 464,384 L176,384 C149.49,384 128,362.51 128,336 L128,48 C128,21.49 149.49,0 176,0 L464,0 M176,416 C131.888,416 96,380.112 96,336 L96,128 L48,128 C21.49,128 0,149.49 0,176 L0,464 C0,490.51 21.49,512 48,512 L336,512 C362.51,512 384,490.51 384,464 L384,416 L176,416"
+								IconElement.Width="15"
+								Background="#434349"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_CloneSelectedBlockTip}"
+								Command="{Binding CloneBlockCommand}"
+								IsEnabled="{Binding ControlsEnabled}" />
+							<Button
+								Name="disableOrEnableBlockButton"
+								Grid.Row="1"
+								Grid.Column="1"
+								Width="auto"
+								Height="auto"
+								Padding="5,1,0,0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0"
+								IconElement.Geometry="M512,960 C230.39999999999998,960 0,729.6 0,448 C0,166.39999999999998 230.4,-64 512,-64 C793.6,-64 1024,166.4 1024,448 C1024,729.6 793.6,960 512,960 M512,832 C595.2,832 672,806.4 736,761.6 L198.39999999999998,224 C153.59999999999997,288 127.99999999999997,364.8 127.99999999999997,448 C127.99999999999997,659.2 300.79999999999995,832 512,832 M512,64 C428.8,64 352,89.6 288,134.4 L825.6,672 C870.4,608 896,531.2 896,448 C896,236.8 723.2,64 512,64"
+								IconElement.Width="16"
+								Background="#434349"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_EnableDisableSelectedBlockTip}"
+								Command="{Binding DisableOrEnableBlockCommand}"
+								IsEnabled="{Binding ControlsEnabled}" />
+							<Button
+								Grid.Row="1"
+								Grid.Column="2"
+								Width="auto"
+								Height="auto"
+								Padding="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0"
+								IconElement.Geometry="M12.5,8 C9.85,8 7.45,9 5.6,10.6 L2,7 L2,16 L11,16 L7.38,12.38 C8.77,11.22 10.54,10.5 12.5,10.5 C16.04,10.5 19.05,12.81 20.1,16 L22.47,15.22 C21.08,11.03 17.15,8 12.5,8"
+								IconElement.Width="18"
+								Background="#434349"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_UndoTip}"
+								Command="{Binding UndoBlockCommand}"
+								IsEnabled="{Binding ControlsEnabled}" />
+							<Button
+								Grid.Row="1"
+								Grid.Column="3"
+								Width="auto"
+								Height="auto"
+								Padding="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0 0 0 0"
+								IconElement.Geometry="M18.4,10.6 C16.55,9 14.15,8 11.5,8 C6.85,8 2.92,11.03 1.54,15.22 L3.9,16 C4.95,12.81 7.95,10.5 11.5,10.5 C13.45,10.5 15.23,11.22 16.62,12.38 L13,16 L22,16 L22,7 L18.4,10.6"
+								IconElement.Width="18"
+								Background="#434349"
+								BorderThickness="0"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_RedoTip}"
+								Command="{Binding RedoBlockCommand}"
+								IsEnabled="{Binding ControlsEnabled}" />
+						</Grid>
+						<Grid
+							Row="1">
+							<Grid.RowDefinitions>
+								<RowDefinition
+									Height="auto" />
+								<RowDefinition
+									Height="*" />
+								<RowDefinition
+									Height="32" />
+							</Grid.RowDefinitions>
+							<controls:ComboBox
+								FrameworkElement.Name="selectBlockComboBox"
+								Grid.ColumnSpan="3"
+								FrameworkElement.Margin="0,0,0,0"
+								Control.VerticalContentAlignment="Center"
+								BorderElement.CornerRadius="0 0 0 0"
+								InfoElement.Placeholder="Blocks"
+								ComboBox.AutoComplete="True"
+								Control.Background="{DynamicResource BackgroundSecondary}"
+								FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+								Control.FontWeight="DemiBold"
+								Control.Foreground="{DynamicResource ForegroundMain}"
+								ComboBox.IsEditable="True"
+								Selector.SelectedIndex="0"
+								FrameworkElement.Style="{StaticResource ComboBoxExtend}" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+								ItemsControl.ItemsSource="{Binding Blocks}" />
+							<ListBox
+								Name="stackListView"
+								Grid.Row="1"
+								Background="#00FFFFFF"
+								BorderThickness="1,0,1,1"
+								ScrollViewer.CanContentScroll="True"
+								ScrollViewer.HorizontalScrollBarVisibility="Auto"
+								ScrollViewer.VerticalScrollBarVisibility="Auto"
+								SelectionMode="Extended"
+								ItemsSource="{Binding Stack}">
+								<ItemsControl.ItemContainerStyle>
+									<Style
+										TargetType="{x:Type ListBoxItem}">
+										<Setter
+											Property="Template">
+											<Setter.Value>
+												<ControlTemplate
+													TargetType="{x:Type ListBoxItem}">
+													<ContentPresenter />
+												</ControlTemplate>
+											</Setter.Value>
+										</Setter>
+									</Style>
+								</ItemsControl.ItemContainerStyle>
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<ToggleButton
+											FontWeight="Regular"
+											Height="{Binding Height}"
+											Content="{Binding Block.Label}"
+											FontSize="{Binding FontSize}"
+											Foreground="{Binding Foreground}"
+											Tag="{Binding Id}"
+											IsChecked="{Binding Mode=TwoWay, Path=IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}">
+											<FrameworkElement.Style>
+												<Style
+													TargetType="{x:Type ToggleButton}">
+													<Setter
+														Property="Template">
+														<Setter.Value>
+															<ControlTemplate
+																TargetType="{x:Type ToggleButton}">
+																<Border
+																	BorderThickness="2"
+																	Background="{Binding Color}"
+																	BorderBrush="{Binding BorderColor}">
+																	<ContentPresenter
+																		HorizontalAlignment="Center"
+																		VerticalAlignment="Center" />
+																</Border>
+															</ControlTemplate>
+														</Setter.Value>
+													</Setter>
+													<Style.Triggers>
+														<Trigger
+															Property="ToggleButton.IsChecked"
+															Value="True">
+															<Setter
+																Property="Background"
+																Value="{Binding Color}" />
+														</Trigger>
+													</Style.Triggers>
+												</Style>
+											</FrameworkElement.Style>
+										</ToggleButton>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+								<FrameworkElement.ContextMenu>
+									<ContextMenu>
+										<MenuItem
+											Header="{DynamicResource Copy}"
+											InputGestureText="Ctrl+C"
+											Command="{Binding CopyBlocksCommand}">
+											<MenuItem.Icon>
+												<iconpacks:MaterialExtension
+													MaterialExtension.Kind="ContentCopy" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+											</MenuItem.Icon>
+										</MenuItem>
+										<MenuItem
+											Header="{DynamicResource Paste}"
+											InputGestureText="Ctrl+V"
+											Command="{Binding PasteBlocksCommand}">
+											<MenuItem.Icon>
+												<iconpacks:FontAwesomeExtension
+													FontAwesomeExtension.Kind="PasteSolid" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+											</MenuItem.Icon>
+										</MenuItem>
+										<MenuItem
+											Header="{DynamicResource Reload}"
+											InputGestureText="Ctrl+R">
+											<MenuItem.Icon>
+												<iconpacks:IoniconsExtension
+													IoniconsExtension.Kind="RefreshMD" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Ionicons" />
+											</MenuItem.Icon>
+										</MenuItem>
+										<Separator />
+										<MenuItem
+											Header="Breakpoint">
+											<MenuItem.Icon>
+												<iconpacks:CodiconsExtension
+													CodiconsExtension.Kind="ActivateBreakpoints" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Codicons" />
+											</MenuItem.Icon>
+											<MenuItem
+												Header="{DynamicResource Insert}">
+												<MenuItem.Icon>
+													<iconpacks:ModernExtension
+														ModernExtension.Kind="Add" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Modern" />
+												</MenuItem.Icon>
+											</MenuItem>
+											<MenuItem
+												Header="{DynamicResource Delete}">
+												<MenuItem.Icon>
+													<MaterialExtension
+														MaterialExtension.Kind="Close" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+												</MenuItem.Icon>
+											</MenuItem>
+										</MenuItem>
+										<Separator />
+										<MenuItem
+											Header="{DynamicResource SelectAll}"
+											InputGestureText="Ctrl+A"
+											Command="{Binding SelectAllBlocksCommand}">
+											<MenuItem.Icon>
+												<iconpacks:BoxIconsExtension
+													BoxIconsExtension.Kind="SolidSelectMultiple" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.BoxIcons" />
+											</MenuItem.Icon>
+										</MenuItem>
+										<MenuItem
+											Header="{DynamicResource DeleteAll}"
+											Command="{Binding DeleteAllBlocksCommand}">
+											<MenuItem.Icon>
+												<IoniconsExtension
+													IoniconsExtension.Kind="CloseiOS" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Ionicons" />
+											</MenuItem.Icon>
+										</MenuItem>
+										<MenuItem
+											Header="{DynamicResource EnableAllBlocks}"
+											Command="{Binding EnableAllBlocksCommand}">
+											<MenuItem.Icon>
+												<FontAwesomeExtension
+													FontAwesomeExtension.Kind="CheckSolid" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+											</MenuItem.Icon>
+										</MenuItem>
+										<MenuItem
+											Header="{DynamicResource DisableAllBlocks}"
+											Command="{Binding DisableAllBlocksCommand}">
+											<MenuItem.Icon>
+												<FontAwesomeExtension
+													FontAwesomeExtension.Kind="BanSolid" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+											</MenuItem.Icon>
+										</MenuItem>
+										<MenuItem
+											Header="{DynamicResource ClearUndoRedoBlocks}"
+											Command="{Binding ClearUndoRedoBlocksCommand}">
+											<MenuItem.Icon>
+												<BoxIconsExtension
+													BoxIconsExtension.Kind="SolidTrashAlt" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.BoxIcons" />
+											</MenuItem.Icon>
+										</MenuItem>
+									</ContextMenu>
+								</FrameworkElement.ContextMenu>
+							</ListBox>
+						</Grid>
+					</Grid>
+					<Grid
+						Column="1"
+						Margin="3,45,3,0">
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="auto" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<DockPanel>
+							<Label
+								Grid.Column="1"
+								Margin="2,0,-4,0"
+								VerticalAlignment="Center">
+								<DockPanel>
+									<iconpacks:PackIconForkAwesome
+										FrameworkElement.Width="11"
+										FrameworkElement.Margin="0,0,1,0"
+										FrameworkElement.VerticalAlignment="Center"
+										PackIconForkAwesome.Kind="Tag" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.ForkAwesome" />
+									<TextBlock
+										Margin="5,0,6,0"
+										VerticalAlignment="Center"
+										Foreground="{DynamicResource ForegroundMain}">
+										<Run
+											Text="{DynamicResource Label}" /> <Run
+											Text=":" /></TextBlock>
+								</DockPanel>
+							</Label>
+							<Button
+								Width="32"
+								Height="31"
+								Padding="5,0,0,0"
+								BorderElement.CornerRadius="0 4 4 0"
+								IconElement.Geometry="M853.333,832 L170.66599999999994,832 C123.56199999999994,832 85.33299999999994,793.771 85.33299999999994,746.667 L85.33299999999994,149.33400000000006 C85.33299999999994,102.23000000000006 123.56199999999994,64.00100000000006 170.66599999999994,64.00100000000006 L853.333,64.00100000000006 C900.437,64.00100000000006 938.6659999999999,102.23000000000006 938.6659999999999,149.33400000000006 L938.6659999999999,746.667 C938.6659999999999,793.7710000000001 900.4369999999999,832 853.333,832 M469.333,234.667 L213.33300000000003,234.667 L213.33300000000003,320 L469.333,320 L469.333,234.667 M810.667,405.333 L213.33400000000006,405.333 L213.33400000000006,490.66600000000005 L810.667,490.66600000000005 L810.667,405.3330000000001 M810.667,576 L213.33400000000006,576 L213.33400000000006,661.333 L810.667,661.333 L810.667,576"
+								IconElement.Width="14"
+								Background="{DynamicResource BackgroundSecondary}"
+								BorderThickness="0,1,1,1"
+								DockPanel.Dock="Right"
+								Foreground="{DynamicResource ForegroundMain}"
+								ToolTip="{DynamicResource Stacker_DescriptionTip}" />
+							<TextBox
+								Height="31"
+								BorderElement.CornerRadius="4 0 0 4"
+								Background="{DynamicResource BackgroundSecondary}"
+								Foreground="{DynamicResource ForegroundMain}"
+								Text="{Binding BlockLabel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+						</DockPanel>
+						<ScrollViewer
+							Name="BlockInfoScrollViewer"
+							Grid.Row="1"
+							Margin="3,4,0,3">
+							<Frame
+								Name="BlockInfo"
+								BorderElement.CornerRadius="3"
+								NavigationUIVisibility="Hidden" />
+						</ScrollViewer>
+					</Grid>
+				</Grid>
+			</TabItem>
+			<TabItem>
+				<Grid
+					Margin="0,5,0,0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition />
+						<ColumnDefinition
+							Width="auto" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="35" />
+						<RowDefinition
+							Height="*" />
+					</Grid.RowDefinitions>
+					<Button
+						Width="auto"
+						Height="30"
+						Margin="5,0,0,5"
+						Padding="6"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						BorderElement.CornerRadius="4"
+						IconElement.Geometry="M11,6 C12.38,6 13.63,6.56 14.54,7.46 L12,10 L18,10 L18,4 L15.95,6.05 C14.68,4.78 12.93,4 11,4 C7.47,4 4.57,6.61 4.08,10 L6.1,10 C6.56,7.72 8.58,6 11,6 M16.64,15.14 C17.3,14.24 17.76,13.17 17.92,12 L15.9,12 C15.44,14.28 13.42,16 11,16 C9.62,16 8.37,15.44 7.46,14.54 L10,12 L4,12 L4,18 L6.05,15.95 C7.32,17.22 9.07,18 11,18 C12.55,18 14,17.5 15.14,16.64 L20,21.5 L21.5,20 L16.64,15.14"
+						IconElement.Width="17"
+						BorderThickness="1"
+						Content="{DynamicResource Stacker_FindAndReplace}" />
+					<Label
+						Grid.Row="0"
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundToCheck}">
+						<DockPanel>
+							<iconpacks:PackIconMaterial
+								PackIconMaterial.Kind="ScriptOutline" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+							<TextBlock
+								Name="scriptCodeTextBlock"
+								Margin="3,0,0,0"
+								Foreground="{DynamicResource ForegroundToCheck}"
+								Text="{DynamicResource Stacker_ScriptCode}" />
+						</DockPanel>
+					</Label>
+					<Button
+						Grid.Column="2"
+						Width="88"
+						Height="30"
+						Margin="0,0,1,5"
+						HorizontalAlignment="Right"
+						VerticalAlignment="Center"
+						BorderElement.CornerRadius="4"
+						IconElement.Geometry="M474.1,398.2 L289.1,212 C307.40000000000003,165 297.20000000000005,109.7 258.6,70.9 C217.9,30 156.9,21.8 108.1,44.3 L195.5,132.3 L134.5,193.70000000000002 L45,105.70000000000002 C20.7,154.70000000000002 30.9,216.10000000000002 71.5,257 C110.1,295.9 165,306.1 211.8,287.7 L396.8,473.9 C404.90000000000003,482.09999999999997 417.1,482.09999999999997 425.3,473.9 L472.1,426.9 C482.3,418.59999999999997 482.3,404.29999999999995 474.1,398.2"
+						IconElement.Width="16"
+						BorderThickness="1,1.5,1,1"
+						Content="{DynamicResource Stacker_Compile}" />
+					<avalonedit:TextEditor
+						FrameworkElement.Name="svbScriptEditor"
+						Grid.Row="1"
+						Grid.ColumnSpan="3"
+						FrameworkElement.Margin="0,0,0,1"
+						Control.Background="{DynamicResource BackgroundMain}"
+						Control.FontSize="10pt"
+						Control.Foreground="{DynamicResource ForegroundMain}"
+						TextEditor.ShowLineNumbers="True" xmlns:avalonedit="clr-namespace:ICSharpCode.AvalonEdit;assembly=ICSharpCode.AvalonEdit" />
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<Grid
+			Name="gridScriptAndSaveButtons"
+			Row="1"
+			Height="33"
+			Margin="7,-1,0,0"
+			ScrollViewer.CanContentScroll="False"
+			ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+			ScrollViewer.VerticalScrollBarVisibility="Disabled">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="{Binding ElementName=stackListView, Path=ActualWidth, Converter={StaticResource divisionConverter}, ConverterParameter=2}" />
+				<ColumnDefinition
+					Width="{Binding ElementName=stackListView, Path=ActualWidth, Converter={StaticResource divisionConverter}, ConverterParameter=2}" />
+			</Grid.ColumnDefinitions>
+			<Button
+				Width="auto"
+				Height="auto"
+				Margin="0,0,0,0"
+				Padding="0"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				BorderElement.CornerRadius="0 0 0 3"
+				BorderThickness="1,1,0.5,0.5"
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				ScrollViewer.VerticalScrollBarVisibility="Disabled"
+				Tag="SvbScript"
+				ToolTip="Svb Script">
+				<DockPanel
+					Name="PanelSwitchSvbIcon">
+					<PackIconMaterial
+						FrameworkElement.Width="18"
+						FrameworkElement.Height="18"
+						PackIconMaterial.Kind="ScriptText" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+					<TextBlock
+						Name="svbScriptTextBlock"
+						Margin="4,0,0,0"
+						Text="{DynamicResource Script}"
+						TextTrimming="CharacterEllipsis"
+						TextWrapping="NoWrap" />
+				</DockPanel>
+			</Button>
+			<Button
+				Grid.Column="0"
+				Width="0"
+				Height="0"
+				Margin="0,0,0,0"
+				Padding="0"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				BorderElement.CornerRadius="0 0 0 0"
+				BorderThickness="0"
+				IsEnabled="False"
+				Visibility="Collapsed">
+				<DockPanel
+					Name="PanelSwitchCsharpIcon">
+					<iconpacks:PackIconFileIcons
+						FrameworkElement.Width="18"
+						FrameworkElement.Height="19"
+						PackIconFileIcons.Kind="CsScript" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FileIcons" />
+					<TextBlock
+						Name="csharpScriptTextBlock"
+						Margin="4,0,0,0"
+						Text="Refrence"
+						TextTrimming="CharacterEllipsis"
+						TextWrapping="NoWrap" />
+				</DockPanel>
+			</Button>
+			<Button
+				Name="saveConfigButton"
+				Grid.Column="1"
+				Width="auto"
+				Height="auto"
+				Margin="0,0,0,0"
+				Padding="0"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				BorderElement.CornerRadius="0 0 3 0"
+				BorderThickness="0.5,1,1,0.5"
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				ScrollViewer.VerticalScrollBarVisibility="Disabled">
+				<DockPanel>
+					<PackIconMaterial
+						FrameworkElement.Name="iconSave"
+						FrameworkElement.Width="20"
+						FrameworkElement.Height="19"
+						PackIconMaterial.Kind="ContentSaveCog" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+					<TextBlock
+						Name="saveConfigTextBlock"
+						Margin="4,0,0,0"
+						Text="{DynamicResource Save}" />
+				</DockPanel>
+			</Button>
+		</Grid>
+		<GridSplitter
+			Grid.Column="1"
+			Width="4"
+			Margin="0,15,-3,-10"
+			HorizontalAlignment="Stretch"
+			ResizeBehavior="PreviousAndNext"
+			ResizeDirection="Columns"
+			Style="{StaticResource GridSplitterStyle}" />
+		<Grid
+			RowSpan="2"
+			Column="2">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Label
+				Grid.Row="0"
+				Margin="14,8,0,0"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				Foreground="{DynamicResource ForegroundCustom}"
+				Style="{StaticResource BaseStyle}">
+				<DockPanel>
+					<iconpacks:PackIconFontAwesome
+						FrameworkElement.Margin="0,0,3,1"
+						FrameworkElement.VerticalAlignment="Center"
+						PackIconFontAwesome.Kind="BugSolid" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+					<TextBlock
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundCustom}"
+						Text="{DynamicResource Stacker_Debugger}" />
+				</DockPanel>
+			</Label>
+			<Grid
+				Row="1"
+				Height="29"
+				Margin="4,10,5,0"
+				VerticalAlignment="Center">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width=".32*"
+						MinWidth="88" />
+					<ColumnDefinition
+						Name="gridCol"
+						Width=".32*"
+						MinWidth="100" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<Button
+					Name="startButton"
+					Width="auto"
+					Height="auto"
+					Margin="0,0,0,-1"
+					Padding="0"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					BorderElement.CornerRadius="4 0 0 4"
+					IconElement.Geometry="M128,896 L128,0 L896,448"
+					IconElement.Width="12"
+					BorderBrush="{DynamicResource BorderBrush}"
+					BorderThickness="1,1,0,1"
+					Content="{DynamicResource Start}"
+					ToolTip="{DynamicResource Stacker_StartWithoutDebuggingTip}" />
+				<Button
+					Name="startDebugButton"
+					Grid.Column="1"
+					Width="auto"
+					Height="auto"
+					Margin="0,0,0,-1"
+					Padding="0"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					BorderElement.CornerRadius="0 4 4 0"
+					Background="{DynamicResource ForegroundCustom}"
+					BorderThickness="0,1,1,1"
+					IsEnabled="{Binding SBSEnabled}">
+					<Grid
+						Name="panelStartDebug">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="auto" />
+							<ColumnDefinition
+								Width="*" />
+						</Grid.ColumnDefinitions>
+						<iconpacks:PackIconCodicons
+							FrameworkElement.Width="20"
+							FrameworkElement.Height="17.5"
+							FrameworkElement.Margin="5,0,4,0"
+							FrameworkElement.VerticalAlignment="Center"
+							PackIconCodicons.Kind="DebugAltSmall" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Codicons" />
+						<TextBlock
+							Grid.Column="1"
+							Margin="2,0,8,0"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							Tag="Start Debug"
+							Text="{DynamicResource Stacker_StartDebug}"
+							TextAlignment="Center"
+							TextTrimming="CharacterEllipsis"
+							TextWrapping="NoWrap" />
+					</Grid>
+				</Button>
+				<CheckBox
+					Name="persistLogCheckBox"
+					Grid.Column="2"
+					Margin="10,0,0,0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Content="{DynamicResource Stacker_PersistLog}" />
+			</Grid>
+			<Grid
+				Row="2"
+				Margin="8,12,3,0">
+				<DockPanel>
+					<CheckBox
+						Margin="0,0,8,0"
+						VerticalAlignment="Center"
+						Content="Breakpoint:"
+						IsChecked="{Binding Breakpoint}" />
+					<Button
+						Width="auto"
+						Height="30"
+						Margin="0,0,4,0"
+						Padding="5,0,0,0"
+						BorderElement.CornerRadius="0 4 4 0"
+						IconElement.Geometry="M512,960 C230.39999999999998,960 0,729.6 0,448 C0,166.39999999999998 230.4,-64 512,-64 C793.6,-64 1024,166.4 1024,448 C1024,729.6 793.6,960 512,960 M832,384 L576,384 L576,128 L448,128 L448,384 L192,384 L192,512 L448,512 L448,768 L576,768 L576,512 L832,512 L832,384"
+						IconElement.Width="18"
+						BorderThickness="0.5,1,1,1"
+						DockPanel.Dock="Right"
+						Foreground="{DynamicResource ForegroundMain}"
+						IsEnabled="{Binding Breakpoint}" />
+					<Button
+						Width="auto"
+						Height="30"
+						Padding="5,0,0,0"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M256,8 C119,8 8,119 8,256 C8,393 119,504 256,504 C393,504 504,393 504,256 C504,119 393,8 256,8 M124,296 C117.4,296 112,290.6 112,284 L112,228 C112,221.4 117.4,216 124,216 L388,216 C394.6,216 400,221.4 400,228 L400,284 C400,290.6 394.6,296 388,296 L124,296"
+						IconElement.Width="18"
+						BorderThickness="0.5,1,0.5,1"
+						DockPanel.Dock="Right"
+						Foreground="{DynamicResource ForegroundMain}"
+						IsEnabled="{Binding Breakpoint}" />
+					<ComboBox
+						FrameworkElement.Name="breakpointComboBox"
+						BorderElement.CornerRadius="4 0 0 4"
+						Control.Background="{DynamicResource BackgroundSecondary}"
+						FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+						ComboBox.IsEditable="True"
+						UIElement.IsEnabled="{Binding Breakpoint}"
+						ItemsControl.ItemsSource="{Binding Breakpoints}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+				</DockPanel>
+			</Grid>
+			<Grid
+				Row="3"
+				Margin="8,3,3,0">
+				<Grid
+					VerticalAlignment="Center">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition />
+						<ColumnDefinition
+							Width="0.57*"
+							MaxWidth="135" />
+					</Grid.ColumnDefinitions>
+					<TextBlock
+						Margin="0,0,8,0"
+						VerticalAlignment="Center"
+						FontSize="13"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource Data}" /> <Run
+							Text=":" /></TextBlock>
+					<TextBox
+						Name="textBoxTestData"
+						Grid.Column="1"
+						BorderElement.CornerRadius="3 0 0 3"
+						BorderThickness="1,1,0,1"
+						IsEnabled="{Binding ControlsEnabled}"
+						Text="{Binding TestData}" />
+					<ComboBox
+						Name="testDataTypeComboBox"
+						Grid.Column="2"
+						BorderElement.CornerRadius="0 3 3 0"
+						BorderThickness="0,1,1,1"
+						IsEnabled="{Binding ControlsEnabled}" />
+				</Grid>
+			</Grid>
+			<Grid
+				Row="4"
+				Margin="8,3,3,0"
+				VerticalAlignment="Center">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="0.66*"
+						MaxWidth="125" />
+				</Grid.ColumnDefinitions>
+				<CheckBox
+					Margin="0,0,8,0"
+					FontSize="12.5"
+					Foreground="{DynamicResource ForegroundMain}"
+					ToolTip="Enable/Disable the Proxy"
+					IsChecked="{Binding UseProxy}"
+					IsEnabled="{Binding ControlsEnabled}">
+					<TextBlock>
+						<Run
+							Text="{DynamicResource UseProxy}" /> <Run
+							Text=":" /></TextBlock>
+				</CheckBox>
+				<TextBox
+					Name="textBoxTestProxy"
+					Grid.Column="1"
+					BorderElement.CornerRadius="3 0 0 3"
+					InfoElement.Placeholder="{DynamicResource Proxy}"
+					Background="{DynamicResource BackgroundSecondary}"
+					BorderThickness="1,1,0,1"
+					ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+					Style="{StaticResource TextBoxExtend}"
+					IsEnabled="{Binding ControlsEnabled}"
+					Text="{Binding TestProxy}">
+					<FrameworkElement.ToolTip>
+						<TextBlock>In order to use Auth or Chain, start the line with the proxy type between round brackets.<LineBreak />Auth:<LineBreak />(http)127.0.0.1:8888:username:password<LineBreak />Chain:<LineBreak />(socks4)127.0.0.1:8000-&gt;(http)127.0.0.1:8888</TextBlock>
+					</FrameworkElement.ToolTip>
+				</TextBox>
+				<ComboBox
+					Name="proxyTypeCombobox"
+					Grid.Column="2"
+					BorderElement.CornerRadius="0 3 3 0"
+					BorderThickness="0,1,1,1"
+					IsEnabled="{Binding ControlsEnabled}" />
+			</Grid>
+			<Border
+				Grid.Row="5"
+				Height="auto"
+				Margin="8,5,3,5"
+				Background="#00FFFFFF"
+				BorderBrush="{DynamicResource BorderBrush}"
+				BorderThickness="2"
+				CornerRadius="5">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition
+							Height="auto" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<ScrollViewer
+						ScrollViewerAttach.AutoHide="True"
+						CanContentScroll="True"
+						HorizontalScrollBarVisibility="Auto">
+						<Grid
+							Name="gridTabCtrlItems"
+							Background="{DynamicResource BackgroundMain}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition
+									MaxWidth="130" />
+								<ColumnDefinition
+									MaxWidth="130" />
+								<ColumnDefinition
+									MaxWidth="130" />
+								<ColumnDefinition
+									MaxWidth="130" />
+								<ColumnDefinition
+									Name="CaptchaCol"
+									Width="0"
+									MaxWidth="130" />
+							</Grid.ColumnDefinitions>
+							<Button
+								Name="showVarsButton"
+								Height="30"
+								Margin="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="1 0 0 0"
+								IconElement.Geometry="M20.41,3 C21.8,5.71 22.35,8.84 22,12 C21.8,15.16 20.7,18.29 18.83,21 L17.3,20 C18.91,17.57 19.85,14.8 20,12 C20.34,9.2 19.89,6.43 18.7,4 L20.41,3 M5.17,3 L6.7,4 C5.09,6.43 4.15,9.2 4,12 C3.66,14.8 4.12,17.57 5.3,20 L3.61,21 C2.21,18.29 1.65,15.17 2,12 C2.2,8.84 3.3,5.71 5.17,3 M12.08,10.68 L14.4,7.45 L16.93,7.45 L13.15,12.45 L15.35,17.37 L13.09,17.37 L11.71,14 L9.28,17.33 L6.76,17.33 L10.66,12.21 L8.53,7.45 L10.8,7.45 L12.08,10.68"
+								IconElement.Width="15"
+								Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+								BorderThickness="0"
+								Content="{DynamicResource Stacker_Data}"
+								Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}" />
+							<Button
+								Grid.Column="1"
+								Height="30"
+								Margin="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0"
+								IconElement.Geometry="M3,7 L21,7 A1,1 0 0 0 21,5L3,5 A1,1 0 0 0 3,7M7,9 A1,1 0 0 0 7,11L17,11 A1,1 0 0 0 17,9M21,13 L3,13 A1,1 0 0 0 3,15L21,15 A1,1 0 0 0 21,13M17,17 L7,17 A1,1 0 0 0 7,19L17,19 A1,1 0 0 0 17,17"
+								IconElement.Width="15"
+								Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+								BorderThickness="0"
+								Content="{DynamicResource Stacker_Log}"
+								Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}" />
+							<Button
+								Grid.Column="2"
+								Height="30"
+								Margin="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0"
+								IconElement.Geometry="M45,31 C53.2843,31 60,37.7157 60,46 C60,54.2843 53.2843,61 45,61 C36.7157,61 30,54.2843 30,46 C30,37.7157 36.7157,31 45,31 M32.1869,44.9286 L36.4501,44.9286 C36.5216,43.1552 36.7693,41.4669 37.1627,39.917 C36.1672,39.5677 35.2486,39.154 34.4246,38.6858 C33.1769,40.4865 32.3772,42.6212 32.1869,44.9286 M39.6231,34.3178 C38.1633,34.9908 36.8512,35.9293 35.7487,37.0714 C36.3627,37.3895 37.0418,37.676 37.7751,37.9255 C38.2764,36.5547 38.9016,35.336 39.6231,34.3178 M43.9286,44.9286 L43.9286,41.1571 C42.2569,41.0896 40.6609,40.8657 39.1851,40.5107 C38.8638,41.8696 38.6582,43.3591 38.5934,44.9286 L43.9286,44.9286 M43.9286,33.3207 C42.2272,33.8915 40.7525,35.7989 39.7835,38.4846 C41.068,38.77 42.4634,38.9533 43.9286,39.0137 L43.9286,33.3207 M57.8131,44.9286 C57.6228,42.6212 56.8231,40.4865 55.5754,38.6859 C54.7514,39.154 53.8327,39.5677 52.8373,39.917 C53.2307,41.4669 53.4784,43.1552 53.5499,44.9286 L57.8131,44.9286 M50.3769,34.3178 C51.0984,35.336 51.7236,36.5547 52.2249,37.9255 C52.9582,37.676 53.6373,37.3895 54.2513,37.0715 C53.1488,35.9293 51.8367,34.9908 50.3769,34.3178 M46.0714,44.9286 L51.4065,44.9286 C51.3418,43.3591 51.1361,41.8696 50.8149,40.5107 C49.3391,40.8657 47.7431,41.0896 46.0714,41.1571 L46.0714,44.9286 M46.0714,33.3207 L46.0714,39.0137 C47.5365,38.9533 48.932,38.77 50.2165,38.4846 C49.2475,35.7989 47.7728,33.8915 46.0714,33.3207 M57.8131,47.0714 L53.5499,47.0714 C53.4784,48.8448 53.2307,50.5331 52.8373,52.083 C53.8327,52.4323 54.7514,52.846 55.5754,53.3142 C56.8231,51.5135 57.6228,49.3789 57.8131,47.0714 M50.3769,57.6822 C51.8367,57.0093 53.1488,56.0707 54.2513,54.9286 C53.6373,54.6105 52.9582,54.324 52.2249,54.0745 C51.7236,55.4453 51.0984,56.664 50.3769,57.6822 M46.0714,47.0714 L46.0714,50.843 C47.7431,50.9104 49.3391,51.1343 50.8149,51.4893 C51.1361,50.1304 51.3418,48.6409 51.4066,47.0714 L46.0714,47.0714 M46.0714,58.6794 C47.7728,58.1085 49.2475,56.2011 50.2165,53.5154 C48.932,53.23 47.5365,53.0467 46.0714,52.9863 L46.0714,58.6794 M32.1869,47.0714 C32.3772,49.3789 33.1769,51.5135 34.4246,53.3142 C35.2486,52.8461 36.1672,52.4323 37.1627,52.083 C36.7693,50.5331 36.5216,48.8448 36.4501,47.0714 L32.1869,47.0714 M39.6231,57.6823 C38.9016,56.664 38.2764,55.4453 37.7751,54.0745 C37.0418,54.3241 36.3627,54.6105 35.7487,54.9286 C36.8512,56.0707 38.1633,57.0093 39.6231,57.6823 M43.9286,47.0714 L38.5934,47.0714 C38.6582,48.6409 38.8638,50.1304 39.1851,51.4893 C40.6609,51.1343 42.2569,50.9104 43.9286,50.843 L43.9286,47.0714 M43.9286,58.6794 L43.9286,52.9863 C42.4634,53.0467 41.068,53.23 39.7835,53.5154 C40.7525,56.2011 42.2272,58.1085 43.9286,58.6794 M18,21 L58,21 L58,36.6705 C57.1478,35.4852 56.1375,34.4211 55,33.5092 L55,26 L21,26 L21,46 L29,46 C29,47.0254 29.0965,48.0283 29.2808,49 L18,49 L18,21"
+								IconElement.Width="15"
+								Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+								BorderThickness="0"
+								Content="{DynamicResource Stacker_Browser}"
+								Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}" />
+							<Button
+								Grid.Column="3"
+								Height="30"
+								Margin="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0 1 0 0"
+								IconElement.Geometry="M3,17 L21,17 L21,15 L3,15 L3,17 M3,20 L21,20 L21,19 L3,19 L3,20 M3,13 L21,13 L21,10 L3,10 L3,13 M3,4 L3,8 L21,8 L21,4 L3,4"
+								IconElement.Width="15"
+								Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+								BorderThickness="0"
+								Content="{DynamicResource Stacker_Raw}"
+								Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}" />
+							<Button
+								Name="ButtonShowCaptcha"
+								Grid.Column="4"
+								Height="30"
+								Margin="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								BorderElement.CornerRadius="0 1 0 0"
+								IconElement.Geometry="M21,17 L7,17 L7,3 L21,3 M21,1 L7,1 A2,2 0 0 0 5,3L5,17 A2,2 0 0 0 7,19L21,19 A2,2 0 0 0 23,17L23,3 A2,2 0 0 0 21,1M3,5 L1,5 L1,21 A2,2 0 0 0 3,23L19,23 L19,21 L3,21 M15.96,10.29 L13.21,13.83 L11.25,11.47 L8.5,15 L19.5,15 L15.96,10.29"
+								IconElement.Width="15"
+								Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+								BorderThickness="0"
+								Content="{DynamicResource Stacker_Captcha}"
+								Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+								Visibility="Collapsed" />
+						</Grid>
+					</ScrollViewer>
+					<TabControl
+						Name="debuggerTabControl"
+						Grid.Row="1"
+						Background="#00FFFFFF">
+						<ItemsControl.ItemContainerStyle>
+							<Style
+								TargetType="{x:Type TabItem}">
+								<Setter
+									Property="Visibility"
+									Value="Collapsed" />
+							</Style>
+						</ItemsControl.ItemContainerStyle>
+						<TabItem>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition
+										Height="auto" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<ComboBox
+									Name="logFilterComboBox"
+									MinHeight="10"
+									BorderElement.CornerRadius="0"
+									SelectedIndex="0">
+									<ComboBoxItem
+										Content="{DynamicResource LogFilter_NoDataFiltering}" />
+									<ComboBoxItem
+										Content="{DynamicResource LogFilter_OnlyVariables}"
+										Foreground="#FFFFFF00" />
+									<ComboBoxItem
+										Content="{DynamicResource LogFilter_OnlyCaptures}"
+										Foreground="#FFFF6347" />
+								</ComboBox>
+								<RichTextBox
+									Name="dataLogs"
+									Grid.Row="1"
+									BorderElement.CornerRadius="0"
+									ScrollViewerAttach.AutoHide="False"
+									Background="{DynamicResource BackgroundMain}"
+									BorderThickness="1"
+									FontSize="15"
+									Foreground="{DynamicResource ForegroundMain}"
+									IsReadOnly="True"
+									ScrollViewer.CanContentScroll="True"
+									VerticalScrollBarVisibility="Auto">
+									<FrameworkElement.Resources>
+										<ResourceDictionary>
+											<Style
+												TargetType="{x:Type Paragraph}"
+												x:Key="{x:Type Paragraph}">
+												<Setter
+													Property="Block.Margin"
+													Value="0" />
+											</Style>
+										</ResourceDictionary>
+									</FrameworkElement.Resources>
+								</RichTextBox>
+							</Grid>
+						</TabItem>
+						<TabItem
+							Name="tabItemLogs">
+							<TextEditor
+								FrameworkElement.Name="logs"
+								Control.Padding="5"
+								Control.Background="{DynamicResource BackgroundMain}"
+								Control.FontSize="15"
+								Control.Foreground="{DynamicResource ForegroundMain}"
+								TextEditor.IsReadOnly="True"
+								TextEditor.WordWrap="True" xmlns="clr-namespace:ICSharpCode.AvalonEdit;assembly=ICSharpCode.AvalonEdit" />
+						</TabItem>
+						<TabItem>
+							<Grid
+								Name="gridBrowser"
+								Background="{DynamicResource PrimaryTextBrush}">
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition
+										Height="auto" />
+								</Grid.RowDefinitions>
+								<WebControl
+									WebControl.Name="webControl"
+									Control.Background="{DynamicResource BackgroundMain}"
+									Control.Foreground="{DynamicResource ForegroundMain}" xmlns="clr-namespace:EO.Wpf;assembly=EO.WebBrowser.Wpf">
+									<wpf:WebControl.WebView xmlns:wpf="clr-namespace:EO.Wpf;assembly=EO.WebBrowser.Wpf">
+										<wpf:WebView
+											x:Name="webView"
+											WebView.AllowDropLoad="False" xmlns:wpf="clr-namespace:EO.Wpf;assembly=EO.WebBrowser.Wpf" />
+									</wpf:WebControl.WebView>
+								</WebControl>
+								<Grid
+									Row="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition />
+										<ColumnDefinition
+											Width="auto" />
+										<ColumnDefinition
+											Width="auto" />
+									</Grid.ColumnDefinitions>
+									<TextBox
+										Name="browserStatus"
+										MaxHeight="30"
+										BorderElement.CornerRadius="0 0 0 0.5"
+										BorderThickness="0,1,0,0"
+										IsReadOnly="True"
+										TextWrapping="NoWrap" />
+									<Button
+										Grid.Column="1"
+										Width="38"
+										Padding="0,3,0,3"
+										HorizontalAlignment="Stretch"
+										VerticalAlignment="Stretch"
+										BorderElement.CornerRadius="0"
+										IconElement.Geometry="M875,750 L875,687.5 L823,687.5 C821.1,680.8 818.5,674.6 815.4,668.5 L852.5,631.4 L808.2,587.2 L771.8,623.7 C764.9,619.8 757.7,616.8 750,614.5 L750,562.5 L687.5,562.5 L687.5,614.4 C680.4,616.6 673.6,619.4 667.2,622.9 L631.5,587.3 L587.3,631.5 L622.9,667.1 C619.4,673.6 616.6,680.3 614.4,687.5 L562.5,687.5 L562.5,750 L614.4,750 C616.7,757.7 619.8,765 623.7,771.8 L587.3,808.2 L631.4,852.4 L668.5,815.3 C674.5,818.5 680.8,821 687.4,823 L687.4,875 L750,875 L750,823 C757.2,820.8 763.9,818 770.3,814.5 L808.2,852.4 L852.4,808.2 L814.5,770.3 C818,763.9 820.8,757.1 823,750 L875,750 M718.7,765.6 C692.8,765.5 671.9,744.6 671.8,718.7 C671.9,692.8 692.8,671.9 718.7,671.8 C744.6,671.9 765.5,692.8 765.6,718.7 C765.5,744.6 744.6,765.5 718.7,765.6 M875,312.5 L562.5,312.5 L562.5,375 L875,375 L875,312.5 M437.5,312.5 L125,312.5 L125,625 L437.5,625 L437.5,312.5 M1000,0 L0,0 L0,875 L484.9,875 C535.4,950.3 621.2,1000 718.8,1000 C874.1,999.9 999.9,874.1 1000,718.8 C1000,707.4 999.2,696.3 997.8,685.3 L1000,687.5 L1000,0 M312.5,62.5 L687.5,62.5 L687.5,125 L312.5,125 L312.5,62.5 M187.5,62.5 L250,62.5 L250,125 L187.5,125 L187.5,62.5 M62.5,62.5 L125,62.5 L125,125 L62.5,125 L62.5,62.5 M718.8,933.8 C600,933.6 503.9,837.5 503.6,718.8 C503.9,600 600,503.9 718.8,503.6 C837.5,503.9 933.6,600 933.8,718.8 C933.6,837.5 837.5,933.6 718.8,933.8 M937.5,542.1 C919.7,520.1 898.6,500.8 875,484.9 L875,437.5 L719.1,437.5 C719,437.5 718.8,437.5 718.8,437.5 C718.7,437.5 718.5,437.5 718.4,437.5 L562.5,437.5 L562.5,484.9 C487.1,535.3 437.5,621.2 437.5,718.7 C437.5,751.7 443.4,783.1 453.8,812.5 L62.5,812.5 L62.5,187.5 L937.5,187.5 L937.5,542.1 M937.5,125 L812.5,125 L812.5,62.5 L937.5,62.5 L937.5,125"
+										IconElement.Width="17.5"
+										BorderThickness="1,1,0,0"
+										Foreground="{DynamicResource ForegroundMain}"
+										Style="{StaticResource ButtonBaseStyle}"
+										ToolTip="{DynamicResource BrowserShowDebugUITip}" />
+									<Button
+										Grid.Column="2"
+										Width="38"
+										Padding="0,3,0,3"
+										HorizontalAlignment="Stretch"
+										VerticalAlignment="Stretch"
+										BorderElement.CornerRadius="0 0 1 0"
+										IconElement.Geometry="M335.25,300 L442.75,407.25 A25,25 1 1 1 407.25,442.75L300,335.25 L192.75,442.75 A25,25 0 0 1 157.25,407.25L264.75,300 L157.25,192.75 A25,25 0 0 1 157.25,157.25A25,25 0 0 1 192.75,157.25L300,264.75 L407.25,157.25 A25,25 0 0 1 442.75,157.25A25,25 0 0 1 442.75,192.75"
+										IconElement.Width="12.5"
+										BorderThickness="1,1,0,0"
+										Foreground="{DynamicResource ForegroundMain}"
+										Style="{StaticResource ButtonBaseStyle}" />
+								</Grid>
+							</Grid>
+						</TabItem>
+						<TabItem>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition />
+									<RowDefinition
+										Height="auto" />
+								</Grid.RowDefinitions>
+								<hv:HexViewer
+									HexViewer.Name="rawLog"
+									Control.Background="{DynamicResource BackgroundMain}"
+									Control.Foreground="{DynamicResource ForegroundMain}"
+									HexViewer.Columns="{Binding Path=MaxVisibleColumns, RelativeSource={RelativeSource Self}}"
+									HexViewer.DataSource="{Binding Reader}" />
+								<StatusBar
+									Grid.Row="1"
+									DockPanel.Dock="Bottom">
+									<ItemsControl.ItemsPanel>
+										<ItemsPanelTemplate>
+											<WrapPanel />
+										</ItemsPanelTemplate>
+									</ItemsControl.ItemsPanel>
+									<StatusBarItem
+										Grid.Column="0">
+										<StackPanel
+											Orientation="Horizontal">
+											<TextBlock
+												Text="Address: " />
+											<TextBlock
+												Text="{Binding ElementName=rawLog, Path=SelectedAddress, StringFormat={}{0:X8}}" />
+										</StackPanel>
+									</StatusBarItem>
+									<StatusBarItem
+										Grid.Column="1">
+										<StackPanel
+											Orientation="Horizontal">
+											<TextBlock
+												Text="Offset: " />
+											<TextBlock
+												Text="{Binding ElementName=rawLog, Path=Offset, StringFormat={}{0:X8}}" />
+										</StackPanel>
+									</StatusBarItem>
+									<StatusBarItem
+										Grid.Column="2">
+										<StackPanel
+											Orientation="Horizontal">
+											<TextBlock
+												Text="Selection: " />
+											<TextBlock
+												Text="{Binding ElementName=rawLog, Path=SelectionStart, StringFormat={}{0:X8}}" />
+											<TextBlock
+												Text=" - " />
+											<TextBlock
+												Text="{Binding ElementName=rawLog, Path=SelectionEnd, StringFormat={}{0:X8}}" />
+										</StackPanel>
+									</StatusBarItem>
+									<StatusBarItem
+										Grid.Column="3">
+										<StackPanel
+											Orientation="Horizontal">
+											<TextBlock
+												Text="Length: " />
+											<TextBlock
+												Text="{Binding ElementName=rawLog, Path=SelectionLength}" />
+										</StackPanel>
+									</StatusBarItem>
+								</StatusBar>
+							</Grid>
+						</TabItem>
+						<TabItem
+							Name="tabItemCaptcha">
+							<ScrollViewer
+								Background="{DynamicResource BackgroundMain}"
+								VerticalScrollBarVisibility="Auto">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition
+											Height="auto" />
+									</Grid.RowDefinitions>
+									<Grid>
+										<Grid.RowDefinitions>
+											<RowDefinition />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<Grid
+											Row="0"
+											MaxWidth="510"
+											Margin="16,17,16,15">
+											<Grid.RowDefinitions>
+												<RowDefinition
+													Height="auto" />
+												<RowDefinition />
+												<RowDefinition
+													Height="auto" />
+												<RowDefinition
+													Height="auto" />
+											</Grid.RowDefinitions>
+											<TextBlock
+												Margin="1,5,5,5"
+												VerticalAlignment="Center"
+												FontSize="12.5"
+												FontWeight="DemiBold"
+												Foreground="{DynamicResource ForegroundMain}">
+												<Run
+													Text="{DynamicResource Stacker_Captcha_Original}" /> <Run
+													Text=":" /></TextBlock>
+											<Border
+												Grid.Row="1"
+												MaxHeight="500"
+												BorderBrush="{DynamicResource BorderBrush}"
+												BorderThickness="2"
+												CornerRadius="3 3 0 0">
+												<Image
+													Name="origImage"
+													HorizontalAlignment="Stretch"
+													VerticalAlignment="Stretch"
+													ToolTip="Double click to save"
+													Stretch="{Binding ElementName=origImgStretchComboBox, Path=SelectedItem}">
+													<FrameworkElement.ContextMenu>
+														<ContextMenu>
+															<MenuItem
+																Header="Send to Selected OCR block"
+																Tag="Orig">
+																<MenuItem.Icon>
+																	<iconpacks:PackIconIonicons
+																		PackIconIonicons.Kind="ShareAltiOS" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Ionicons" />
+																</MenuItem.Icon>
+															</MenuItem>
+															<MenuItem
+																Header="Save"
+																Tag="Orig">
+																<MenuItem.Icon>
+																	<iconpacks:PackIconMaterialDesign
+																		PackIconMaterialDesign.Kind="Save" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.MaterialDesign" />
+																</MenuItem.Icon>
+															</MenuItem>
+														</ContextMenu>
+													</FrameworkElement.ContextMenu>
+												</Image>
+											</Border>
+											<ComboBox
+												Name="origImgStretchComboBox"
+												Grid.Row="2"
+												MinHeight="28"
+												BorderElement.CornerRadius="0 0 4 4"
+												Background="#00FFFFFF"
+												Foreground="{DynamicResource ForegroundMain}"
+												SelectedIndex="2" />
+											<DockPanel
+												Grid.Row="3"
+												Margin="0,20,0,0"
+												Visibility="Collapsed">
+												<Button
+													HorizontalAlignment="Stretch"
+													VerticalAlignment="Stretch"
+													BorderElement.CornerRadius="0 0 4 4"
+													IconElement.Geometry="M433.941,129.941 L350.05899999999997,46.059 A48,48 0 0 0 316.118,32L48,32 C21.49,32 0,53.49 0,80 L0,432 C0,458.51 21.49,480 48,480 L400,480 C426.51,480 448,458.51 448,432 L448,163.882 A48,48 0 0 0 433.941,129.941M224,416 C188.654,416 160,387.346 160,352 C160,316.654 188.654,288 224,288 C259.346,288 288,316.654 288,352 C288,387.346 259.346,416 224,416 M320,111.48000000000002 L320,212 C320,218.627 314.627,224 308,224 L76,224 C69.373,224 64,218.627 64,212 L64,108 C64,101.373 69.373,96 76,96 L304.52,96 C307.703,96 310.755,97.264 313.005,99.515 L316.485,102.995 A11.996,11.996 0 0 1 320,111.48"
+													Background="{DynamicResource BackgroundMain}"
+													BorderThickness="2,0,2,2"
+													Content="{DynamicResource Save}" />
+											</DockPanel>
+										</Grid>
+										<Grid
+											Row="1"
+											MaxWidth="510"
+											Margin="16,17,16,15">
+											<Grid.RowDefinitions>
+												<RowDefinition
+													Height="auto" />
+												<RowDefinition />
+												<RowDefinition
+													Height="auto" />
+												<RowDefinition
+													Height="auto" />
+											</Grid.RowDefinitions>
+											<TextBlock
+												Margin="1,5,5,5"
+												VerticalAlignment="Center"
+												FontSize="12.5"
+												FontWeight="Bold"
+												Foreground="{DynamicResource ForegroundMain}">
+												<Run
+													Text="{DynamicResource Stacker_Captcha_Processed}" /> <Run
+													Text=":" /></TextBlock>
+											<Border
+												Grid.Row="1"
+												MaxHeight="500"
+												BorderBrush="{DynamicResource BorderBrush}"
+												BorderThickness="2"
+												CornerRadius="3 3 0 0">
+												<Image
+													Name="procImage"
+													HorizontalAlignment="Stretch"
+													VerticalAlignment="Stretch"
+													ToolTip="Double click to save"
+													Stretch="{Binding ElementName=procImgStretchComboBox, Path=SelectedItem}">
+													<FrameworkElement.ContextMenu>
+														<ContextMenu>
+															<MenuItem
+																Header="Send to Selected OCR block"
+																Tag="Proc">
+																<MenuItem.Icon>
+																	<PackIconIonicons
+																		PackIconIonicons.Kind="ShareAltiOS" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Ionicons" />
+																</MenuItem.Icon>
+															</MenuItem>
+															<MenuItem
+																Header="Save"
+																Tag="Proc">
+																<MenuItem.Icon>
+																	<PackIconMaterialDesign
+																		PackIconMaterialDesign.Kind="Save" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.MaterialDesign" />
+																</MenuItem.Icon>
+															</MenuItem>
+														</ContextMenu>
+													</FrameworkElement.ContextMenu>
+												</Image>
+											</Border>
+											<ComboBox
+												Name="procImgStretchComboBox"
+												Grid.Row="2"
+												MinHeight="28"
+												BorderElement.CornerRadius="0 0 4 4"
+												Background="#00FFFFFF"
+												Foreground="{DynamicResource ForegroundMain}"
+												SelectedIndex="2" />
+											<DockPanel
+												Grid.Row="3"
+												Margin="0,20,0,0"
+												Visibility="Collapsed">
+												<Button
+													HorizontalAlignment="Stretch"
+													VerticalAlignment="Stretch"
+													BorderElement.CornerRadius="0 0 4 4"
+													IconElement.Geometry="M433.941,129.941 L350.05899999999997,46.059 A48,48 0 0 0 316.118,32L48,32 C21.49,32 0,53.49 0,80 L0,432 C0,458.51 21.49,480 48,480 L400,480 C426.51,480 448,458.51 448,432 L448,163.882 A48,48 0 0 0 433.941,129.941M224,416 C188.654,416 160,387.346 160,352 C160,316.654 188.654,288 224,288 C259.346,288 288,316.654 288,352 C288,387.346 259.346,416 224,416 M320,111.48000000000002 L320,212 C320,218.627 314.627,224 308,224 L76,224 C69.373,224 64,218.627 64,212 L64,108 C64,101.373 69.373,96 76,96 L304.52,96 C307.703,96 310.755,97.264 313.005,99.515 L316.485,102.995 A11.996,11.996 0 0 1 320,111.48"
+													Background="{DynamicResource BackgroundMain}"
+													BorderThickness="2,0,2,2"
+													Content="{DynamicResource Save}" />
+											</DockPanel>
+										</Grid>
+									</Grid>
+									<DockPanel
+										Grid.Row="1"
+										Margin="5">
+										<TextBlock
+											Margin="5"
+											VerticalAlignment="Center"
+											FontSize="13"
+											Foreground="{DynamicResource ForegroundMain}">
+											<Run
+												Text="{DynamicResource Stacker_Captcha_Result}" /> <Run
+												Text=":" /></TextBlock>
+										<TextBox
+											Name="ocrResultTextBox"
+											MaxHeight="80"
+											ScrollViewerAttach.AutoHide="False"
+											Background="{DynamicResource BackgroundSecondary}"
+											FontSize="13"
+											Foreground="{DynamicResource ForegroundMain}"
+											IsReadOnly="True" />
+									</DockPanel>
+								</Grid>
+							</ScrollViewer>
+						</TabItem>
+					</TabControl>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</Page>

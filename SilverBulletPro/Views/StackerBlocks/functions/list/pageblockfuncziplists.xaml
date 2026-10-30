@@ -1,0 +1,70 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockFuncZipLists" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockFuncZipLists" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			ModesOfOutput="ListString"
+			OutputMode="ListString"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="3,10,0,0"
+			Label="{DynamicResource FirstListStr}"
+			ModesOfInput="Var,CSharp,JavaScript,Python"
+			InputMode="{Binding FirstInputMode, Mode=TwoWay}"
+			Text="{Binding FirstList, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="3"
+			Margin="3,5,0,0"
+			Label="{DynamicResource SecondListStr}"
+			ModesOfInput="Var,CSharp,JavaScript,Python"
+			InputMode="{Binding SecondInputMode, Mode=TwoWay}"
+			Text="{Binding SecondList, Mode=TwoWay}" />
+		<StackPanel
+			Grid.Row="4"
+			Margin="2,6,0,0">
+			<CheckBox
+				Margin="0,6,20,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource Fill}"
+				IsChecked="{Binding Fill}" />
+		</StackPanel>
+		<uc:TextInputBox
+			Grid.Row="5"
+			Margin="3,10,0,0"
+			Label="{DynamicResource FillString}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding FillStringInputMode, Mode=TwoWay}"
+			Text="{Binding FillString, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="6"
+			Margin="3,5,0,0"
+			Label="{DynamicResource Format}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding FormatInputMode, Mode=TwoWay}"
+			Text="{Binding Format, Mode=TwoWay}" />
+	</Grid>
+</Page>

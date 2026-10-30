@@ -1,0 +1,99 @@
+<Application
+	x:Class="SilverBulletPro.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:SilverBulletPro.Converters" xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:silverbulletpro="clr-namespace:SilverBulletPro">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="pack://application:,,,/HandyControl;component/Themes/SkinDark.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+				<ResourceDictionary
+					Source="Themes/Shared.xaml" />
+				<ResourceDictionary
+					Source="Themes/Generic.xaml" />
+				<ResourceDictionary
+					Source="Langs/StringResources.en-US.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<SolidColorBrush
+				Color="#1E90FF"
+				x:Key="ThemeMain" />
+			<SolidColorBrush
+				Color="#222"
+				x:Key="BackgroundMain" />
+			<SolidColorBrush
+				Color="#111"
+				x:Key="BackgroundSecondary" />
+			<SolidColorBrush
+				Color="WhiteSmoke"
+				x:Key="ForegroundMain" />
+			<SolidColorBrush
+				Color="GreenYellow"
+				x:Key="ForegroundGood" />
+			<SolidColorBrush
+				Color="Tomato"
+				x:Key="ForegroundBad" />
+			<SolidColorBrush
+				Color="DarkOrange"
+				x:Key="ForegroundCustom" />
+			<SolidColorBrush
+				Color="Yellow"
+				x:Key="ForegroundRetry" />
+			<SolidColorBrush
+				Color="Aquamarine"
+				x:Key="ForegroundToCheck" />
+			<SolidColorBrush
+				Color="#FF8CC6FF"
+				x:Key="ForegroundOcrRate" />
+			<SolidColorBrush
+				Color="DodgerBlue"
+				x:Key="ForegroundMenuSelected" />
+			<SolidColorBrush
+				x:Key="Headers" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="White"
+				x:Key="ForegroundMainTabCtrlSelectedItem" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="#BCBCBC"
+				x:Key="ForegroundMainTabCtrlUnSelectedItem" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="#09ebebeb"
+				x:Key="MainTabCtrlSelectedItemBackground" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="Transparent"
+				x:Key="MainTabCtrlUnSelectedItemBackground" />
+			<SolidColorBrush
+				Color="#282828"
+				x:Key="BackgroundTabControlMain" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Opacity="0.4"
+				Color="{DynamicResource SecondaryBorderColor}"
+				x:Key="BackgroundButtonMouseOver" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Opacity="0.7"
+				Color="#3F3F46"
+				x:Key="BackgroundButtonPressed" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="#326cf3"
+				x:Key="PrimaryBrush" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="White"
+				x:Key="PrimaryTextBrush" />
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="#3f3f46"
+				x:Key="BorderBrush" />
+			<Color
+				x:Key="MainBarColor">#fff</Color>
+			<converters:InverseBooleanConverter
+				x:Key="InverseBooleanConverter" />
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

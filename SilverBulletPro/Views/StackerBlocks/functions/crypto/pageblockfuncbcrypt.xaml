@@ -1,0 +1,47 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockFuncBcrypt" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ucv="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockFuncBcrypt" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<ucv:VarCapOutputBox
+			Name="outputVar"
+			EnableHiddenVar="True"
+			ModesOfOutput="String"
+			OutputMode="String"
+			HiddenVar="{Binding HiddenVar, Mode=TwoWay}"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<ucv:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<ucv:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			EnableEncoding="True"
+			Label="{DynamicResource Password}"
+			ModesOfInput="Const,Var,Base64,Hex,CSharp,JavaScript,Python"
+			Encoding="{Binding PasswordEncoding, Mode=TwoWay}"
+			InputMode="{Binding PassInputMode, Mode=TwoWay}"
+			Text="{Binding Password, Mode=TwoWay}" />
+		<ucv:TextInputBox
+			Grid.Row="3"
+			Margin="0,5,0,0"
+			EnableEncoding="False"
+			Label="{DynamicResource Salt}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding SaltInputMode, Mode=TwoWay}"
+			Text="{Binding Salt, Mode=TwoWay}" />
+	</Grid>
+</Page>

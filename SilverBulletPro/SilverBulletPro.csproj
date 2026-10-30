@@ -1,0 +1,2530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92A51DCC-AB3C-4216-8AF7-58AB6FDF51EA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SilverBulletPro</RootNamespace>
+    <AssemblyName>SilverBulletPro</AssemblyName>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>.NETCoreApp</TargetFrameworkIdentifier>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>SilverBulletPro.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp" />
+    <Reference Include="CaptchaSharp" />
+    <Reference Include="Discord.Net.Core" />
+    <Reference Include="Discord.Net.Rest" />
+    <Reference Include="Discord.Net.WebSocket" />
+    <Reference Include="DotNetProjects.Wpf.Extended.Toolkit" />
+    <Reference Include="EO.Base" />
+    <Reference Include="EO.WebBrowser" />
+    <Reference Include="EO.WebBrowser.Wpf" />
+    <Reference Include="EO.WebEngine" />
+    <Reference Include="GalaSoft.MvvmLight" />
+    <Reference Include="HandyControl" />
+    <Reference Include="ICSharpCode.AvalonEdit" />
+    <Reference Include="IKVM.Java" />
+    <Reference Include="Jering.Javascript.NodeJS" />
+    <Reference Include="JWT" />
+    <Reference Include="LiteDB" />
+    <Reference Include="MahApps.Metro.IconPacks.BoxIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.Codicons" />
+    <Reference Include="MahApps.Metro.IconPacks.Core" />
+    <Reference Include="MahApps.Metro.IconPacks.FileIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.FontAwesome" />
+    <Reference Include="MahApps.Metro.IconPacks.ForkAwesome" />
+    <Reference Include="MahApps.Metro.IconPacks.Ionicons" />
+    <Reference Include="MahApps.Metro.IconPacks.JamIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.Material" />
+    <Reference Include="MahApps.Metro.IconPacks.MaterialDesign" />
+    <Reference Include="MahApps.Metro.IconPacks.Modern" />
+    <Reference Include="MahApps.Metro.IconPacks.Octicons" />
+    <Reference Include="MahApps.Metro.IconPacks.SimpleIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.Typicons" />
+    <Reference Include="MahApps.Metro.IconPacks.Unicons" />
+    <Reference Include="MahApps.Metro.IconPacks.VaadinIcons" />
+    <Reference Include="MdXaml" />
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors" />
+    <Reference Include="Newtonsoft.Json" />
+    <Reference Include="PluginFrameworkPro" />
+    <Reference Include="PresentationCore">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\PresentationFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PuppeteerSharp" />
+    <Reference Include="Rebex.Common" />
+    <Reference Include="Rebex.Imap" />
+    <Reference Include="Rebex.Networking" />
+    <Reference Include="Rebex.Pop3" />
+    <Reference Include="Rebex.Smtp" />
+    <Reference Include="RestSharp" />
+    <Reference Include="SilverBulletPro.Core" />
+    <Reference Include="SilverBulletPro.HexViewer" />
+    <Reference Include="SilverBulletPro.JsonViewer" />
+    <Reference Include="SilverBulletPro.Requests" />
+    <Reference Include="System.CodeDom">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Mail">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Net.Mail.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.ServicePoint">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Net.ServicePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebClient">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Net.WebClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Security.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Extensions">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\System.Windows.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\System.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.NETCore.App\7.0.20\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="Telegram.Bot" />
+    <Reference Include="TesseractOCR" />
+    <Reference Include="WebDriver" />
+    <Reference Include="WindowsBase">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\WindowsBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\7.0.20\WindowsFormsIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="MahApps.Metro.IconPacks" />
+    <Reference Include="MahApps.Metro.IconPacks.BootstrapIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.Coolicons" />
+    <Reference Include="MahApps.Metro.IconPacks.Entypo" />
+    <Reference Include="MahApps.Metro.IconPacks.EvaIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.FeatherIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.Fontaudio" />
+    <Reference Include="MahApps.Metro.IconPacks.Fontisto" />
+    <Reference Include="MahApps.Metro.IconPacks.MaterialLight" />
+    <Reference Include="MahApps.Metro.IconPacks.Microns" />
+    <Reference Include="MahApps.Metro.IconPacks.PicolIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.PixelartIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.RadixIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.RemixIcon" />
+    <Reference Include="MahApps.Metro.IconPacks.RPGAwesome" />
+    <Reference Include="MahApps.Metro.IconPacks.WeatherIcons" />
+    <Reference Include="MahApps.Metro.IconPacks.Zondicons" />
+    <Reference Include="mscorlib" />
+    <Reference Include="CountryFlags" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alert.cs" />
+    <Compile Include="Alerter.cs" />
+    <Compile Include="AlertType.cs" />
+    <Compile Include="Animations\BackgroundColorAnimation.cs" />
+    <Compile Include="Animations\ForegroundColorAnimation.cs" />
+    <Compile Include="Animations\VisibilityAnimation.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppConfiguration.cs" />
+    <Compile Include="AppIOManager.cs" />
+    <Compile Include="BraceFoldingStrategy.cs" />
+    <Compile Include="Components.cs" />
+    <Compile Include="Converters\AllowedCommandsConverter.cs" />
+    <Compile Include="Converters\BadgeMarginConverter.cs" />
+    <Compile Include="Converters\Base64ToImageConverter.cs" />
+    <Compile Include="Converters\BooleanBrushConverter.cs" />
+    <Compile Include="Converters\CalcDateTimeDifferenceConverter.cs" />
+    <Compile Include="Converters\CalcDiscountConverter.cs" />
+    <Compile Include="Converters\ColorToBrushConverter.cs" />
+    <Compile Include="Converters\ComparisonConverter.cs" />
+    <Compile Include="Converters\DataPoolOptionsConverter.cs" />
+    <Compile Include="Converters\DateFormatConverter.cs" />
+    <Compile Include="Converters\DivisionConverter.cs" />
+    <Compile Include="Converters\EmptyAuthorConverter.cs" />
+    <Compile Include="Converters\EnumBooleanConverter.cs" />
+    <Compile Include="Converters\EnumToIntConverter.cs" />
+    <Compile Include="Converters\HasDiscountConverter.cs" />
+    <Compile Include="Converters\HitOutputOptionsConverter.cs" />
+    <Compile Include="Converters\IncreaseNumConverter.cs" />
+    <Compile Include="Converters\IntToBoolConverter.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Converters\JsonCreationConverter.cs" />
+    <Compile Include="Converters\KeychainBrushConverter.cs" />
+    <Compile Include="Converters\NegatingConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\ReadmeConverter.cs" />
+    <Compile Include="Converters\SettingsSubMenuMarginConverter.cs" />
+    <Compile Include="Converters\StringEmptyToIsEnabledConverter.cs" />
+    <Compile Include="Converters\SubtractConverter.cs" />
+    <Compile Include="Converters\ToUpperValueConverter.cs" />
+    <Compile Include="Converters\VisibilityToVisibilityReConverter.cs" />
+    <Compile Include="Converters\WidthConverter.cs" />
+    <Compile Include="Converters\WordlistNameConverter.cs" />
+    <Compile Include="Core\Extensions\ImageSourceExtension.cs" />
+    <Compile Include="CryptConfig.cs" />
+    <Compile Include="CSharpCompletionData.cs" />
+    <Compile Include="CustomizedBrush.cs" />
+    <Compile Include="DialogAddProxies.cs" />
+    <Compile Include="DialogAddWordlist.cs" />
+    <Compile Include="DialogCustomInput.cs" />
+    <Compile Include="DialogEditWordlist.cs" />
+    <Compile Include="DialogFindReplace.cs" />
+    <Compile Include="DialogIconPreview.cs" />
+    <Compile Include="DialogNewConfig.cs" />
+    <Compile Include="DialogSelectBots.cs" />
+    <Compile Include="DialogSelectConfig.cs" />
+    <Compile Include="DialogSelectWordlist.cs" />
+    <Compile Include="DialogSetProxies.cs" />
+    <Compile Include="DialogShowLog.cs" />
+    <Compile Include="DialogTestDataRules.cs" />
+    <Compile Include="Extensions\AnimationExtension.cs" />
+    <Compile Include="Extensions\BehaviorsExtension.cs" />
+    <Compile Include="Extensions\BlocksExtension.cs" />
+    <Compile Include="Extensions\BrushExtension.cs" />
+    <Compile Include="Extensions\ColorExtension.cs" />
+    <Compile Include="Extensions\ContextMenuItemExtension.cs" />
+    <Compile Include="Extensions\ContextMenuItemType.cs" />
+    <Compile Include="Extensions\ControlExtension.cs" />
+    <Compile Include="Extensions\DispatcherExtension.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\FrameExtension.cs" />
+    <Compile Include="Extensions\MemoryStreamExtension.cs" />
+    <Compile Include="Extensions\ResourceExtension.cs" />
+    <Compile Include="Extensions\RichTextBoxExtensions.cs" />
+    <Compile Include="Extensions\SvbScriptExtension.cs" />
+    <Compile Include="Extensions\TextEditorExtension.cs" />
+    <Compile Include="Extensions\VisualTreeExtensions.cs" />
+    <Compile Include="Extensions\WindowExtension.cs" />
+    <Compile Include="FindReplace\BoolToInt.cs" />
+    <Compile Include="FindReplace\FindReplaceMgr.cs" />
+    <Compile Include="FindReplace\IEditor.cs" />
+    <Compile Include="FindReplace\IEditorConverter.cs" />
+    <Compile Include="FindReplace\IFindReplaceMgr.cs" />
+    <Compile Include="FindReplace\RichTextBoxAdapter.cs" />
+    <Compile Include="FindReplace\SearchScopeToInt.cs" />
+    <Compile Include="FindReplace\TextBoxAdapter.cs" />
+    <Compile Include="FindReplace\TextEditorAdapter.cs" />
+    <Compile Include="FindReplace\WFTextBoxAdapter.cs" />
+    <Compile Include="FullLogViewModel.cs" />
+    <Compile Include="GlobalData.cs" />
+    <Compile Include="GlobalSettings.cs" />
+    <Compile Include="Helpers\TextBlock.cs" />
+    <Compile Include="LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoggerViewModel.cs" />
+    <Compile Include="LogWindow.cs" />
+    <Compile Include="MainDialog.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Microsoft\CodeAnalysis\EmbeddedAttribute.cs" />
+    <Compile Include="Models\AdModel.cs" />
+    <Compile Include="Models\ConvertedConfigs.cs" />
+    <Compile Include="Models\EncodeModel.cs" />
+    <Compile Include="Models\FavoriteBlock.cs" />
+    <Compile Include="Models\HashFuncModel.cs" />
+    <Compile Include="Models\MarketModel.cs" />
+    <Compile Include="Models\NotifModel.cs" />
+    <Compile Include="Models\Source.cs" />
+    <Compile Include="Plugins\Build.cs" />
+    <Compile Include="Plugins\Check.cs" />
+    <Compile Include="Plugins\IControl.cs" />
+    <Compile Include="Plugins\Loader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ConfigRepository.cs" />
+    <Compile Include="Repositories\LiteDBRepository.cs" />
+    <Compile Include="ScriptCompletionData.cs" />
+    <Compile Include="Snowflake.cs" />
+    <Compile Include="SortAdorner.cs" />
+    <Compile Include="System\Runtime\CompilerServices\NullableAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\NullableContextAttribute.cs" />
+    <Compile Include="System\Runtime\CompilerServices\RefSafetyRulesAttribute.cs" />
+    <Compile Include="Tester.cs" />
+    <Compile Include="Updater\Assets.cs" />
+    <Compile Include="Updater\LatestRelease.cs" />
+    <Compile Include="Updater\ReleaseNotes.cs" />
+    <Compile Include="Updater\SBProUpdate.cs" />
+    <Compile Include="Updater\UpdateChecker.cs" />
+    <Compile Include="UserControls\CustomTabItem.cs" />
+    <Compile Include="UserControls\NonClientAreaContent.cs" />
+    <Compile Include="UserControls\SliderText.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="ViewModels\AddBlockDialogViewModel.cs" />
+    <Compile Include="ViewModels\AdsViewModel.cs" />
+    <Compile Include="ViewModels\BlockKeycheckViewModel.cs" />
+    <Compile Include="ViewModels\ConfigConverterViewModel.cs" />
+    <Compile Include="ViewModels\ConfigFilterType.cs" />
+    <Compile Include="ViewModels\ConfigManagerViewMode.cs" />
+    <Compile Include="ViewModels\ConfigManagerViewModel.cs" />
+    <Compile Include="ViewModels\ConfigOtherOptionsInputViewModel.cs" />
+    <Compile Include="ViewModels\HitsDBViewModel.cs" />
+    <Compile Include="ViewModels\KeychainViewModel.cs" />
+    <Compile Include="ViewModels\KeyViewModel.cs" />
+    <Compile Include="ViewModels\ListGeneratorViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\NotifViewModel.cs" />
+    <Compile Include="ViewModels\ProxyCheckerViewModel.cs" />
+    <Compile Include="ViewModels\ProxyManagerViewModel.cs" />
+    <Compile Include="ViewModels\ResultViewModel.cs" />
+    <Compile Include="ViewModels\RunnerInstance.cs" />
+    <Compile Include="ViewModels\RunnerManagerViewModel.cs" />
+    <Compile Include="ViewModels\SBSettingsGeneral.cs" />
+    <Compile Include="ViewModels\SBSettingsLanguage.cs" />
+    <Compile Include="ViewModels\SBSettingsSounds.cs" />
+    <Compile Include="ViewModels\SBSettingsSources.cs" />
+    <Compile Include="ViewModels\SBSettingsThemes.cs" />
+    <Compile Include="ViewModels\SBSettingsViewModel.cs" />
+    <Compile Include="ViewModels\SilverZoneViewModel.cs" />
+    <Compile Include="ViewModels\SliceViewModel.cs" />
+    <Compile Include="ViewModels\StackerBlockViewModel.cs" />
+    <Compile Include="ViewModels\StackerView.cs" />
+    <Compile Include="ViewModels\StackerViewModel.cs" />
+    <Compile Include="ViewModels\TestDataRulesDialogViewModel.cs" />
+    <Compile Include="ViewModels\VerifiedMarketViewModel.cs" />
+    <Compile Include="ViewModels\WordlistManagerViewModel.cs" />
+    <Compile Include="Views\Dialogs\CustomInputDialog.xaml.cs">
+      <DependentUpon>CustomInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogAddBlock.xaml.cs">
+      <DependentUpon>DialogAddBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogChangeLog.xaml.cs">
+      <DependentUpon>DialogChangeLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogDonate.xaml.cs">
+      <DependentUpon>DialogDonate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogSelectList.xaml.cs">
+      <DependentUpon>DialogSelectList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogSelectProxylist.xaml.cs">
+      <DependentUpon>DialogSelectProxylist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogUpdateDetails.xaml.cs">
+      <DependentUpon>DialogUpdateDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Ads.cs" />
+    <Compile Include="Views\Main\ConfigsSection.xaml.cs">
+      <DependentUpon>ConfigsSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\ConfigManager.xaml.cs">
+      <DependentUpon>ConfigManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Compile.xaml.cs">
+      <DependentUpon>Compile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Data.xaml.cs">
+      <DependentUpon>Data.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Inputs.xaml.cs">
+      <DependentUpon>Inputs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Interpreter.xaml.cs">
+      <DependentUpon>Interpreter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Ocr.xaml.cs">
+      <DependentUpon>Ocr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Proxies.xaml.cs">
+      <DependentUpon>Proxies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Puppeteer.xaml.cs">
+      <DependentUpon>Puppeteer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Readme.xaml.cs">
+      <DependentUpon>Readme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Requests.xaml.cs">
+      <DependentUpon>Requests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\OtherOptions\Selenium.xaml.cs">
+      <DependentUpon>Selenium.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Configs\Stacker.xaml.cs">
+      <DependentUpon>Stacker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Donate.cs" />
+    <Compile Include="Views\Main\HitsDB.xaml.cs">
+      <DependentUpon>HitsDB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Notif.cs" />
+    <Compile Include="Views\Main\PluginsSection.xaml.cs">
+      <DependentUpon>PluginsSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ProxyManager.xaml.cs">
+      <DependentUpon>ProxyManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\RunnerManager.xaml.cs">
+      <DependentUpon>RunnerManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Runner\Runner.xaml.cs">
+      <DependentUpon>Runner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Runner\RunnerOptions.xaml.cs">
+      <DependentUpon>RunnerOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\SBUpdate.cs" />
+    <Compile Include="Views\Main\Settings\CoreSettings.xaml.cs">
+      <DependentUpon>CoreSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Core\Captchas.xaml.cs">
+      <DependentUpon>Captchas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Core\Compile.xaml.cs">
+      <DependentUpon>Compile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Core\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Core\Ocr.xaml.cs">
+      <DependentUpon>Ocr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Core\Proxies.xaml.cs">
+      <DependentUpon>Proxies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Core\Puppeteer.xaml.cs">
+      <DependentUpon>Puppeteer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Core\Selenium.xaml.cs">
+      <DependentUpon>Selenium.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\General.cs" />
+    <Compile Include="Views\Main\Settings\SBSettings.xaml.cs">
+      <DependentUpon>SBSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Settings\Sounds.cs" />
+    <Compile Include="Views\Main\Settings\Sources.cs" />
+    <Compile Include="Views\Main\Settings\Themes.cs" />
+    <Compile Include="Views\Main\SilverZone.xaml.cs">
+      <DependentUpon>SilverZone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ToolsSection.xaml.cs">
+      <DependentUpon>ToolsSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Tools\BrowserTools.xaml.cs">
+      <DependentUpon>BrowserTools.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Tools\ConfigConverter.xaml.cs">
+      <DependentUpon>ConfigConverter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Tools\ListGenerator.xaml.cs">
+      <DependentUpon>ListGenerator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Tools\TessDataDownloader.xaml.cs">
+      <DependentUpon>TessDataDownloader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Tools\WordlistTools.xaml.cs">
+      <DependentUpon>WordlistTools.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\VerifiedMarket.cs" />
+    <Compile Include="Views\Main\WordlistManager.xaml.cs">
+      <DependentUpon>WordlistManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StackerBlocks\BlockPluginPage.xaml.cs">
+      <DependentUpon>BlockPluginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StackerBlocks\KeyFullId.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockCFBypass.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockCreateListOfNumbers.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockDestroyCFBypass.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncAbs.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncAddKeyValuePair.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncAddToList.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncAesDecrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncAesEncrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncAws4Signature.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncBcrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCalcDateTimeDifference.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCalcRelativeTime.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCeiling.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCharAt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncComputeEx.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncConcatLists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncConstantByteArray.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncConstantDictionary.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncConstantList.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncConstantString.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCountOccurrences.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCryptoJsDecrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCryptoJsEncrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCurrentDateTime.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncCurrentUnixTime.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDateToSolar.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDateToUnixTime.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDecodeHtmlEntities.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDictGetKey.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDictGetValue.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDictionaryToList.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDictionaryToString.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncDictRemove.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncEncodeHtmlEntities.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncFloor.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncGenerateGuid.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncGetListLength.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncGetRandomItem.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncHash.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncHmac.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncJoinList.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncJwtDecode.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncJwtEncode.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncLength.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncListIndexOf.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncListToDictionary.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncMapLists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncMergeByteArrays.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncPbkdf2Pkcs5.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRandFloat.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRandInt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRandomString.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRandomUserAgent.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRegexMatch.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRegexReplace.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRemoveAllFromList.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRemoveDuplicates.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRemoveFromList.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRemoveString.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncReplace.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncReverse.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRoundFloat.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRoundToInteger.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRsaDecrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRsaDigitalSign.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRsaEncrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncRsaPkcs1Pad2.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncScrypt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncShuffle.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncSortList.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncSplit.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncSubstring.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncTakeMaxFloat.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncTakeMaxInt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncTakeMinFloat.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncTakeMinInt.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncToLowercase.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncToTitlecase.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncToUppercase.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncTranslate.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncTrim.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncUnescape.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncUnixTimeToDate.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncUnixTimeToISO8601.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncUrlDecode.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncUrlEncode.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncXor.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockFuncZipLists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockKeycheck.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockLambdaParser.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockNativeLibInvoke.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockOcr.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockParse.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerClearCookies.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerClick.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerCloseBrowser.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerCloseTab.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerExecuteFunc.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerExecuteJs.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerExists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetAttributeValue.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetAttributeValueAll.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetCookies.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetDOM.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetHeight.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetPositionX.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetPositionY.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGetWidth.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGoBack.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerGoForward.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerIsDisplayed.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerNavigateTo.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerNewTab.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerOpenBrowser.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerPageKeyDown.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerPageKeyPress.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerPageKeyUp.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerPageType.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerReload.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerScreenshotElem.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerScreenshotElemBase64.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerScreenshotPage.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerScreenshotPageBase64.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerScrollBy.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerScrollToBottom.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerScrollToTop.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSelect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSelectByIndex.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSelectByText.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSetAttributeValue.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSetCaptchaSolution.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSetCookies.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSetUserAgent.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSetViewport.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSubmit.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSwitchToFrame.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSwitchToMainFrame.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerSwitchToTab.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerTypeElem.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerTypeElemHuman.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerUploadFiles.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerWaitForElem.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerWaitForNavigation.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockPuppeteerWaitForResponse.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReportLastSolution.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpChangeDirectory.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpConnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpDelete.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpDeleteFile.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpDisconnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpDownload.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpDownloadFile.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpFileExists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpGetConnectionState.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpGetCurrentDir.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpGetFileDateTime.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpGetFileSize.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpListItems.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpLogin.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpReadResponse.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpSendCommand.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpUpload.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsFtpUploadFile.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapConnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapDeleteMail.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapDisconnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapGetSupportedAuthMethods.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapLogin.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapReadMail.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapReadMailRaw.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapSearchMails.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsImapSelectFolder.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsPop3Connect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsPop3DeleteMail.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsPop3Disconnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsPop3GetMails.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsPop3GetSupportedAuthMethods.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsPop3Login.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsPop3ReadMail.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSmtpConnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSmtpDisconnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSmtpGetSupportedAuthMethods.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSmtpLogin.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSmtpSendMail.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSshAuthNone.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSshAuthPassword.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSshAuthPk.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSshDisconnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsSshRunCommand.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsTcpConnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsTcpDisconnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsTcpRead.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsTcpSend.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsTcpSendRead.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsTcpSendReadHttp.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsWebSocketClose.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsWebSocketConnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsWebSocketDisconnect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsWebSocketRead.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsWebSocketSend.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsWebSocketSendAudio.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockReqsWebSocketState.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockRequest.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockScript.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumClearCookies.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumClearField.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumClick.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumCloseBrowser.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumCloseTab.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumExecuteJs.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumExists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumFullScreen.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetAttributeValue.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetAttributeValueAll.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetCookies.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetDOM.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetHeight.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetPositionX.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetPositionY.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetText.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGetWidth.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGoBack.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumGoForward.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumIsDisplayed.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumIsEnabled.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumIsSelected.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumLocationX.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumLocationY.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumMaximize.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumMinimize.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumNavigateTo.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumNewTab.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumOpenBrowser.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumPageKeyDown.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumPageKeyPress.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumPageKeyUp.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumPageType.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumReload.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumScreenshotElem.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumScreenshotElemBase64.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumScreenshotPage.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumScreenshotPageBase64.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumScrollBy.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSelect.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSelectByIndex.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSelectByText.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSetAttributeValue.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSetBrowserSize.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSetCookies.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSubmit.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSwitchToAlert.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSwitchToFrame.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSwitchToMainFrame.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSwitchToParentFrame.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumSwitchToTab.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumTypeElement.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumTypeElemHuman.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSeleniumWaitForElement.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockShellCommand.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveCapyCaptcha.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveFunCaptcha.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveGeeTestCaptcha.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveHCaptcha.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveImageCaptcha.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveKeyCaptcha.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveRecaptchaV2.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveRecaptchaV3.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockSolveTextCaptcha.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBase64ToBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBase64ToString.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBigIntegerToBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBinaryStringToBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBytesToBase64.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBytesToBigInteger.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBytesToBinaryString.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBytesToHex.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityBytesToString.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityClearCookies.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityCreatePath.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityDelay.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileAppend.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileAppendLines.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileCopy.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileDelete.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileExists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileMove.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileRead.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileReadBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileReadLines.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileWrite.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileWriteBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFileWriteLines.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFolderDelete.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityFolderExists.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityGetFilesInFolder.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityGetHwid.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityHexToBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityIntegerToBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityNumberToWords.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityReadableSize.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityStringToBytes.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilitySvgToPng.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityTlgSendMessage.cs" />
+    <Compile Include="Views\StackerBlocks\PageBlockUtilityWordsToNumber.cs" />
+    <Compile Include="Views\UserControls\ButtonContainer.xaml.cs">
+      <DependentUpon>ButtonContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\NumStrInputBox.cs" />
+    <Compile Include="Views\UserControls\PluginControl.xaml.cs">
+      <DependentUpon>PluginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\ProgressDialog.xaml.cs">
+      <DependentUpon>ProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\RichTextInputBox.cs" />
+    <Compile Include="Views\UserControls\SafeModeCtrl.xaml.cs">
+      <DependentUpon>SafeModeCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\TextInputBox.cs" />
+    <Compile Include="Views\UserControls\UserControlBlock.xaml.cs">
+      <DependentUpon>UserControlBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlCheckbox.xaml.cs">
+      <DependentUpon>UserControlCheckbox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlConfig.xaml.cs">
+      <DependentUpon>UserControlConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlContainer.xaml.cs">
+      <DependentUpon>UserControlContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlDropdown.xaml.cs">
+      <DependentUpon>UserControlDropdown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlFilePicker.xaml.cs">
+      <DependentUpon>UserControlFilePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlInfoText.xaml.cs">
+      <DependentUpon>UserControlInfoText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlNumericPlug.xaml.cs">
+      <DependentUpon>UserControlNumericPlug.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlText.xaml.cs">
+      <DependentUpon>UserControlText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlTextMulti.xaml.cs">
+      <DependentUpon>UserControlTextMulti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\UserControlWordlist.xaml.cs">
+      <DependentUpon>UserControlWordlist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\VarCapOutputBox.cs" />
+    <Compile Include="WinFormRichTextBoxExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Themes\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="LoadingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\combobox\comboboxstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\gridsplitter\gridsplitterstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\richtextbox\richtextboxstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\searchbar\searchbarstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\shared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\tabcontrol\tabitemstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\textbox\textboxstyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\CustomInputDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\DialogAddBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogaddproxies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogaddwordlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\DialogChangeLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogcustominput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\DialogDonate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogeditwordlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogfindreplace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogiconpreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialognewconfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogselectbots.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogselectconfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\DialogSelectList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\DialogSelectProxylist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogselectwordlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogsetproxies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogshowlog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\dialogtestdatarules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\DialogUpdateDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\maindialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\logging\logwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ConfigsSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\ConfigManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Compile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Data.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Inputs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Interpreter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Ocr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Proxies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Puppeteer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Readme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Requests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\OtherOptions\Selenium.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Configs\Stacker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\HitsDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\PluginsSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ProxyManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\RunnerManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Runner\Runner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Runner\RunnerOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\CoreSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\Core\Captchas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\Core\Compile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\Core\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\Core\Ocr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\Core\Proxies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\Core\Puppeteer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\Core\Selenium.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Settings\SBSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\main\settings\silverbullet\general.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\main\settings\silverbullet\sounds.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\main\settings\silverbullet\sources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\main\settings\silverbullet\themes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\SilverZone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\main\silverzone\ads.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\main\silverzone\notif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\main\silverzone\verifiedmarket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ToolsSection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Tools\BrowserTools.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Tools\ConfigConverter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Tools\ListGenerator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Tools\TessDataDownloader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\Tools\WordlistTools.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\WordlistManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StackerBlocks\BlockPluginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\conditions\pageblockkeycheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\bytearrays\pageblockfuncmergebytearrays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\constants\pageblockfuncconstantbytearray.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\constants\pageblockfuncconstantdictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\constants\pageblockfuncconstantlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\constants\pageblockfuncconstantstring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncaesdecrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncaesencrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncaws4signature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncbcrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfunccryptojsdecrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfunccryptojsencrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfunchash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfunchmac.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncjwtdecode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncjwtencode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncpbkdf2pkcs5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncrsadecrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncrsadigitalsign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncrsaencrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncrsapkcs1pad2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncscrypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\crypto\pageblockfuncxor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\dictionary\pageblockfuncaddkeyvaluepair.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\dictionary\pageblockfuncdictgetkey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\dictionary\pageblockfuncdictgetvalue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\dictionary\pageblockfuncdictionarytolist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\dictionary\pageblockfuncdictionarytostring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\dictionary\pageblockfuncdictremove.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfuncabs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfuncceiling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfunccomputeex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfuncfloor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfuncrandfloat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfuncroundfloat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfuncroundtointeger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfunctakemaxfloat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\float\pageblockfunctakeminfloat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\integer\pageblockfuncrandint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\integer\pageblockfunctakemaxint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\integer\pageblockfunctakeminint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockcreatelistofnumbers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncaddtolist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncconcatlists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncgetlistlength.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncgetrandomitem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncjoinlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfunclistindexof.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfunclisttodictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncmaplists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncremoveallfromlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncremoveduplicates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncremovefromlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncshuffle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncsortlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\list\pageblockfuncziplists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\pageblockfuncgenerateguid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\pageblockfuncrandomuseragent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunccharat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunccountoccurrences.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncdecodehtmlentities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncencodehtmlentities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunclength.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncrandomstring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncregexmatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncregexreplace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncremovestring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncreplace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncreverse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncsplit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncsubstring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunctolowercase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunctotitlecase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunctouppercase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunctranslate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfunctrim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncunescape.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncurldecode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\string\pageblockfuncurlencode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfunccalcdatetimedifference.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfunccalcrelativetime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfunccurrentdatetime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfunccurrentunixtime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfuncdatetosolar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfuncdatetounixtime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfuncunixtimetodate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\functions\time\pageblockfuncunixtimetoiso8601.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\interop\pageblocknativelibinvoke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\interop\pageblockscriptcode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\interop\pageblockshellcommand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\parsing\pageblocklambdaparser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\parsing\pageblockparse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteerclosebrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteerclosetab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteergoback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteergoforward.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteernewtab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteeropenbrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteerreload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteersetcaptchasolution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\browser\pageblockpuppeteerswitchtotab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerclick.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerexists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteergetattributevalue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteergetattributevalueall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteergetheight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteergetpositionx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteergetpositiony.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteergetwidth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerisdisplayed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerscreenshotelem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerscreenshotelembase64.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerselect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerselectbyindex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerselectbytext.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteersetattributevalue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteersubmit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerswitchtoframe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteertypeelem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteertypeelemhuman.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteeruploadfiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\elements\pageblockpuppeteerwaitforelem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerclearcookies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerexecutefunc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerexecutejs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteergetcookies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteergetdom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteernavigateto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerpagekeydown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerpagekeypress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerpagekeyup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerpagetype.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerscreenshotpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerscreenshotpagebase64.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerscrollby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerscrolltobottom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerscrolltotop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteersetcookies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteersetuseragent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteersetviewport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerswitchtomainframe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerwaitfornavigation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\puppeteer\page\pageblockpuppeteerwaitforresponse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpchangedirectory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpdelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpdeletefile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpdisconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpdownload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpdownloadfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpfileexists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpgetconnectionstate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpgetcurrentdir.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpgetfiledatetime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpgetfilesize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftplistitems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftplogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpreadresponse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpsendcommand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpupload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ftp\pageblockreqsftpuploadfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\http\pageblockcfbypass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\http\pageblockdestroycfbypass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\http\pageblockrequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapdeletemail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapdisconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapgetsupportedauthmethods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimaplogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapreadmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapreadmailraw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapsearchmails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\imap\pageblockreqsimapselectfolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\pop3\pageblockreqspop3connect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\pop3\pageblockreqspop3deletemail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\pop3\pageblockreqspop3disconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\pop3\pageblockreqspop3getmails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\pop3\pageblockreqspop3getsupportedauthmethods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\pop3\pageblockreqspop3login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\pop3\pageblockreqspop3readmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\smtp\pageblockreqssmtpconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\smtp\pageblockreqssmtpdisconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\smtp\pageblockreqssmtpgetsupportedauthmethods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\smtp\pageblockreqssmtplogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\smtp\pageblockreqssmtpsendmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ssh\pageblockreqssshauthnone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ssh\pageblockreqssshauthpassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ssh\pageblockreqssshauthpk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ssh\pageblockreqssshdisconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\ssh\pageblockreqssshruncommand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\tcp\pageblockreqstcpconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\tcp\pageblockreqstcpdisconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\tcp\pageblockreqstcpread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\tcp\pageblockreqstcpsend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\tcp\pageblockreqstcpsendread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\tcp\pageblockreqstcpsendreadhttp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\websocket\pageblockreqswebsocketclose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\websocket\pageblockreqswebsocketconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\websocket\pageblockreqswebsocketdisconnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\websocket\pageblockreqswebsocketread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\websocket\pageblockreqswebsocketsend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\websocket\pageblockreqswebsocketsendaudio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\requests\websocket\pageblockreqswebsocketstate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumclosebrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumclosetab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumfullscreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumgoback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumgoforward.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniummaximize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumminimize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumnewtab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumopenbrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumreload.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumsetbrowsersize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\browser\pageblockseleniumswitchtotab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumclearfield.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumclick.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumexists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumgetattributevalue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumgetattributevalueall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumgetheight.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumgetpositionx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumgetpositiony.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumgettext.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumgetwidth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumisdisplayed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumisenabled.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumisselected.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumlocationx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumlocationy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumscreenshotelem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumscreenshotelembase64.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumselect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumselectbyindex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumselectbytext.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumsetattributevalue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumsubmit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumswitchtoframe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumtypeelement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumtypeelemhuman.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\elements\pageblockseleniumwaitforelement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumclearcookies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumexecutejs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumgetcookies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumgetdom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumnavigateto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumpagekeydown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumpagekeypress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumpagekeyup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumpagetype.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumscreenshotpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumscreenshotpagebase64.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumscrollby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumsetcookies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumswitchtoalert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumswitchtomainframe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\selenium\page\pageblockseleniumswitchtoparentframe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblockocr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblockreportlastsolution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolvecapycaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolvefuncaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolvegeetestcaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolvehcaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolveimagecaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolvekeycaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolverecaptchav2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolverecaptchav3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\solvers\pageblocksolvetextcaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybase64tobytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybase64tostring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybigintegertobytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybinarystringtobytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybytestobase64.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybytestobiginteger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybytestobinarystring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybytestohex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitybytestostring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilityhextobytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilityintegertobytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitynumbertowords.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilityreadablesize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitystringtobytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\conversion\pageblockutilitywordstonumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilitycreatedirpath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfileappend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfileappendlines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfilecopy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfiledelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfileexists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfilemove.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfileread.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfilereadbytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfilereadlines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfilewrite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfilewritebytes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfilewritelines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfolderdelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilityfolderexists.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\files\pageblockutilitygetfilesinfolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\images\pageblockutilitysvgtopng.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\pageblockutilityclearcookies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\pageblockutilitydelay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\pageblockutilitygethwid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\stackerblocks\utility\telegram\pageblockutilitytlgsendmessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\ButtonContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\customtabitem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\input\numstrinputbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\input\richtextinputbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\input\textinputbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\nonclientareacontent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\usercontrols\output\varcapoutputbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\PluginControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\ProgressDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\SafeModeCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\slidertext.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\snowflake.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlCheckbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlConfig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlDropdown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlFilePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlInfoText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlNumericPlug.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlTextMulti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UserControlWordlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\sbproicon.ico" />
+    <Resource Include="images\sbproicon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

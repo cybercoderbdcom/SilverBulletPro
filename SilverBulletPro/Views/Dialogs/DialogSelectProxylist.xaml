@@ -1,0 +1,357 @@
+<!--Class 'SilverBulletPro.Views.Dialogs.DialogSelectProxylist' has IComponentConnector.Connect method, but cannot be parsed.-->
+<Page
+	x:Class="SilverBulletPro.Views.Dialogs.DialogSelectProxylist" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="DialogSelectProxylist" xmlns:dialogs="clr-namespace:SilverBulletPro.Views.Dialogs">
+	<Grid
+		Width="412"
+		Height="500">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Margin="0,4,0,17">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="auto" />
+			</Grid.RowDefinitions>
+			<controls:SearchBar
+				FrameworkElement.Name="searchBoxProxy"
+				BorderElement.CornerRadius="4 4 0 0"
+				Control.Background="{DynamicResource BackgroundSecondary}"
+				FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+				Control.Foreground="{DynamicResource ForegroundMain}" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+			<ListView
+				Name="proxylistsListView"
+				Grid.Row="1"
+				AllowDrop="True"
+				Background="#00FFFFFF"
+				BorderThickness="1"
+				Foreground="{DynamicResource ForegroundMain}"
+				SelectionMode="Extended"
+				VirtualizingPanel.IsVirtualizing="True"
+				ItemsSource="{Binding Path=ProxylistsCollection}">
+				<FrameworkElement.Style>
+					<Style
+						TargetType="{x:Type ListView}" />
+				</FrameworkElement.Style>
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							TargetType="{x:Type ListViewItem}"
+							x:Key="{x:Type ListViewItem}">
+							<Setter
+								Property="Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type ListViewItem}">
+										<Border
+											Name="Bd"
+											Padding="0"
+											Background="{TemplateBinding Background}"
+											BorderBrush="{TemplateBinding BorderBrush}"
+											BorderThickness="{TemplateBinding BorderThickness}"
+											SnapsToDevicePixels="true">
+											<GridViewRowPresenter
+												HorizontalAlignment="Left"
+												VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+												SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+										</Border>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+							<Style.Triggers>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										Property="Background"
+										Value="{DynamicResource BackgroundSecondary}" />
+								</Trigger>
+								<Trigger
+									Property="ListBoxItem.IsSelected"
+									Value="True">
+									<Setter
+										Property="Background"
+										Value="{DynamicResource BackgroundSecondary}" />
+								</Trigger>
+							</Style.Triggers>
+						</Style>
+						<Style
+							TargetType="{x:Type Thumb}"
+							x:Key="GridViewColumnHeaderGripper">
+							<Setter
+								Property="Width"
+								Value="18" />
+							<Setter
+								Property="Background">
+								<Setter.Value>
+									<LinearGradientBrush
+										StartPoint="0,0"
+										EndPoint="0,1">
+										<GradientBrush.GradientStops>
+											<GradientStopCollection>
+												<GradientStop
+													Offset="0.0"
+													Color="{DynamicResource BorderLightColor}" />
+												<GradientStop
+													Offset="1.0"
+													Color="{DynamicResource BorderDarkColor}" />
+											</GradientStopCollection>
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								Property="Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type Thumb}">
+										<Border
+											Padding="{TemplateBinding Padding}"
+											Background="#00FFFFFF">
+											<Rectangle
+												Width="1"
+												HorizontalAlignment="Center"
+												Fill="{TemplateBinding Background}" />
+										</Border>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								Property="BorderBrush">
+								<Setter.Value>
+									<LinearGradientBrush
+										StartPoint="0.5,0"
+										EndPoint="0.5,1">
+										<GradientStop
+											Offset="0"
+											Color="Black" />
+										<GradientStop
+											Offset="1"
+											Color="White" />
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Style>
+						<Style
+							TargetType="{x:Type GridViewColumnHeader}"
+							x:Key="{x:Type GridViewColumnHeader}">
+							<Setter
+								Property="HorizontalContentAlignment"
+								Value="Left" />
+							<Setter
+								Property="Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type GridViewColumnHeader}">
+										<Grid>
+											<Border
+												Background="#00FFFFFF"
+												BorderBrush="#FF000000"
+												BorderThickness="0,0,0,1">
+												<TextBlock
+													Name="ContentHeader"
+													Width="{TemplateBinding Width}"
+													Padding="5,5,5,0"
+													Text="{TemplateBinding Content}"
+													TextAlignment="Left" />
+											</Border>
+											<Thumb
+												Name="PART_HeaderGripper"
+												Margin="0,0,-9,0"
+												HorizontalAlignment="Right"
+												Style="{StaticResource GridViewColumnHeaderGripper}" />
+										</Grid>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								Property="FrameworkElement.OverridesDefaultStyle"
+								Value="True" />
+							<Setter
+								Property="Foreground"
+								Value="{DynamicResource ForegroundMain}" />
+							<Setter
+								Property="FontFamily"
+								Value="pack://application:,,,/Fonts/#Century Gothic" />
+							<Setter
+								Property="FontSize"
+								Value="14" />
+						</Style>
+						<Style
+							BasedOn="{StaticResource ScrollViewerNativeBaseStyle}"
+							TargetType="{x:Type ScrollViewer}"
+							x:Key="{x:Type ScrollViewer}" />
+						<Style
+							BasedOn="{StaticResource ScrollBarBaseStyle}"
+							TargetType="{x:Type ScrollBar}"
+							x:Key="{x:Type ScrollBar}" />
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<VirtualizingStackPanel />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ListView.View>
+					<GridView>
+						<GridViewColumn
+							DisplayMemberBinding="{Binding Path=Type}">
+							<GridViewColumn.Header>
+								<GridViewColumnHeader
+									Content="{DynamicResource DefaultType}"
+									Tag="Type" />
+							</GridViewColumn.Header>
+						</GridViewColumn>
+						<GridViewColumn
+							DisplayMemberBinding="{Binding Path=IncludedTypes}">
+							<GridViewColumn.Header>
+								<GridViewColumnHeader
+									Content="{DynamicResource IncludedTypes}"
+									Tag="IncludedTypes" />
+							</GridViewColumn.Header>
+						</GridViewColumn>
+						<GridViewColumn
+							DisplayMemberBinding="{Binding Path=Name}">
+							<GridViewColumn.Header>
+								<GridViewColumnHeader
+									Content="{DynamicResource Name}"
+									Tag="Name" />
+							</GridViewColumn.Header>
+						</GridViewColumn>
+						<GridViewColumn
+							DisplayMemberBinding="{Binding Path=Path}">
+							<GridViewColumn.Header>
+								<GridViewColumnHeader
+									Content="{DynamicResource Path}"
+									Tag="Path" />
+							</GridViewColumn.Header>
+						</GridViewColumn>
+						<GridViewColumn
+							DisplayMemberBinding="{Binding Path=Working}">
+							<GridViewColumn.Header>
+								<GridViewColumnHeader
+									Content="{DynamicResource Working}"
+									Tag="Working" />
+							</GridViewColumn.Header>
+						</GridViewColumn>
+						<GridViewColumn
+							DisplayMemberBinding="{Binding Path=LastChecked}">
+							<GridViewColumn.Header>
+								<GridViewColumnHeader
+									Content="{DynamicResource LastModified}"
+									Tag="LastChecked" />
+							</GridViewColumn.Header>
+						</GridViewColumn>
+						<GridViewColumn
+							DisplayMemberBinding="{Binding Path=Total}">
+							<GridViewColumn.Header>
+								<GridViewColumnHeader
+									Content="{DynamicResource Total}"
+									Tag="Total" />
+							</GridViewColumn.Header>
+						</GridViewColumn>
+					</GridView>
+				</ListView.View>
+			</ListView>
+			<Grid
+				Row="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="5" />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="auto" />
+					<RowDefinition
+						Height="auto" />
+					<RowDefinition
+						Height="auto" />
+				</Grid.RowDefinitions>
+				<StackPanel
+					Margin="0,4,0,0">
+					<DockPanel>
+						<TextBlock
+							Margin="5,0,5,0"
+							VerticalAlignment="Center"
+							Foreground="{DynamicResource ForegroundMain}">
+							<Run
+								Text="{DynamicResource Path}" /> <Run
+								Text=":" /></TextBlock>
+						<Button
+							Width="39"
+							Padding="4,0,0,0"
+							HorizontalAlignment="Right"
+							VerticalAlignment="Bottom"
+							BorderElement.CornerRadius="0 4 4 0"
+							IconElement.Geometry="M14,2 L6,2 A2,2 0 0 0 4,4L4,20 A2,2 0 0 0 6,22L18,22 A2,2 0 0 0 20,20L20,8 L14,2 M13.5,16 L13.5,19 L10.5,19 L10.5,16 L8,16 L12,12 L16,16 L13.5,16 M13,9 L13,3.5 L18.5,9 L13,9"
+							IconElement.Width="14"
+							Background="{DynamicResource BackgroundSecondary}"
+							BorderBrush="{DynamicResource BorderBrush}"
+							BorderThickness="0,1,1,1"
+							DockPanel.Dock="Right" />
+						<TextBox
+							Name="pathProxyTextBox"
+							BorderElement.CornerRadius="4 0 0 4"
+							AllowDrop="True"
+							IsReadOnly="True" />
+					</DockPanel>
+					<DockPanel
+						Margin="0,4,0,0">
+						<TextBlock
+							Margin="5,0,5,0"
+							VerticalAlignment="Center"
+							Foreground="{DynamicResource ForegroundMain}">
+							<Run
+								Text="{DynamicResource Type}" /> <Run
+								Text=":" /></TextBlock>
+						<ComboBox
+							Name="proxyTypeCombobox"
+							SelectedIndex="0" />
+					</DockPanel>
+				</StackPanel>
+				<DockPanel
+					Grid.Row="1"
+					Margin="38,8,0,-8"
+					HorizontalAlignment="Left">
+					<CheckBox
+						Name="addToProxylistsCheckBox"
+						Content="{DynamicResource AddToProxylists}"
+						IsChecked="True" />
+					<CheckBox
+						Name="removeDupProxylistCheckBox"
+						Margin="25,0,0,0"
+						Content="{DynamicResource RemoveDup}"
+						IsChecked="True" />
+				</DockPanel>
+			</Grid>
+		</Grid>
+		<Grid
+			Row="1"
+			Height="30"
+			Margin="0,0,0,5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Button
+				Name="selectButton"
+				Margin="2,0,2,0"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				BorderElement.CornerRadius="6"
+				IconElement.Geometry="M173.898,439.404 L7.4979999999999905,273.004 C-2.4990000000000094,263.007 -2.4990000000000094,246.79800000000003 7.4979999999999905,236.8 L43.70099999999999,200.596 C53.69799999999999,190.598 69.90799999999999,190.598 79.905,200.596 L192,312.69 L432.095,72.596 C442.09200000000004,62.599000000000004 458.302,62.599000000000004 468.29900000000004,72.596 L504.50200000000007,108.80000000000001 C514.499,118.79700000000001 514.499,135.006 504.50200000000007,145.00400000000002 L210.1020000000001,439.405 C200.1040000000001,449.40200000000004 183.8950000000001,449.40200000000004 173.89800000000008,439.40400000000005"
+				IconElement.Width="15"
+				Content="{DynamicResource Select}" />
+		</Grid>
+	</Grid>
+</Page>

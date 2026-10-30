@@ -1,0 +1,45 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockReqsTcpSend" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockReqsTcpSend" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			EnableEncoding="True"
+			Label="{DynamicResource Tcp_Message}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			Encoding="{Binding StringEncoding, Mode=TwoWay}"
+			InputMode="{Binding InputMode, Mode=TwoWay}"
+			Text="{Binding Input, Mode=TwoWay}" />
+		<StackPanel
+			Grid.Row="3"
+			Margin="2,7,0,0">
+			<CheckBox
+				Margin="0,6,20,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource Tcp_Unescape}"
+				IsChecked="{Binding Unescape}" />
+			<CheckBox
+				Margin="0,6,20,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource Tcp_TerminateWithCRLF}"
+				IsChecked="{Binding TerminateWithCRLF}" />
+		</StackPanel>
+	</Grid>
+</Page>

@@ -1,0 +1,423 @@
+<!--Class 'SilverBulletPro.MainWindow' has IComponentConnector.Connect method, but cannot be parsed.-->
+<controls:GlowWindow
+	x:Class="SilverBulletPro.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:SilverBulletPro.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:uc="clr-namespace:SilverBulletPro.UserControls"
+	FrameworkElement.Width="875"
+	FrameworkElement.Height="579"
+	FrameworkElement.MinWidth="875"
+	FrameworkElement.MinHeight="579"
+	GlowWindow.ActiveGlowColor="{DynamicResource PrimaryColor}"
+	Control.Background="{DynamicResource BackgroundMain}"
+	Window.Icon="/Images/SBProIcon.ico"
+	Window.ShowTitle="True"
+	FrameworkElement.Style="{StaticResource WindowGlow}"
+	Window.ResizeMode="CanResizeWithGrip"
+	Window.Title="SilverBullet 0.0.0 Professional"
+	Window.WindowStartupLocation="CenterScreen" xmlns:silverbulletpro="clr-namespace:SilverBulletPro" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<SolidColorBrush
+				x:Freeze="True"
+				Color="{DynamicResource MainBarColor}"
+				x:Key="PrimaryTextBrush" />
+			<converters:BadgeMarginConverter
+				x:Key="BadgeMarginConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Name="Root">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="auto" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<controls:SimplePanel xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+			<controls:NotifyIcon
+				NotifyIcon.Name="NotifyIcon"
+				NotifyIcon.IsBlink="False"
+				NotifyIcon.Text="SilverBullet Pro"
+				NotifyIcon.Token="SB Pro" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+				<FrameworkElement.ContextMenu>
+					<ContextMenu>
+						<MenuItem
+							Width="132">
+							<HeaderedItemsControl.Header>
+								<TextBlock
+									Margin="4,0,0,0"
+									Text="Open" />
+							</HeaderedItemsControl.Header>
+							<MenuItem.Icon>
+								<iconpacks:PackIconIonicons
+									FrameworkElement.Width="15"
+									PackIconIonicons.Kind="OpenMD" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Ionicons" />
+							</MenuItem.Icon>
+						</MenuItem>
+						<MenuItem
+							Command="hc:ControlCommands.ShutdownApp">
+							<HeaderedItemsControl.Header>
+								<TextBlock
+									Margin="4,0,0,0"
+									Text="Exit" />
+							</HeaderedItemsControl.Header>
+							<MenuItem.Icon>
+								<PackIconIonicons
+									FrameworkElement.Width="15"
+									PackIconIonicons.Kind="ExitMD" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Ionicons" />
+							</MenuItem.Icon>
+						</MenuItem>
+					</ContextMenu>
+				</FrameworkElement.ContextMenu>
+				<interactivity:Interaction.Triggers xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl">
+					<interactivity:EventTrigger
+						EventTrigger.EventName="Click" xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl">
+						<interactivity:EventToCommand
+							EventToCommand.Command="hc:ControlCommands.PushMainWindow2Top" xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl" />
+					</interactivity:EventTrigger>
+				</interactivity:Interaction.Triggers>
+			</controls:NotifyIcon>
+		</controls:SimplePanel>
+		<Grid
+			Name="Panel"
+			Margin="0,0,0,0"
+			HorizontalAlignment="Left"
+			Background="{DynamicResource BackgroundTabControlMain}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<StackPanel
+				Width="71">
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="RunnerManagerPage"
+					Text="{DynamicResource Runner}">
+					<uc:CustomTabItem.Icon>
+						<iconpacks:PackIconMaterial
+							FrameworkElement.Width="22"
+							FrameworkElement.Height="19.5"
+							FrameworkElement.HorizontalAlignment="Center"
+							PackIconMaterial.Kind="AccountHardHat" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
+							Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" />
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="ProxyManagerPage"
+					Text="{DynamicResource Proxies}">
+					<uc:CustomTabItem.Icon>
+						<iconpacks:PackIconFontAwesome
+							FrameworkElement.Width="24"
+							FrameworkElement.Height="18"
+							FrameworkElement.HorizontalAlignment="Center"
+							PackIconFontAwesome.Kind="ServerSolid" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome"
+							Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" />
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="WordlistManagerPage"
+					Text="{DynamicResource Wordlists}">
+					<uc:CustomTabItem.Icon>
+						<PackIconFontAwesome
+							FrameworkElement.Width="24"
+							FrameworkElement.Height="18.5"
+							FrameworkElement.HorizontalAlignment="Center"
+							PackIconFontAwesome.Kind="CopySolid"
+							Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="ConfigsSecionPage"
+					Text="{DynamicResource Configs}">
+					<uc:CustomTabItem.Icon>
+						<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+							Width="22"
+							Height="20"
+							HorizontalAlignment="Center"
+							Stretch="Fill"
+							Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}">
+							<Path.Data>
+								<PathGeometry
+									Figures="m 330.90618 632.4993 c -6.11252 -3.11561 -9.18725 -7.61856 -20.01097 -29.306 l -9.38601 -18.80672 -5.7546 -0.84188 c -3.16503 -0.46304 -6.96752 -1.18415 -8.45 -1.60248 -2.06723 -0.58332 -6.8005 2.81651 -20.30942 14.58792 -18.59806 16.206 -24.1816 19.21129 -32.71756 17.60993 -6.22532 -1.16788 -12.8952 -5.83712 -16.04693 -11.23364 -2.5744 -4.40797 -3.67648 -12.14349 -5.54767 -38.93928 l -0.88683 -12.69954 -7.6303 -4.94052 -7.63032 -4.94054 -22.62502 7.51318 c -24.73244 8.21298 -28.12223 8.46414 -36.76155 2.72373 -4.94674 -3.28688 -10.48233 -12.94281 -10.48233 -18.28474 0 -1.88626 3.29392 -13.27053 7.31983 -25.29836 l 7.31982 -21.86878 -4.95362 -7.65054 -4.95362 -7.65054 -12.69954 -0.88683 C 91.903744 468.11248 84.168228 467.0104 79.760253 464.436 70.937125 459.28302 66.335268 448.14756 69.148481 438.75789 c 0.936799 -3.12676 7.224411 -11.63845 16.868018 -22.83465 8.455979 -9.81737 15.083171 -18.60899 14.727081 -19.53692 -0.35608 -0.92795 -1.049278 -4.71651 -1.540438 -8.41905 L 98.310126 381.23539 77.163513 370.53981 C 51.240275 357.42832 48.666668 354.79063 48.666668 341.33334 c 0 -13.44838 2.582438 -16.09944 28.40554 -29.16028 l 21.055307 -10.6494 1.425004 -8.42849 C 101.21145 283.2831 102.56168 285.75838 83.669075 263.97708 66.723254 244.4402 64.51744 236.87401 72.37033 225.2211 c 5.951805 -8.83188 10.367082 -10.02679 46.32921 -12.53808 l 12.69954 -0.88683 4.95362 -7.65054 4.95362 -7.65054 -7.31982 -21.86878 c -4.02591 -12.02783 -7.31983 -23.4121 -7.31983 -25.29836 0 -5.34193 5.53559 -14.99786 10.48233 -18.28474 8.63932 -5.74041 12.02911 -5.48926 36.76155 2.72373 l 22.62502 7.51318 7.63032 -4.94054 7.6303 -4.94052 0.88683 -12.69954 c 1.87119 -26.795796 2.97327 -34.531312 5.54767 -38.939287 3.15173 -5.396516 9.82161 -10.065759 16.04693 -11.233636 8.53596 -1.601355 14.1195 1.403935 32.71756 17.609933 13.50892 11.771411 18.24219 15.17124 20.30942 14.58791 1.48248 -0.41832 5.26982 -1.137353 8.41632 -1.597853 l 5.7209 -0.837269 10.69031 -21.136219 c 13.10573 -25.911839 15.74495 -28.486451 29.20121 -28.486451 13.45729 0 16.09498 2.573607 29.20647 28.496845 l 10.69558 21.146613 6.73188 0.893016 c 3.70254 0.49116 7.4911 1.184358 8.41905 1.540438 0.92793 0.35609 9.71955 -6.271102 19.53692 -14.727081 11.1962 -9.643607 19.70789 -15.931219 22.83465 -16.868018 9.38967 -2.813213 20.52513 1.788644 25.67811 10.611772 2.5744 4.407975 3.67648 12.143491 5.54767 38.939287 l 0.88683 12.69954 7.6303 4.94052 7.63032 4.94054 22.62502 -7.51318 c 24.73244 -8.21299 28.12223 -8.46414 36.76155 -2.72373 4.94674 3.28688 10.48233 12.94281 10.48233 18.28474 0 1.88626 -3.29392 13.27053 -7.31983 25.29836 l -7.31982 21.86878 4.95362 7.65054 4.95362 7.65054 12.69954 0.88683 c 35.96212 2.51129 40.3774 3.7062 46.3292 12.53808 7.8529 11.65291 5.64708 19.2191 -11.29873 38.75598 -18.8926 21.7813 -17.54237 19.30602 -15.88345 29.11809 l 1.42501 8.42849 21.05531 10.6494 c 25.82309 13.06084 28.40553 15.7119 28.40553 29.16028 0 13.45627 -2.57461 16.09549 -28.48645 29.20122 l -21.13622 10.69031 -0.83726 5.7209 c -0.46051 3.1465 -1.17482 6.92091 -1.58735 8.38758 -0.56941 2.02433 2.96204 6.97508 14.66093 20.55316 9.67411 11.22805 15.967 19.74217 16.90454 22.87138 1.84452 6.15647 0.68308 12.89317 -3.22186 18.6877 -5.92685 8.79487 -11.26797 10.24511 -46.3292 12.5794 l -12.69954 0.84551 -4.95362 7.65054 -4.95362 7.65054 7.31982 21.86878 c 4.02591 12.02783 7.31983 23.4121 7.31983 25.29836 0 5.34193 -5.53559 14.99786 -10.48233 18.28474 -8.63932 5.74041 -12.02911 5.48925 -36.76155 -2.72373 l -22.62502 -7.51318 -7.63032 4.94054 -7.6303 4.94052 -0.88683 12.69954 c -1.87119 26.79579 -2.97327 34.53131 -5.54767 38.93928 -5.15298 8.82314 -16.28844 13.42499 -25.67811 10.61178 -3.12676 -0.9368 -11.63845 -7.22442 -22.83465 -16.86802 -9.81737 -8.45598 -18.60899 -15.08317 -19.53692 -14.72708 -0.92795 0.35608 -4.71651 1.04928 -8.41905 1.54044 l -6.73188 0.89302 -10.69558 21.14661 c -12.56718 24.84707 -15.67041 28.07691 -27.67016 28.79912 -5.19833 0.31287 -8.90973 -0.24648 -11.96347 -1.803 z m 50.42717 -94.48939 c 26.87217 -5.89264 57.52293 -19.44041 77.79041 -34.38372 14.00691 -10.32736 34.25158 -30.59963 44.6772 -44.73815 9.26899 -12.56994 25.2297 -43.21115 22.9109 -43.98408 -0.81911 -0.27304 -41.21436 -11.1742 -89.76723 -24.22483 l -88.27795 -23.72838 -65.66667 65.51958 c -36.11667 36.03577 -65.64918 65.82186 -65.6278 66.1913 0.0865 1.49619 16.33982 12.36619 26.80157 17.9246 22.29907 11.84769 43.15619 19.13944 65.15956 22.7801 15.21784 2.51792 58.00809 1.7118 72.00001 -1.35642 z m -131.14647 -138.34323 65.51009 -65.66667 -23.11883 -86 c -12.71534 -47.3 -23.45858 -87.35 -23.87388 -89 -0.41528 -1.65 -1.69182 -3 -2.83676 -3 -3.87708 0 -31.3848 14.97454 -42.32457 23.04049 -13.92467 10.26672 -34.23571 30.57776 -44.50243 44.50243 -15.29837 20.74907 -28.71435 51.40765 -34.624 79.12375 -3.44712 16.16697 -3.44712 61.16636 0 77.33333 3.79777 17.81143 11.02813 37.94776 19.46017 54.19598 6.92887 13.35164 18.34882 30.99553 20.12839 31.09849 0.36944 0.0213 30.15125 -29.51113 66.18182 -65.6278 z m 290.55505 -37.90979 c 1.38605 -12.94282 -0.25491 -48.79861 -2.76534 -60.42355 -5.74876 -26.62057 -19.37571 -57.48036 -34.3504 -77.79041 C 493.35947 209.61826 473.04843 189.30722 459.12376 179.0405 438.37469 163.74213 407.71611 150.32615 380.00001 144.4165 371.13799 142.52694 362.65803 142 341.11112 142 c -15.15555 0 -27.87707 0.32151 -28.27003 0.71447 -0.67809 0.67811 46.409 178.31339 47.57626 179.48065 0.48058 0.48058 176.08151 48.06152 178.47655 48.36012 0.49163 0.0613 1.32324 -3.89796 1.84803 -8.79835 z"
+									FillRule="NonZero" />
+							</Path.Data>
+						</Path>
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="HitsDBPage"
+					Text="{DynamicResource HitsDB}">
+					<uc:CustomTabItem.Icon>
+						<PackIconFontAwesome
+							FrameworkElement.Width="26"
+							FrameworkElement.Height="19.5"
+							FrameworkElement.HorizontalAlignment="Center"
+							PackIconFontAwesome.Kind="DatabaseSolid"
+							Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="ToolsSectionPage"
+					Text="{DynamicResource Tools}">
+					<uc:CustomTabItem.Icon>
+						<PackIconFontAwesome
+							FrameworkElement.Width="26"
+							FrameworkElement.Height="19.5"
+							FrameworkElement.HorizontalAlignment="Center"
+							PackIconFontAwesome.Kind="ToolsSolid"
+							Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="PluginsPage"
+					Text="{DynamicResource Plugins}">
+					<uc:CustomTabItem.Icon>
+						<iconpacks:PackIconMaterialDesign
+							FrameworkElement.Width="26"
+							FrameworkElement.Height="19.5"
+							FrameworkElement.HorizontalAlignment="Center"
+							PackIconMaterialDesign.Kind="Extension" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.MaterialDesign"
+							Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" />
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="SBSettingsPage"
+					Text="{DynamicResource Settings}"
+					ToolTip="{DynamicResource SBSettings}">
+					<uc:CustomTabItem.Icon>
+						<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+							Width="27"
+							Height="21"
+							Stretch="Uniform">
+							<Canvas
+								Width="617.28003"
+								Height="512.25598">
+								<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									StrokeThickness="0.192"
+									Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}">
+									<Path.Data>
+										<PathGeometry
+											Figures="m 232.99201 512.12619 c -8.78801 -1.17815 -16.37601 -5.56109 -21.81777 -12.60223 -3.12764 -4.0469 -5.47426 -9.15076 -6.37248 -13.85998 -0.16112 -0.8448 -0.35356 -1.7952 -0.42764 -2.112 -0.0741 -0.3168 -0.19655 -6.8832 -0.27216 -14.592 -0.13234 -13.49011 -0.15344 -14.08804 -0.56262 -15.936 -1.76699 -7.98044 -6.34394 -14.67621 -13.17133 -19.26881 -3.46299 -2.32946 -7.27569 -3.92269 -11.616 -4.85407 -2.90357 -0.62306 -8.78911 -0.62872 -11.64437 -0.0113 -4.08752 0.884 -8.21811 2.67646 -11.45365 4.97026 -1.05168 0.74558 -4.4729 3.98536 -10.30998 9.76324 -8.85748 8.76766 -10.42767 10.15117 -13.71949 12.08851 -11.05997 6.50915 -25.44539 6.08212 -36.208618 -1.07483 -2.105207 -1.39986 -3.723715 -2.95698 -22.324849 -21.47833 -6.950323 -6.92051 -13.181305 -13.23074 -13.846624 -14.02274 -6.436865 -7.66249 -8.9908 -18.34608 -6.749207 -28.23326 0.66292 -2.92398 1.3175 -4.74975 2.715721 -7.57474 2.185811 -4.41625 2.822799 -5.16839 12.934084 -15.27237 9.849741 -9.84263 10.728936 -10.86108 12.755442 -14.77563 4.465511 -8.62593 4.400473 -18.40906 -0.182461 -27.44659 -2.956772 -5.83073 -8.053418 -10.90295 -13.893902 -13.82728 -2.283639 -1.14342 -4.137894 -1.81984 -6.728103 -2.45434 l -2.016 -0.49384 -14.016001 -0.12872 C 30.928423 308.80849 29.909304 308.77487 27.840001 308.39377 21.988446 307.31613 16.900956 305.0685 12.454665 301.59658 10.12871 299.78034 6.9556001 296.38351 5.3702652 294.0127 3.0162526 290.49244 1.303274 286.36304 0.4467907 282.14399 0.11798207 280.52428 0.096 278.88798 0.096 256.03199 v -24.384 l 0.44286348 -2.016 c 1.24233982 -5.65538 3.64772072 -10.4928 7.33102682 -14.74333 4.2236867 -4.87415 10.5848387 -8.7979 16.8566507 -10.39772 4.007925 -1.02235 3.840804 -1.01209 18.857461 -1.15809 13.46043 -0.13089 14.197243 -0.15627 15.958215 -0.54972 6.196973 -1.38457 10.835801 -3.94327 15.345931 -8.46456 3.81194 -3.82137 6.062105 -7.42225 7.675183 -12.28239 2.660529 -8.01607 2.105246 -15.70365 -1.668752 -23.10295 -1.959971 -3.84272 -2.729901 -4.74106 -12.55174 -14.64524 -5.026664 -5.0688 -9.529195 -9.7344 -10.005621 -10.368 -9.11263 -12.11885 -8.778642 -29.21517 0.798785 -40.88845 1.423451 -1.73495 33.287844 -32.826817 34.900782 -34.054641 5.713535 -4.349345 12.125515 -6.621671 19.436185 -6.88794 8.26182 -0.300912 15.91455 2.097826 22.07904 6.920647 0.6864 0.537009 5.1792 4.868937 9.984 9.626507 9.38552 9.293268 10.36656 10.128954 14.16523 12.066459 7.01117 3.57603 14.53954 4.229034 22.42181 1.944842 9.49058 -2.750261 17.82182 -10.790848 20.78043 -20.055416 1.28909 -4.036681 1.23961 -3.371526 1.38501 -18.624 0.14329 -15.033167 0.15932 -15.277704 1.27146 -19.391999 3.2198 -11.911324 12.61723 -21.0541322 24.45606 -23.79340348 3.35338 -0.77590369 4.56686 -0.80726171 28.512 -0.73678361 l 23.04 0.06781399 2.32558 0.51526476 c 2.9549 0.65469514 5.19977 1.44131454 7.79175 2.73028914 8.39602 4.1752831 14.87921 12.0750142 17.34854 21.1390822 1.09915 4.034607 1.07995 3.740433 1.23316 18.893736 0.13356 13.20728 0.16804 14.230197 0.53776 15.955672 2.33101 10.878723 10.27545 19.661327 20.97122 23.18373 3.68104 1.212265 5.25029 1.447223 9.696 1.451718 3.46229 0.0035 4.3084 -0.05623 5.98817 -0.422748 2.64159 -0.576378 4.92177 -1.386489 7.45183 -2.64752 3.93022 -1.958897 4.97065 -2.844754 14.88 -12.669385 8.32581 -8.254623 9.31286 -9.16975 11.3348 -10.508668 3.81817 -2.528407 7.95047 -4.210734 12.6652 -5.156215 1.86991 -0.374988 2.81069 -0.443384 6.144 -0.446686 4.09872 -0.0041 5.28159 0.128674 8.67514 0.973463 5.22875 1.301644 10.02182 3.85117 13.98086 7.436678 1.0032 0.908551 8.82993 8.631872 17.39274 17.162935 16.95343 16.890577 16.92361 16.857495 19.25611 21.367024 1.4048 2.716014 2.37341 5.465484 3.03976 8.628794 0.44774 2.12549 0.50949 2.86622 0.52117 6.25121 0.008 2.39598 -0.0825 4.3815 -0.24127 5.28 -0.70846 4.00889 -2.14286 8.11347 -3.92149 11.22157 -1.99735 3.49034 -3.37257 5.03173 -12.44601 13.94986 -8.65091 8.50286 -10.25576 10.25963 -11.96458 13.09714 -5.09046 8.45285 -5.38284 19.38825 -0.76445 28.59063 0.35641 0.71016 0.64802 1.32276 0.64802 1.36133 0 0.0386 -2.6136 0.12608 -5.808 0.19448 -6.41802 0.13743 -9.71677 0.33363 -15.312 0.91073 -20.038 2.06671 -39.56665 7.60205 -57.54167 16.31 l -3.87767 1.87852 -1.28696 -2.33314 c -7.06533 -12.80874 -17.3458 -24.5919 -29.29809 -33.58056 -16.53364 -12.43403 -36.382 -19.72966 -57.37162 -21.08798 -4.28811 -0.2775 -12.89591 -0.12827 -16.896 0.29291 -22.00347 2.31684 -41.2905 10.46079 -58.272 24.60537 -3.0036 2.50182 -9.67762 9.11822 -12.27913 12.17313 -20.22296 23.74748 -29.07187 54.76813 -24.37251 85.44 2.47368 16.14522 8.62027 31.47289 17.98658 44.85287 3.75678 5.36665 7.30595 9.57006 12.22353 14.4768 13.73651 13.70619 30.62842 23.25404 49.3879 27.91564 7.25846 1.80367 13.84545 2.72316 22.26323 3.10775 l 2.80961 0.12836 0.12418 3.57529 c 0.662 19.05757 3.61273 35.62055 9.31776 52.30204 0.53398 1.56133 0.97085 2.96752 0.97085 3.12488 0 0.15736 -4.6704 13.33993 -10.37865 29.29459 -5.70826 15.95466 -10.35226 29.03142 -10.32 29.05945 0.0322 0.028 12.61947 -0.0385 27.97157 -0.14775 l 27.91295 -0.1987 3.42128 3.5344 c 1.88172 1.9439 3.42571 3.68453 3.43108 3.86807 0.0196 0.66804 -1.20841 4.13598 -2.22526 6.28435 -4.44465 9.39053 -12.63325 15.93755 -22.8668 18.28266 l -1.87417 0.42949 -24.192 0.0286 c -13.3056 0.0157 -24.4512 -0.006 -24.768 -0.0486 z m 22.37674 -38.72941 c 0.005 -0.11705 4.47729 -12.6976 9.9389 -27.9568 l 9.93016 -27.744 55.02636 -0.0483 55.02636 -0.0483 0.12438 -19.91967 c 0.0684 -10.95583 0.17781 -21.36513 0.24311 -23.1318 l 0.11875 -3.21212 -50.08839 -0.0562 -50.08837 -0.0562 -2.496 -0.41196 c -4.72153 -0.77925 -8.37425 -1.88603 -11.712 -3.54875 -7.6507 -3.81122 -12.87673 -10.36871 -15.48591 -19.43138 -0.54447 -1.89122 -0.54609 -1.91322 -0.54398 -7.488 0.002 -3.07517 0.0531 -5.89966 0.11551 -6.27663 l 0.1134 -0.68542 22.68449 -7.16197 c 12.47647 -3.93907 22.92724 -7.25942 23.22394 -7.37858 0.48445 -0.19453 -1.68714 -0.88032 -21.312 -6.73015 -12.0183 -3.58244 -22.52105 -6.7177 -23.33945 -6.96726 l -1.488 -0.45372 v -28.84074 -28.84074 l 0.47138 -1.94563 c 1.44465 -5.96293 3.86204 -11.51724 6.67849 -15.34481 1.46707 -1.99377 4.44419 -4.84606 6.4782 -6.2066 5.26199 -3.51968 11.28599 -5.30355 19.52519 -5.78198 1.97119 -0.11445 25.92378 -0.18862 61.45323 -0.19027 l 58.22299 -0.003 0.049 17.41428 0.049 17.41429 8.10993 2.40971 c 4.46046 1.32534 8.10893 2.45292 8.1077 2.50572 -0.002 0.0528 -1.01551 0.41366 -2.25395 0.80191 -1.23842 0.38824 -4.90848 1.54767 -8.15568 2.57648 l -5.904 1.8706 v 4.9595 4.95951 h -5.28 c -3.39201 0 -5.28 0.0687 -5.28 0.192 0 0.12729 -11.64801 0.192 -34.56 0.192 h -34.56 v 22.48185 22.48186 l 36.816 -0.11576 c 20.2488 -0.0637 38.1768 -0.16481 39.84 -0.22477 l 3.024 -0.10902 v 55.31092 55.31091 l 2.832 -0.007 2.832 -0.007 12.768 3.78736 c 7.0224 2.08303 12.804 3.81425 12.84801 3.84716 0.044 0.0329 0.0363 0.10349 -0.0171 0.15686 -0.0534 0.0534 -5.70025 1.86778 -12.54862 4.032 l -12.45157 3.93495 h -3.13136 -3.13139 v 13.9939 13.9939 l -3.408 0.11712 c -1.8744 0.0644 -10.4496 0.21644 -19.056 0.33786 -10.86396 0.15325 -15.68936 0.28477 -15.78326 0.43018 -0.0961 0.14885 -13.56717 0.3018 -46.56001 0.52867 -25.5336 0.17556 -51.28474 0.35898 -57.22474 0.40758 -7.83171 0.0641 -10.7976 0.0299 -10.79126 -0.12442 z m 159.15927 -11.92251 c 0 -8.86357 0.0506 -11.23266 0.24 -11.22655 0.132 0.004 10.0248 -3.07955 21.984 -6.8529 l 21.744 -6.86066 v -1.0191 c 0 -0.56048 -0.0389 -1.01908 -0.0865 -1.01908 -0.0476 0 -9.78473 -2.8944 -21.63812 -6.432 -11.85339 -3.5376 -21.70738 -6.432 -21.89775 -6.432 -0.33299 0 -0.34428 -2.92663 -0.29787 -77.20446 l 0.0482 -77.20446 14.33944 -4.52696 14.33945 -4.52698 0.32089 -0.84023 c 0.17648 -0.46212 0.26194 -0.89979 0.1899 -0.97257 -0.072 -0.0728 -6.66919 -2.08533 -14.66033 -4.47236 l -14.52935 -4.34002 -0.0492 -14.69468 -0.0492 -14.6947 2.25719 -0.11465 c 2.24162 -0.11385 155.94488 -0.45129 164.2035 -0.36048 8.29789 0.0912 13.4933 1.14624 19.1097 3.88046 3.0145 1.46755 5.20472 3.05217 7.53145 5.44896 4.1039 4.22749 7.04669 10.03046 8.98067 17.70921 l 0.67188 2.66771 v 36.05835 36.05834 l -0.66351 1.71804 c -0.89541 2.31853 -2.40736 5.29137 -3.59709 7.07278 -2.39867 3.59155 -7.68727 7.77512 -15.1794 12.00768 l -0.912 0.51521 v 4.37916 4.37915 l 1.68 0.11977 c 3.61663 0.25786 6.59424 1.45152 9.55135 3.82898 0.95003 0.76382 3.39083 3.02087 5.424 5.01566 l 3.69665 3.62691 v 42.43168 42.43167 l -0.58717 2.03742 c -3.50341 12.15631 -11.45728 19.72499 -23.60483 22.46164 -5.09845 1.1486 2.84221 1.05203 -92.01601 1.11911 l -86.544 0.0612 z m 129.60001 -69.41029 v -29.56799 h -30.24001 -30.24 v 29.56799 29.568 h 30.24 30.24001 z m 0 -95.90399 v -23.328 h -30.24001 -30.24 v 23.328 23.328 h 30.24 30.24001 z"
+											FillRule="NonZero" />
+									</Path.Data>
+								</Path>
+							</Canvas>
+						</Viewbox>
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<uc:CustomTabItem
+					Click="CustomTabItem_Click"
+					Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+					Cursor="Hand"
+					Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+					MarginText="0 3 0 0"
+					Tag="CoreSettingsPage"
+					Text="{DynamicResource Settings}"
+					ToolTip="{DynamicResource CoreSettings}">
+					<uc:CustomTabItem.Icon>
+						<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+							Width="27"
+							Height="23"
+							Stretch="Uniform">
+							<Canvas
+								Width="511.104"
+								Height="512.448">
+								<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									StrokeThickness="0.192"
+									Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}">
+									<Path.Data>
+										<PathGeometry
+											Figures="m 234.03809 512.24799 c -9.81208 -0.87532 -18.53441 -6.12082 -24.20256 -14.55517 -2.40942 -3.58527 -4.11433 -7.66385 -5.10292 -12.20748 l -0.50421 -2.31734 -0.13238 -14.112 c -0.12636 -13.47055 -0.15112 -14.19592 -0.54488 -15.95821 -0.62646 -2.80384 -1.27687 -4.62853 -2.62704 -7.36979 -3.4641 -7.03327 -10.15162 -12.90204 -17.67759 -15.51333 -9.90237 -3.4358 -19.94708 -1.96038 -28.22818 4.14637 -0.72728 0.53632 -5.03753 4.6699 -9.57833 9.18576 -4.5408 4.51586 -8.99746 8.80505 -9.9037 9.53154 -11.90741 9.54554 -29.9045 9.70876 -41.80747 0.37914 -2.399869 -1.88103 -33.798879 -33.32402 -35.444392 -35.49404 -9.239286 -12.1843 -8.728121 -29.3267 1.227444 -41.16344 0.710537 -0.8448 4.76553 -4.94419 9.011096 -9.10975 4.245565 -4.16555 8.179494 -8.13995 8.742065 -8.832 7.587992 -9.33431 9.031959 -21.14811 3.919509 -32.06745 C 77.621353 319.18038 70.671471 312.96409 62.838108 310.38088 58.789974 309.04593 59.117384 309.07069 43.68 308.931 28.559476 308.79416 28.591782 308.79627 24.48 307.67862 16.273202 305.4479 8.9938065 300.0331 4.6015098 292.89197 2.7528083 289.88628 1.365967 286.38061 0.53951735 282.624 L 0.096 280.608 v -24.48 -24.48 l 0.44351735 -2.016 C 3.1002791 217.9921 11.256701 208.97196 22.656 205.1735 c 4.969386 -1.6559 7.217007 -1.84514 21.916921 -1.84535 10.976231 -1.3e-4 12.000927 -0.0282 14.092493 -0.38576 11.785421 -2.01481 21.603819 -11.22307 24.559348 -23.03316 1.846646 -7.37907 1.068111 -14.39693 -2.322252 -20.93323 -2.047897 -3.94815 -2.908833 -4.95048 -12.945836 -15.072 -8.199514 -8.26856 -9.491466 -9.65217 -10.66723 -11.424 -3.970942 -5.98407 -5.931566 -13.02181 -5.556709 -19.94605 0.417597 -7.71373 3.275127 -14.799355 8.201478 -20.336671 1.608398 -1.80787 31.043428 -30.594135 33.089787 -32.360467 0.7392 -0.638047 2.1216 -1.664189 3.072 -2.280315 11.56389 -7.496648 26.71008 -7.310001 38.07245 0.469167 1.58459 1.084881 4.08535 3.451995 13.76755 13.031804 6.25423 6.188087 7.71861 7.437637 10.76023 9.181671 8.49384 4.870283 19.26863 5.035269 28.43493 0.435404 8.51609 -4.273571 14.5667 -11.932929 16.6355 -21.058543 0.36736 -1.620453 0.39973 -2.594352 0.51986 -15.648 0.1204 -13.080342 0.15283 -14.053187 0.53776 -16.128 1.35713 -7.31544 4.51645 -13.359612 9.63454 -18.432 4.79383 -4.751064 10.36865 -7.6318139 17.38118 -8.98161805 1.31311 -0.25275336 4.78186 -0.30684349 23.904 -0.37274767 15.40648 -0.0530982083 23.05405 -0.01118755 24.57235 0.13466273 4.15709 0.39933496 7.3411 1.28766319 11.04365 3.08113529 9.39836 4.552454 15.96238 13.0624047 18.27539 23.6932237 l 0.50421 2.317344 0.13659 14.112 c 0.15095 15.595459 0.14016 15.451582 1.45201 19.392 2.67011 8.020195 8.50374 14.533995 16.4021 18.314496 8.29414 3.969942 17.97729 4.044783 26.09021 0.20165 4.3949 -2.081883 5.2643 -2.808876 15.37949 -12.860333 9.05814 -9.001073 10.3863 -10.163065 13.78443 -12.059898 11.14662 -6.222035 25.11515 -5.657731 35.74806 1.444153 2.27287 1.518084 3.12722 2.335455 21.23308 20.314233 10.69417 10.6191 15.13872 15.159733 16.0278 16.374298 4.07639 5.568661 6.16929 11.530141 6.46226 18.407301 0.36355 8.5338 -2.6284 16.93147 -8.23824 23.12272 -0.77077 0.85064 -4.91305 4.98357 -9.20508 9.18429 -4.29204 4.20072 -8.23411 8.17034 -8.76017 8.82138 -2.18504 2.70413 -3.89278 5.86486 -5.03674 9.32215 -1.0309 3.11557 -1.40035 5.47665 -1.40035 8.94956 0 4.15871 0.68118 7.64186 2.2763 11.6398 0.36336 0.9107 0.66065 1.7099 0.66065 1.776 0 0.0661 -21.55655 0.1202 -47.90344 0.1202 h -47.90347 l -4.56053 -4.5779 c -6.05824 -6.08126 -10.50828 -9.75487 -17.13656 -14.1466 -7.38751 -4.89478 -16.04809 -9.13087 -24.48 -11.97376 -20.82058 -7.01981 -43.70388 -7.39791 -64.73405 -1.06959 -18.52391 5.57414 -35.66743 16.4336 -48.37441 30.64248 l -0.96819 1.08263 -4.30568 0.0967 c -3.3945 0.0763 -4.65103 0.17865 -5.93767 0.48373 -9.5322 2.26024 -16.97322 8.84647 -22.52312 19.93576 -4.29179 8.57545 -7.24355 20.14971 -8.19518 32.1345 -0.53319 6.71495 -8.29058 130.73948 -8.38833 134.112 -0.311 10.72973 1.34114 21.84376 4.45248 29.952 4.3781 11.40947 12.07655 18.88464 21.8536 21.21982 3.16594 0.75617 5.02045 0.79269 36.70455 0.72282 28.31495 -0.0624 30.65326 -0.0921 32.256 -0.40861 4.66938 -0.92223 9.21039 -3.06989 12.89593 -6.09913 0.75675 -0.62198 1.42936 -1.1309 1.49468 -1.1309 0.0653 0 0.78536 0.55033 1.60007 1.22296 2.82766 2.33451 5.65171 3.92041 8.93858 5.01963 3.84363 1.2854 3.88767 1.28882 17.85103 1.38209 l 12.63631 0.0844 0.983 2.14546 c 5.16169 11.26557 12.49002 22.86258 20.52555 32.48145 2.57018 3.07665 4.29605 5.00099 7.89085 8.7983 l 2.256 2.38309 -0.002 4.5853 c -0.003 8.93651 -0.7642 13.02459 -3.48056 18.69731 -5.09038 10.63056 -15.01605 17.60344 -26.5056 18.62045 -2.53428 0.22431 -43.53402 0.22036 -46.0541 -0.004 z M 157.58642 404.25456 c -4.75981 -1.75632 -8.42747 -9.79814 -9.6754 -21.21456 -0.74152 -6.78363 -0.73651 -6.88644 3.83393 -78.72 2.44153 -38.37339 4.31941 -66.64485 4.54653 -68.448 1.002 -7.95514 2.81647 -14.64593 5.4871 -20.23352 2.2469 -4.70104 4.91842 -7.99695 7.52018 -9.2778 l 1.28517 -0.63268 H 201.69197 232.8 l 0.96 0.4681 c 1.29519 0.63154 3.25488 2.67008 4.37722 4.55341 2.40347 4.03306 4.17865 10.43729 4.96786 17.92249 0.42559 4.03622 0.27303 11.11087 -0.48559 22.51862 -0.38473 5.78523 -0.69949 10.73163 -0.69949 10.992 V 262.656 H 223.2 204.48 v -0.88961 c 0 -0.48928 0.25985 -5.05325 0.57744 -10.14215 0.60165 -9.64021 0.59363 -10.464 -0.1156 -11.86412 -0.68573 -1.35374 -0.45128 -1.29612 -5.27453 -1.29612 h -4.36917 l -0.50418 0.59917 c -0.62002 0.73686 -1.00665 1.63435 -1.36439 3.1672 -0.17393 0.74527 -1.46781 20.07283 -3.54113 52.896 -1.79689 28.44689 -3.56907 56.43924 -3.93817 62.20521 -0.67704 10.57625 -0.68304 11.39163 -0.0953 12.94042 0.12022 0.3168 0.40069 0.7704 0.62327 1.008 0.39677 0.42357 0.49026 0.432 4.78721 0.432 4.9564 0 4.81399 0.0416 5.54979 -1.62179 0.74281 -1.67923 0.94754 -3.37399 1.52095 -12.58974 0.31669 -5.0896 0.57579 -9.37411 0.57579 -9.52115 0 -0.2266 2.85141 -0.26732 18.72 -0.26732 h 18.72 v 0.56723 c 0 1.44339 -1.37583 22.12417 -1.64195 24.68077 -0.88227 8.47645 -3.10707 16.90902 -5.96695 22.61633 -1.87834 3.7485 -4.64156 7.00176 -6.9831 8.22156 l -1.248 0.65011 -31.104 0.0357 c -26.026 0.0298 -31.22115 -0.007 -31.82158 -0.22911 z m 96.62158 0.11107 c -4.06671 -1.25145 -7.56526 -7.21186 -9.19281 -15.66163 -0.81924 -4.2533 -1.01424 -6.41238 -1.10981 -12.288 -0.0911 -5.60423 -0.0518 -6.41685 1.45376 -30.048 1.51901 -23.84168 3.88914 -61.29199 5.77788 -91.296 1.066 -16.93434 1.03983 -16.59178 1.56232 -20.448 1.23074 -9.08325 4.04202 -17.65511 7.55633 -23.04 1.31987 -2.02236 3.93197 -4.59588 5.37633 -5.2969 l 1.152 -0.5591 h 31.104 31.104 l 1.08071 0.53073 c 4.73363 2.32464 8.10213 10.6022 9.19909 22.60527 0.53596 5.86472 0.44401 7.65802 -3.93311 76.704 -2.2761 35.904 -4.22899 66.1872 -4.33975 67.296 -1.52955 15.31094 -6.61523 27.53551 -12.86007 30.912 l -1.24287 0.672 -31.104 0.0327 c -17.1072 0.0181 -31.32 -0.0338 -31.584 -0.11503 z m 38.29434 -33.29591 c 0.67667 -0.88715 1.22156 -2.57303 1.46289 -4.52619 0.36672 -2.96788 7.88951 -123.14989 7.79019 -124.4538 -0.10698 -1.40435 -0.50371 -2.52866 -1.12604 -3.19112 -0.40061 -0.42639 -0.48958 -0.43461 -4.70961 -0.43461 h -4.3013 l -0.53036 0.53036 c -0.66833 0.66833 -1.25395 2.22096 -1.538 4.07764 -0.24547 1.60452 -7.88611 121.99471 -7.88611 124.25798 0 1.60989 0.37941 3.12031 0.97354 3.87562 l 0.39834 0.5064 h 4.48829 4.48828 z m 46.75651 32.94628 c -0.008 -0.85463 12.30204 -197.07564 12.40691 -197.76 l 0.0956 -0.624 h 38.52268 38.52269 l 0.82877 0.4012 c 2.56249 1.24048 5.40092 7.0878 6.77025 13.94702 0.74609 3.73732 0.97021 5.94048 0.97021 9.53708 0 4.62363 -2.5925 45.22821 -3.06286 47.97174 -1.19952 6.99632 -3.94351 14.5358 -7.00493 19.24696 -1.1121 1.71137 -2.87981 3.71034 -3.64166 4.11807 -0.2742 0.14675 -0.49855 0.37836 -0.49855 0.51468 0 0.13632 0.43496 0.65472 0.96657 1.15196 3.87365 3.62337 7.09743 14.42373 7.09743 23.77805 0 1.83404 -0.95958 18.54223 -2.304 40.11727 -1.2672 20.33581 -2.304 37.23381 -2.304 37.55109 v 0.57688 h -18.78781 -18.78782 l 0.0771 -0.912 c 0.0424 -0.5016 1.19604 -18.7772 2.56364 -40.61245 2.59933 -41.50171 2.55051 -40.36054 1.80282 -42.15001 -0.60503 -1.44807 -0.30599 -1.38154 -6.2097 -1.3815 l -5.29824 4e-5 -2.56775 41.03996 c -1.41226 22.57198 -2.6126 41.70956 -2.66744 42.52796 l -0.0997 1.488 H 357.95656 339.264 l -0.005 -0.528 z m 55.54649 -116.40075 c 0.56999 -0.44834 1.20987 -1.69304 1.60416 -3.12038 0.35919 -1.30032 2.81831 -39.4917 2.69191 -41.80687 -0.0977 -1.78932 -0.49038 -3.11061 -1.12537 -3.78653 -0.40826 -0.43459 -0.44549 -0.43747 -5.65751 -0.43747 -4.57524 0 -5.24653 0.0375 -5.24653 0.29297 0 0.16115 -0.6912 11.05607 -1.536 24.21095 C 384.6912 276.1228 384 287.13656 384 287.44295 V 288 h 5.1581 c 4.87073 0 5.18536 -0.0214 5.64724 -0.38475 z M 436.608 404.26873 c 0 -0.50767 12.27331 -195.83466 12.39381 -197.24473 l 0.11895 -1.392 h 31.01642 31.01643 l -0.11616 1.296 c -0.0639 0.7128 -0.51062 7.8192 -0.99273 15.792 -0.4821 7.9728 -0.92011 14.7768 -0.97333 15.12 l -0.0968 0.624 h -12.23614 -12.23612 l -1.501 23.568 c -0.82556 12.9624 -1.54867 24.108 -1.60694 24.768 l -0.10593 1.2 h 12.0331 12.03312 l -0.10993 1.2 c -0.14264 1.55668 -1.82076 28.93133 -1.82076 29.70131 v 0.58669 h -11.98823 -11.98825 l -0.10399 0.816 c -0.0974 0.76454 -3.18987 50.34371 -3.18553 51.072 0.002 0.31647 0.7139 0.336 12.24801 0.336 h 12.246 l -1.0046 15.888 c -0.55254 8.7384 -1.00885 16.1256 -1.01401 16.416 l -0.009 0.528 h -31.008 c -26.79784 0 -31.008 -0.0374 -31.008 -0.27527 z"
+											FillRule="NonZero" />
+									</Path.Data>
+								</Path>
+							</Canvas>
+						</Viewbox>
+					</uc:CustomTabItem.Icon>
+				</uc:CustomTabItem>
+				<controls:Badge
+					FrameworkElement.Name="silverZoneBadged"
+					Control.Background="{DynamicResource ForegroundBad}"
+					Control.BorderBrush="#00FFFFFF"
+					Control.BorderThickness="0"
+					Badge.Status="Text"
+					Badge.BadgeMargin="{Binding SilverZoneBadge, Converter={StaticResource BadgeMarginConverter}}"
+					Badge.Value="{Binding SilverZoneBadge}">
+					<Grid>
+						<uc:CustomTabItem
+							Name="tabItemSilverZone"
+							Click="CustomTabItem_Click"
+							Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+							Cursor="Hand"
+							Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+							MarginText="-1 3 0 0"
+							Tag="SilverZonePage"
+							Text="{DynamicResource SilverZone}">
+							<uc:CustomTabItem.Icon>
+								<PackIconMaterial
+									FrameworkElement.Width="26"
+									FrameworkElement.Height="19.5"
+									FrameworkElement.HorizontalAlignment="Center"
+									PackIconMaterial.Kind="MapMarkerRadiusOutline"
+									Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+							</uc:CustomTabItem.Icon>
+						</uc:CustomTabItem>
+					</Grid>
+				</controls:Badge>
+			</StackPanel>
+			<uc:CustomTabItem
+				Click="CustomTabItem_Click"
+				Grid.Row="1"
+				VerticalAlignment="Bottom"
+				Background="{DynamicResource MainTabCtrlUnSelectedItemBackground}"
+				Cursor="Hand"
+				Foreground="{DynamicResource ForegroundMainTabCtrlUnSelectedItem}"
+				MarginText="0 3 0 0"
+				Tag="AboutPage"
+				Text="{DynamicResource About}">
+				<uc:CustomTabItem.Icon>
+					<PackIconMaterial
+						FrameworkElement.Width="26"
+						FrameworkElement.Height="19"
+						FrameworkElement.HorizontalAlignment="Center"
+						PackIconMaterial.Kind="HelpCircleOutline"
+						Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type uc:CustomTabItem}}}" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+				</uc:CustomTabItem.Icon>
+			</uc:CustomTabItem>
+		</Grid>
+		<Grid
+			Name="mainGrid"
+			Column="1"
+			Margin="5,4">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="auto" />
+					<RowDefinition
+						Height="auto" />
+				</Grid.RowDefinitions>
+				<DockPanel>
+					<Button
+						Width="10"
+						Height="27"
+						Padding="0"
+						IconElement.Geometry="M31.7,239 L167.7,103 C177.1,93.6 192.29999999999998,93.6 201.6,103 L224.2,125.6 C233.6,135 233.6,150.2 224.2,159.5 L127.9,256 L224.3,352.4 C233.70000000000002,361.79999999999995 233.70000000000002,377 224.3,386.29999999999995 L201.7,409 C192.29999999999998,418.4 177.1,418.4 167.79999999999998,409 L31.799999999999983,273 C22.299999999999983,263.6 22.299999999999983,248.4 31.69999999999998,239"
+						Command="NavigationCommands.BrowseBack"
+						CommandTarget="{Binding ElementName=NavigationFrame}"
+						IsEnabled="{Binding ElementName=NavigationFrame, Path=CanGoBack}">
+						<FrameworkElement.Style>
+							<Style
+								BasedOn="{StaticResource ButtonIcon}"
+								TargetType="{x:Type Button}">
+								<Setter
+									Property="Foreground"
+									Value="{DynamicResource ForegroundMain}" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="Foreground"
+											Value="{DynamicResource ForegroundMouseOverBackNav}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</Button>
+					<Button
+						Width="10"
+						Height="27"
+						Margin="8,0,0,0"
+						Padding="0,0,0,0"
+						IconElement.Geometry="M224.3,273 L88.30000000000001,409 C78.9,418.4 63.70000000000001,418.4 54.40000000000001,409 L31.80000000000001,386.4 C22.400000000000013,377 22.400000000000013,361.79999999999995 31.80000000000001,352.5 L128.20000000000002,256.1 L31.80000000000001,159.70000000000002 C22.400000000000013,150.3 22.400000000000013,135.10000000000002 31.80000000000001,125.80000000000001 L54.3,103 C63.699999999999996,93.6 78.9,93.6 88.19999999999999,103 L224.2,239 C233.7,248.4 233.7,263.6 224.29999999999998,273"
+						Command="NavigationCommands.BrowseForward"
+						CommandTarget="{Binding ElementName=NavigationFrame}"
+						IsEnabled="{Binding ElementName=NavigationFrame, Path=CanGoForward}">
+						<FrameworkElement.Style>
+							<Style
+								BasedOn="{StaticResource ButtonIcon}"
+								TargetType="{x:Type Button}">
+								<Setter
+									Property="Foreground"
+									Value="{DynamicResource ForegroundMain}" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="Foreground"
+											Value="{DynamicResource ForegroundMouseOverForwardNav}" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</Button>
+					<TextBlock
+						Margin="7,0,0,0"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						FontFamily="Arial"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource Main}" /> <Run
+							Text="/" /> <Run
+							FontWeight="Bold"
+							Foreground="{DynamicResource ForegroundMainTabCtrlSelectedItem}"
+							Text="{Binding ElementName=NavigationFrame, Path=Tag}" /></TextBlock>
+				</DockPanel>
+				<Separator
+					Grid.Row="1"
+					BorderBrush="{DynamicResource BorderBrush}" />
+			</Grid>
+			<Frame
+				Name="NavigationFrame"
+				Grid.Row="1"
+				Margin="0,5,0,0"
+				BorderThickness="0"
+				NavigationUIVisibility="Hidden" />
+		</Grid>
+	</Grid>
+</controls:GlowWindow>

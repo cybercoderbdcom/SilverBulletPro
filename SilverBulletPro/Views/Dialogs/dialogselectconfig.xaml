@@ -1,0 +1,358 @@
+<!--Class 'SilverBulletPro.DialogSelectConfig' has IComponentConnector.Connect method, but cannot be parsed.-->
+<Page
+	x:Class="SilverBulletPro.DialogSelectConfig" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="DialogSelectConfig" xmlns:silverbulletpro="clr-namespace:SilverBulletPro">
+	<Grid
+		Width="710"
+		Height="500"
+		Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<Grid
+			Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="auto" />
+			</Grid.ColumnDefinitions>
+			<controls:SearchBar
+				FrameworkElement.Name="searchBar"
+				InfoElement.Placeholder="{DynamicResource Search}"
+				Control.Background="{DynamicResource BackgroundSecondary}"
+				FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+				Control.Foreground="{DynamicResource ForegroundMain}"
+				FrameworkElement.Style="{StaticResource SearchBarExtend}" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+				TextBox.Text="{Binding SearchString}" />
+		</Grid>
+		<ListView
+			Name="configsListView"
+			Grid.Row="1"
+			Background="#00FFFFFF"
+			BorderThickness="1"
+			Foreground="{DynamicResource ForegroundMain}"
+			SelectionMode="Extended"
+			VirtualizingPanel.IsVirtualizing="True"
+			ItemsSource="{Binding Path=ConfigsCollection}">
+			<FrameworkElement.Style>
+				<Style
+					TargetType="{x:Type ListView}" />
+			</FrameworkElement.Style>
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						TargetType="{x:Type Thumb}"
+						x:Key="GridViewColumnHeaderGripper">
+						<Setter
+							Property="Width"
+							Value="18" />
+						<Setter
+							Property="Background">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0,0"
+									EndPoint="0,1">
+									<GradientBrush.GradientStops>
+										<GradientStopCollection>
+											<GradientStop
+												Offset="0.0"
+												Color="{DynamicResource BorderLightColor}" />
+											<GradientStop
+												Offset="1.0"
+												Color="{DynamicResource BorderDarkColor}" />
+										</GradientStopCollection>
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type Thumb}">
+									<Border
+										Padding="{TemplateBinding Padding}"
+										Background="#00FFFFFF">
+										<Rectangle
+											Width="1"
+											HorizontalAlignment="Center"
+											Fill="{TemplateBinding Background}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="BorderBrush">
+							<Setter.Value>
+								<LinearGradientBrush
+									StartPoint="0.5,0"
+									EndPoint="0.5,1">
+									<GradientStop
+										Offset="0"
+										Color="Black" />
+									<GradientStop
+										Offset="1"
+										Color="White" />
+								</LinearGradientBrush>
+							</Setter.Value>
+						</Setter>
+					</Style>
+					<Style
+						TargetType="{x:Type GridViewColumnHeader}"
+						x:Key="{x:Type GridViewColumnHeader}">
+						<Setter
+							Property="HorizontalContentAlignment"
+							Value="Left" />
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type GridViewColumnHeader}">
+									<Grid>
+										<Border
+											Background="#00FFFFFF"
+											BorderBrush="#FF000000"
+											BorderThickness="0,0,0,1">
+											<TextBlock
+												Name="ContentHeader"
+												Width="{TemplateBinding Width}"
+												Padding="5,5,5,0"
+												Text="{TemplateBinding Content}"
+												TextAlignment="Left" />
+										</Border>
+										<Thumb
+											Name="PART_HeaderGripper"
+											Margin="0,0,-9,0"
+											HorizontalAlignment="Right"
+											Style="{StaticResource GridViewColumnHeaderGripper}" />
+									</Grid>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Setter
+							Property="FrameworkElement.OverridesDefaultStyle"
+							Value="True" />
+						<Setter
+							Property="Foreground"
+							Value="{DynamicResource ForegroundMain}" />
+						<Setter
+							Property="FontFamily"
+							Value="pack://application:,,,/Fonts/#Century Gothic" />
+						<Setter
+							Property="FontSize"
+							Value="14" />
+					</Style>
+					<Style
+						TargetType="{x:Type ListViewItem}"
+						x:Key="{x:Type ListViewItem}">
+						<Setter
+							Property="Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type ListViewItem}">
+									<Border
+										Name="Bd"
+										Padding="0"
+										Background="{TemplateBinding Background}"
+										BorderBrush="{TemplateBinding BorderBrush}"
+										BorderThickness="{TemplateBinding BorderThickness}"
+										SnapsToDevicePixels="true">
+										<GridViewRowPresenter
+											HorizontalAlignment="Left"
+											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+											SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									</Border>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+						<Style.Triggers>
+							<Trigger
+								Property="UIElement.IsMouseOver"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+							<Trigger
+								Property="ListBoxItem.IsSelected"
+								Value="True">
+								<Setter
+									Property="Background"
+									Value="{DynamicResource BackgroundSecondary}" />
+							</Trigger>
+						</Style.Triggers>
+					</Style>
+					<Style
+						BasedOn="{StaticResource ScrollViewerNativeBaseStyle}"
+						TargetType="{x:Type ScrollViewer}"
+						x:Key="{x:Type ScrollViewer}" />
+					<Style
+						BasedOn="{StaticResource ScrollBarBaseStyle}"
+						TargetType="{x:Type ScrollBar}"
+						x:Key="{x:Type ScrollBar}" />
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<VirtualizingStackPanel />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ListView.View>
+				<GridView>
+					<GridViewColumn
+						Width="130"
+						DisplayMemberBinding="{Binding Path=Config.Settings.Name}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Name}"
+								Tag="Config.Settings.Name" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.Settings.Author}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Author}"
+								Tag="Config.Settings.Author" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="100"
+						DisplayMemberBinding="{Binding Path=Category}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Category}"
+								Tag="Category" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="100"
+						DisplayMemberBinding="{Binding Path=Config.AllowedWordlists}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Wordlists}"
+								Tag="Config.AllowedWordlists" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="40"
+						DisplayMemberBinding="{Binding Path=Config.Settings.NeedsProxies}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Prox}"
+								Tag="Config.Settings.NeedsProxies" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="40"
+						DisplayMemberBinding="{Binding Path=Config.CaptchasNeeded}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Cap}"
+								Tag="Config.CaptchasNeeded" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="51"
+						DisplayMemberBinding="{Binding Path=Config.PuppeteerPresent}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Puppe}"
+								Tag="Config.PuppeteerPresent"
+								ToolTip="{DynamicResource Puppeteer}" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="40"
+						DisplayMemberBinding="{Binding Path=Config.SeleniumPresent}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource Sele}"
+								Tag="Config.SeleniumPresent"
+								ToolTip="{DynamicResource Selenium}" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						DisplayMemberBinding="{Binding Path=Config.HasCFBypass}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource CF}"
+								Tag="Config.HasCFBypass" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+					<GridViewColumn
+						Width="200"
+						DisplayMemberBinding="{Binding Path=Config.Settings.LastModified}">
+						<GridViewColumn.Header>
+							<GridViewColumnHeader
+								Content="{DynamicResource LastModified}"
+								Tag="Config.Settings.LastModified" />
+						</GridViewColumn.Header>
+					</GridViewColumn>
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Grid
+			Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="0.25*" />
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="0.4*" />
+			</Grid.ColumnDefinitions>
+			<Button
+				Name="refreshButton"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				BorderElement.CornerRadius="0 0 0 6"
+				BorderBrush="{DynamicResource BorderBrush}"
+				BorderThickness="1,1,1,1">
+				<DockPanel>
+					<iconpacks:PackIconMaterial
+						FrameworkElement.Width="14"
+						PackIconMaterial.Kind="Refresh" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+					<TextBlock
+						Margin="6,0,0,0"
+						Text="{DynamicResource Refresh}" />
+				</DockPanel>
+			</Button>
+			<Button
+				Name="selectButton"
+				Grid.Row="2"
+				Grid.Column="1"
+				Width="auto"
+				Height="30"
+				Margin="0,2,0,2"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				BorderElement.CornerRadius="0 0 0 0"
+				IconElement.Geometry="M173.898,439.404 L7.4979999999999905,273.004 C-2.4990000000000094,263.007 -2.4990000000000094,246.79800000000003 7.4979999999999905,236.8 L43.70099999999999,200.596 C53.69799999999999,190.598 69.90799999999999,190.598 79.905,200.596 L192,312.69 L432.095,72.596 C442.09200000000004,62.599000000000004 458.302,62.599000000000004 468.29900000000004,72.596 L504.50200000000007,108.80000000000001 C514.499,118.79700000000001 514.499,135.006 504.50200000000007,145.00400000000002 L210.1020000000001,439.405 C200.1040000000001,449.40200000000004 183.8950000000001,449.40200000000004 173.89800000000008,439.40400000000005"
+				IconElement.Width="15"
+				BorderBrush="{DynamicResource BorderBrush}"
+				BorderThickness="0,1,1,1"
+				Content="{DynamicResource Select}" />
+			<Button
+				Name="selectEncButton"
+				Grid.Row="2"
+				Grid.Column="2"
+				Width="auto"
+				Height="30"
+				Margin="0,2,0,2"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				BorderElement.CornerRadius="0 0 6 0"
+				IconElement.Geometry="M22.1698,36.4215 L25.3366,36.4215 L25.3367,31.6711 C25.3367,24.6745 31.0085,19.0027 38.0051,19.0027 C45.0017,19.0027 50.6735,24.6745 50.6735,31.6711 L45.9228,31.6711 C45.9228,27.2982 42.3779,23.7533 38.0051,23.7533 C33.6322,23.7533 30.0873,27.2982 30.0873,31.6711 L30.0873,36.4216 L53.8408,36.4215 L53.8409,57.008 L22.1698,57.008 L22.1698,36.4215"
+				IconElement.Width="13"
+				BorderBrush="{DynamicResource BorderBrush}"
+				BorderThickness="0,1,1,1"
+				Content="{DynamicResource SelectEncryptedConfig}" />
+		</Grid>
+	</Grid>
+</Page>

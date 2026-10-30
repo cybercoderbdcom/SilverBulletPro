@@ -1,0 +1,60 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockUtilityGetFilesInFolder" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockUtilityGetFilesInFolder" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			ModesOfOutput="ListString"
+			OutputMode="ListString"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			EnableEncoding="False"
+			Label="{DynamicResource UtilityFiles_DirPath}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding PathInputMode, Mode=TwoWay}"
+			Text="{Binding Path, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="3"
+			Margin="0,5,0,0"
+			Label="{DynamicResource UtilityFiles_SearchPattern}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding SearchPatternInputMode, Mode=TwoWay}"
+			Text="{Binding SearchPattern, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="4"
+			Margin="0,5,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource UtilityFiles_SearchOption}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="searchOptionComboBox"
+				Margin="1,0,0,0"
+				Foreground="{DynamicResource ForegroundMain}"
+				SelectedItem="{Binding SearchOption}" />
+		</DockPanel>
+	</Grid>
+</Page>

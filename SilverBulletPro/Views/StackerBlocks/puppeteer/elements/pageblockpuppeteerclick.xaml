@@ -1,0 +1,99 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockPuppeteerClick" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockPuppeteerClick" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:SafeModeCtrl
+			Grid.Row="0"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="1"
+			Margin="0,10,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Puppeteer_FindBy}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="findByComboBox"
+				Margin="1,0,0,0"
+				Background="{DynamicResource BackgroundSecondary}"
+				Foreground="{DynamicResource ForegroundMain}"
+				SelectedItem="{Binding FindElementBy}" />
+		</DockPanel>
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Puppeteer_Identifier}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding IdentifierInputMode, Mode=TwoWay}"
+			Text="{Binding Identifier, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="3"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Puppeteer_Index}"
+			Minimum="0"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding IndexInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Index, Mode=TwoWay}"
+			StringValue="{Binding IndexString, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="4"
+			Margin="0,5,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Puppeteer_MouseButton}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="mouseButtonComboBox"
+				Margin="1,0,0,0"
+				Background="{DynamicResource BackgroundSecondary}"
+				Foreground="{DynamicResource ForegroundMain}"
+				SelectedItem="{Binding MouseButton}" />
+		</DockPanel>
+		<uc:NumStrInputBox
+			Grid.Row="5"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Puppeteer_ClickCount}"
+			Minimum="0"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding ClickCountInputMode, Mode=TwoWay}"
+			NumericValue="{Binding ClickCount, Mode=TwoWay}"
+			StringValue="{Binding ClickCountString, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="6"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Puppeteer_TimeBetweenClicks}"
+			Minimum="0"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding TimeBetweenClicksInputMode, Mode=TwoWay}"
+			NumericValue="{Binding TimeBetweenClicks, Mode=TwoWay}"
+			StringValue="{Binding TimeBetweenClicksString, Mode=TwoWay}" />
+	</Grid>
+</Page>

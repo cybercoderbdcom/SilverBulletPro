@@ -1,0 +1,58 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockUtilitySvgToPng" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ucv="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockUtilitySvgToPng" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<ucv:VarCapOutputBox
+			EnableHiddenVar="True"
+			ModesOfOutput="ByteArray"
+			HiddenVar="{Binding HiddenVar, Mode=TwoWay}"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<ucv:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<ucv:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,5"
+			EnableEncoding="False"
+			Label="{DynamicResource UtilityFiles_SvgXml}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding InputMode, Mode=TwoWay}"
+			Text="{Binding Xml, Mode=TwoWay}" />
+		<ucv:NumStrInputBox
+			Name="inputControl1"
+			Grid.Row="3"
+			Height="29"
+			Margin="0,0,0,5"
+			Label="{DynamicResource UtilityFiles_SvgWidth}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding WidthInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Width, Mode=TwoWay}"
+			StringValue="{Binding WidthString, Mode=TwoWay}" />
+		<ucv:NumStrInputBox
+			Name="inputControl2"
+			Grid.Row="4"
+			Height="29"
+			Margin="0,0,0,5"
+			Label="{DynamicResource UtilityFiles_SvgHeight}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding HeightInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Height, Mode=TwoWay}"
+			StringValue="{Binding HeightString, Mode=TwoWay}" />
+	</Grid>
+</Page>

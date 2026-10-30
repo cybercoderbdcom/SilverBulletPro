@@ -1,0 +1,45 @@
+<Page
+	x:Class="SilverBulletPro.DialogCustomInput" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="DialogCustomInput" xmlns:silverbulletpro="clr-namespace:SilverBulletPro">
+	<Grid
+		Width="400"
+		Margin="10,7,10,15"
+		HorizontalAlignment="Stretch"
+		VerticalAlignment="Stretch"
+		Background="#00FFFFFF">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<Label
+			Name="questionLabel"
+			Margin="0,0,2,0"
+			VerticalAlignment="Center"
+			Content="Question:"
+			Foreground="{DynamicResource ForegroundMain}" />
+		<TextBox
+			Name="answerTextbox"
+			Grid.Row="1"
+			InfoElement.Placeholder="{DynamicResource Answer}"
+			Background="{DynamicResource BackgroundSecondary}"
+			Foreground="{DynamicResource ForegroundMain}"
+			Style="{StaticResource TextBoxExtend}"
+			KeyDown="answerTextbox_KeyDown" />
+		<Button
+			Name="acceptButton"
+			Grid.Row="2"
+			Width="auto"
+			Margin="0,5,0,0"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch"
+			IconElement.Geometry="M18.71,7.21 A1,1 0 0 0 17.29,7.21L9.84,14.67 L6.71,11.53 A1,1 1 1 0 5.29,13L9.129999999999999,16.84 A1,1 0 0 0 10.549999999999999,16.84L18.71,8.68 A1,1 0 0 0 18.71,7.21"
+			Background="{DynamicResource BackgroundSecondary}"
+			Content="{DynamicResource Accept}"
+			Foreground="{DynamicResource ForegroundMain}"
+			Click="acceptButton_Click" />
+	</Grid>
+</Page>

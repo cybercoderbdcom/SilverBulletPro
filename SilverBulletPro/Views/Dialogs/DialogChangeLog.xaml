@@ -1,0 +1,35 @@
+<Page
+	x:Class="SilverBulletPro.Views.Dialogs.DialogChangeLog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:md="clr-namespace:MdXaml;assembly=MdXaml"
+	Title="DialogChangeLog"
+	Width="550"
+	Height="350" xmlns:dialogs="clr-namespace:SilverBulletPro.Views.Dialogs">
+	<ScrollViewer
+		Margin="2,5,2,10"
+		CanContentScroll="True"
+		HorizontalScrollBarVisibility="Disabled"
+		IsDeferredScrollingEnabled="True"
+		VerticalScrollBarVisibility="Disabled">
+		<md:MarkdownScrollViewer
+			MarkdownScrollViewer.Name="markDown"
+			ScrollViewerAttach.AutoHide="False"
+			Control.Background="{DynamicResource BackgroundSecondary}"
+			Control.Foreground="{DynamicResource ForegroundMain}"
+			FlowDocumentScrollViewer.HorizontalScrollBarVisibility="Auto"
+			ScrollViewer.CanContentScroll="True"
+			FlowDocumentScrollViewer.VerticalScrollBarVisibility="Auto"
+			x:Name="markDown">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						BasedOn="{StaticResource ScrollViewerNativeBaseStyle}"
+						TargetType="{x:Type ScrollViewer}"
+						x:Key="{x:Type ScrollViewer}" />
+					<Style
+						BasedOn="{StaticResource ScrollBarBaseStyle}"
+						TargetType="{x:Type ScrollBar}"
+						x:Key="{x:Type ScrollBar}" />
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+		</md:MarkdownScrollViewer>
+	</ScrollViewer>
+</Page>

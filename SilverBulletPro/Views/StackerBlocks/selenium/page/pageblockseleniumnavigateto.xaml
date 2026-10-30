@@ -1,0 +1,45 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockSeleniumNavigateTo" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockSeleniumNavigateTo" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:SafeModeCtrl
+			Grid.Row="0"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="1"
+			Margin="0,10,0,0"
+			Label="{DynamicResource Selenium_Url}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding UrlInputMode, Mode=TwoWay}"
+			Text="{Binding Url, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="2"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource TimeoutMs}"
+			Minimum="0"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding TimeoutInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Timeout, Mode=TwoWay}"
+			StringValue="{Binding TimeoutString, Mode=TwoWay}" />
+		<CheckBox
+			Grid.Row="3"
+			Margin="2,10,0,0"
+			Content="{DynamicResource Selenium_BanOnTimeout}"
+			Foreground="{DynamicResource ForegroundMain}"
+			IsChecked="{Binding BanOnTimeout}" />
+	</Grid>
+</Page>

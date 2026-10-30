@@ -1,0 +1,21 @@
+<UserControl
+	x:Class="SilverBulletPro.Views.UserControls.PluginControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:usercontrols="clr-namespace:SilverBulletPro.Views.UserControls">
+	<Grid
+		Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<Label
+			Grid.Row="0"
+			FontWeight="Bold"
+			Content="{Binding Plugin.Name}" />
+		<ItemsControl
+			Grid.Row="1"
+			Padding="5"
+			Foreground="{DynamicResource ForegroundMain}"
+			ItemsSource="{Binding Controls}" />
+	</Grid>
+</UserControl>

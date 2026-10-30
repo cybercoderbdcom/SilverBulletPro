@@ -1,0 +1,141 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockNativeLibInvoke" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockNativeLibExec" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			ModesOfOutput="String"
+			OutputMode="String"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			Label="{DynamicResource NativeLibInvoke_LibPath}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding LibPathInputMode, Mode=TwoWay}"
+			Text="{Binding LibPath, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="3"
+			Margin="0,5,0,0"
+			Label="{DynamicResource NativeLibInvoke_FuncName}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding FuncNameInputMode, Mode=TwoWay}"
+			Text="{Binding FuncName, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="4"
+			Margin="0,5,0,5"
+			Label="{DynamicResource NativeLibInvoke_FuncReturnType}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding FuncRetTypeInputMode, Mode=TwoWay}"
+			Text="{Binding FuncRetType, Mode=TwoWay}" />
+		<Grid
+			Row="5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition
+					Width="auto" />
+			</Grid.ColumnDefinitions>
+			<uc:RichTextInputBox
+				Name="rtParameters"
+				Height="145"
+				Margin="0,5,0,0"
+				Label="{DynamicResource NativeLibInvoke_Parameters}">
+				<uc:RichTextInputBox.RichTextBoxToolTip>
+					<TextBlock>
+						<Run
+							Text="{DynamicResource SyntaxTip}" /> <Run
+							Text=":" /><LineBreak />type:value</TextBlock>
+				</uc:RichTextInputBox.RichTextBoxToolTip>
+			</uc:RichTextInputBox>
+			<StackPanel
+				Grid.Column="1"
+				Visibility="Collapsed">
+				<Button
+					Width="50"
+					Height="28"
+					Padding="5,5,0,5"
+					BorderElement.CornerRadius="0 4 0 0"
+					IconElement.Geometry="M464,0 C490.51,0 512,21.49 512,48 L512,336 C512,362.51 490.51,384 464,384 L176,384 C149.49,384 128,362.51 128,336 L128,48 C128,21.49 149.49,0 176,0 L464,0 M176,416 C131.888,416 96,380.112 96,336 L96,128 L48,128 C21.49,128 0,149.49 0,176 L0,464 C0,490.51 21.49,512 48,512 L336,512 C362.51,512 384,490.51 384,464 L384,416 L176,416"
+					IconElement.Width="15"
+					BorderThickness="0,1,1,1"
+					ToolTip="{DynamicResource Ocr_CloneFilterTip}" />
+				<Button
+					Width="50"
+					Height="28"
+					Padding="5,5,0,5"
+					BorderElement.CornerRadius="0"
+					IconElement.Geometry="M38,19 C48.4934,19 57,27.5066 57,38 C57,48.4934 48.4934,57 38,57 C27.5066,57 19,48.4934 19,38 C19,27.5066 27.5066,19 38,19 M38,23.75 C35.2116,23.75 32.6102,24.5509 30.4134,25.9352 L50.0648,45.5866 C51.4491,43.3898 52.25,40.7884 52.25,38 C52.25,30.13 45.87,23.75 38,23.75 M23.75,38 C23.75,45.8701 30.1299,52.25 38,52.25 C40.7884,52.25 43.3897,51.4491 45.5865,50.0649 L25.9351,30.4136 C24.5509,32.6103 23.75,35.2117 23.75,38"
+					IconElement.Width="15"
+					BorderThickness="0,1,1,1"
+					ToolTip="{DynamicResource Ocr_DisableFilterTip}" />
+				<Button
+					Width="50"
+					Height="28"
+					Padding="5,5,0,5"
+					BorderElement.CornerRadius="0"
+					IconElement.Geometry="M128,320 L256,192 L384,320"
+					IconElement.Width="15"
+					BorderThickness="0,1,1,1"
+					ToolTip="{DynamicResource Ocr_UpFilterTip}" />
+				<Button
+					Width="50"
+					Height="28"
+					Padding="5,5,0,5"
+					BorderElement.CornerRadius="0"
+					IconElement.Geometry="M128,192 L256,320 L384,192"
+					IconElement.Width="15"
+					BorderThickness="0,1,1,1"
+					ToolTip="{DynamicResource Ocr_DownFilterTip}" />
+				<Button
+					Width="50"
+					Height="28"
+					Padding="5,5,0,5"
+					BorderElement.CornerRadius="0"
+					IconElement.Geometry="M12,12 L12,19.88 C12.04,20.18 11.94,20.5 11.71,20.71 C11.32,21.1 10.69,21.1 10.3,20.71 L8.29,18.7 C8.06,18.47 7.96,18.16 8,17.86 L8,12 L7.97,12 L2.21,4.62 C1.87,4.19 1.95,3.56 2.38,3.22 C2.57,3.08 2.78,3 3,3 L3,3 L17,3 L17,3 C17.22,3 17.43,3.08 17.62,3.22 C18.05,3.56 18.13,4.19 17.79,4.62 L12.03,12 L12,12 M15,17 L23,17 L23,19 L15,19 L15,17"
+					IconElement.Width="15"
+					BorderThickness="0,1,1,1"
+					ToolTip="{DynamicResource Ocr_RemoveFilterTip}" />
+				<Button
+					Width="50"
+					Height="28"
+					Padding="5,5,0,5"
+					BorderElement.CornerRadius="0"
+					IconElement.Geometry="M14.76,20.83 L17.6,18 L14.76,15.17 L16.17,13.76 L19,16.57 L21.83,13.76 L23.24,15.17 L20.43,18 L23.24,20.83 L21.83,22.24 L19,19.4 L16.17,22.24 L14.76,20.83 M12,12 L12,19.88 C12.04,20.18 11.94,20.5 11.71,20.71 C11.32,21.1 10.69,21.1 10.3,20.71 L8.29,18.7 C8.06,18.47 7.96,18.16 8,17.87 L8,12 L7.97,12 L2.21,4.62 C1.87,4.19 1.95,3.56 2.38,3.22 C2.57,3.08 2.78,3 3,3 L3,3 L17,3 L17,3 C17.22,3 17.43,3.08 17.62,3.22 C18.05,3.56 18.13,4.19 17.79,4.62 L12.03,12 L12,12"
+					IconElement.Width="15"
+					BorderThickness="0,1,1,1"
+					ToolTip="{DynamicResource Ocr_ClearFilterTip}" />
+			</StackPanel>
+		</Grid>
+		<StackPanel
+			Grid.Row="6"
+			Margin="2,6,0,0">
+			<CheckBox
+				Margin="0,6,20,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource NativeLibInvoke_Unload}"
+				IsChecked="{Binding Unload}" />
+		</StackPanel>
+	</Grid>
+</Page>

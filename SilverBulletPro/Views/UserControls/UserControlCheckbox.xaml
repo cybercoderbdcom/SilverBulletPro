@@ -1,0 +1,17 @@
+<UserControl
+	x:Class="SilverBulletPro.Views.UserControls.UserControlCheckbox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:usercontrols="clr-namespace:SilverBulletPro.Views.UserControls">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="auto" />
+			<ColumnDefinition
+				Width="*" />
+		</Grid.ColumnDefinitions>
+		<CheckBox
+			Name="valueCheckbox"
+			Grid.Column="0"
+			VerticalAlignment="Center"
+			VerticalContentAlignment="Center"
+			Foreground="{DynamicResource ForegroundMain}" />
+	</Grid>
+</UserControl>

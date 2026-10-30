@@ -1,0 +1,301 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.Tools.WordlistTools" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="WordlistTools" xmlns:tools="clr-namespace:SilverBulletPro.Views.Main.Tools">
+	<ScrollViewer>
+		<Grid
+			Margin="8">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition />
+				<RowDefinition
+					Height="auto" />
+			</Grid.RowDefinitions>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					Margin="5"
+					VerticalAlignment="Center"
+					DockPanel.Dock="Left"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Tools_Wordlist_Location}" /> <Run
+						Text=":" /></TextBlock>
+				<TextBox
+					Name="locTextBox"
+					Grid.Column="1"
+					BorderElement.CornerRadius="4 0 0 4"
+					IsReadOnly="True" />
+				<Button
+					Grid.Column="2"
+					Padding="6"
+					HorizontalAlignment="Right"
+					BorderElement.CornerRadius="0 4 4 0"
+					IconElement.Geometry="M13,9 L18.5,9 L13,3.5 L13,9 M6,2 L14,2 L20,8 L20,20 A2,2 0 0 1 18,22L6,22 C4.89,22 4,21.1 4,20 L4,4 C4,2.89 4.89,2 6,2 M15,18 L15,16 L6,16 L6,18 L15,18 M18,14 L18,12 L6,12 L6,14 L18,14"
+					IconElement.Width="17"
+					BorderThickness="0,1,1,1"
+					Content="{DynamicResource Tools_Wordlist_LoadWordlist}"
+					Click="LoadWordlist_Click" />
+			</Grid>
+			<Grid
+				Row="1"
+				MaxHeight="250"
+				VerticalAlignment="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<GroupBox
+					MinWidth="209"
+					Margin="0,15,10,0"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource BackgroundMain}"
+					Foreground="{DynamicResource ForegroundBad}"
+					Header="{DynamicResource Tools_Wordlist_RemoveDups}"
+					Style="{StaticResource GroupBoxTab}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="auto" />
+							<RowDefinition
+								Height="auto" />
+						</Grid.RowDefinitions>
+						<Button
+							Margin="5"
+							HorizontalAlignment="Stretch"
+							IconElement.Geometry="M14.76,20.83 L17.6,18 L14.76,15.17 L16.17,13.76 L19,16.57 L21.83,13.76 L23.24,15.17 L20.43,18 L23.24,20.83 L21.83,22.24 L19,19.4 L16.17,22.24 L14.76,20.83 M12,12 L12,19.88 C12.04,20.18 11.94,20.5 11.71,20.71 C11.32,21.1 10.69,21.1 10.3,20.71 L8.29,18.7 C8.06,18.47 7.96,18.16 8,17.87 L8,12 L7.97,12 L2.21,4.62 C1.87,4.19 1.95,3.56 2.38,3.22 C2.57,3.08 2.78,3 3,3 L3,3 L17,3 L17,3 C17.22,3 17.43,3.08 17.62,3.22 C18.05,3.56 18.13,4.19 17.79,4.62 L12.03,12 L12,12"
+							IconElement.Width="16"
+							Content="{DynamicResource Tools_Wordlist_RemoveDuplicates}"
+							Click="RemoveDuplicates_Click" />
+						<DockPanel
+							Grid.Row="1"
+							Margin="0,12,0,5">
+							<TextBlock
+								Margin="5,0,0,0"
+								VerticalAlignment="Center"
+								Foreground="{DynamicResource ForegroundMain}">
+								<Run
+									Text="{DynamicResource Tools_Wordlist_Removed}" /> <Run
+									Text=":" /></TextBlock>
+							<TextBlock
+								Name="removedDup"
+								Margin="5,0,0,0"
+								VerticalAlignment="Center"
+								Foreground="{DynamicResource ForegroundGood}">0</TextBlock>
+						</DockPanel>
+					</Grid>
+				</GroupBox>
+				<GroupBox
+					Grid.Column="1"
+					MinWidth="209"
+					Margin="0,15,10,0"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource BackgroundMain}"
+					Foreground="{DynamicResource ForegroundBad}"
+					Header="{DynamicResource Tools_Wordlist_Splitter}"
+					Style="{StaticResource GroupBoxTab}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="auto" />
+							<RowDefinition
+								Height="auto" />
+							<RowDefinition
+								Height="auto" />
+						</Grid.RowDefinitions>
+						<Button
+							Grid.Row="0"
+							Margin="5,5,5,9"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							IconElement.Geometry="M314.66556,614.33335 C314.66494,576.75002 314.06269000000003,539.65439 313.32721000000004,531.89863 C310.3502,500.50562 298.90516,473.60576000000003 279.48454000000004,452.35651 C275.76876000000004,448.29086 246.30396000000005,422.05001000000004 214.00721000000004,394.04353000000003 C181.71047000000004,366.03705 151.81257000000005,339.27006000000006 147.56743000000006,334.56133000000005 C130.53202,315.66554 116.38182,290.71665 108.30359,265.33334 C100.60198,241.13343 100,233.86675 100,165.09838 C100,130.76094 99.554793,102.66666999999998 99.010646,102.66666999999998 C98.46649799999999,102.66666999999998 84.510083,116.16829999999999 67.996388,132.67028 L37.971487,162.6739 L19.328907,143.99556 L0.68632745,125.31724 L63.008063,62.995505 L125.3298,0.67376882 L187.99227,63.325605 L250.65474,125.97744 L232.34153,144.32578 L214.0283,162.67413000000002 L183.01415,131.68103000000002 L152.00001,100.68795000000003 L152.00001,161.53002000000004 C152.00001,226.90661000000003 152.50205,233.24850000000004 159.24737,253.08057000000002 C163.70578999999998,266.18888000000004 172.00017,281.66293 180.31449999999998,292.38354000000004 C185.15376999999998,298.62337 207.00038999999998,318.57197 250.66668,356.6235300000001 C314.71006,412.43205000000006 319.4774,417.0093300000001 332.57944,435.27085000000005 C336.58774,440.85760000000005 340.2414,445.43824000000006 340.69865,445.45003 C341.15592,445.46203 344.54085,441.18423 348.22075,435.94427 C359.50149,419.88104000000004 371.79503,408.15199 433.18505,354.88111000000004 C497.79310999999996,298.81781 504.56044,291.82396000000006 515.317,270.00001000000003 C518.57,263.40001 522.88792,252.60001000000003 524.9124,246.00001000000003 L528.59324,234.00001000000003 L529.01396,168.00001000000003 L529.43468,102.00000000000003 L499.03642999999994,132.33695000000003 L468.6381599999999,162.67390000000003 L449.99558999999994,143.99556000000004 L431.3530099999999,125.31724000000004 L493.67650999999995,62.99373700000004 L556.00002,0.6702317600000356 L618.32943,62.999646000000034 L680.65885,125.32906000000003 L662.33184,143.65607000000003 L644.00484,161.98307000000003 L613.4650200000001,131.46491000000003 L582.92519,100.94674000000003 L582.3190900000001,165.47338000000002 C581.64863,236.84947000000003 581.15983,242.01797000000002 572.6669800000001,267.5351 C564.1711,293.0613 550.1949000000001,316.98814 533.0181500000001,335.41274 C527.6915100000001,341.12636 496.7283500000001,368.87856 464.2111100000001,397.08432 C430.2746400000001,426.52113 401.98919000000006,452.12319 397.81252000000006,457.18376 C383.06516000000005,475.0521 372.97233000000006,496.38723 368.75849000000005,518.60079 C367.01069000000007,527.81443 366.66668000000004,542.21213 366.66668000000004,606.14731 L366.66668000000004,682.6666899999999 L340.66668000000004,682.6666899999999 L314.66668000000004,682.6666899999999"
+							IconElement.Width="17"
+							Content="{DynamicResource Tools_Wordlist_Split}"
+							Click="Split_Click" />
+						<StackPanel
+							Grid.Row="1"
+							Margin="2,1,0,0"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Center">
+							<DockPanel>
+								<TextBlock
+									Margin="5"
+									VerticalAlignment="Center"
+									Foreground="{DynamicResource ForegroundMain}">
+									<Run
+										Text="{DynamicResource Tools_Wordlist_Separator}" /> <Run
+										Text=":" /></TextBlock>
+								<TextBox
+									Name="splitTextBox"
+									Width="55"
+									Height="33"
+									Margin="4,0,0,0"
+									VerticalAlignment="Center"
+									FontSize="15"
+									Foreground="{DynamicResource ForegroundMain}"
+									Text=":"
+									TextAlignment="Center" />
+							</DockPanel>
+							<DockPanel
+								Margin="0,7,0,4">
+								<TextBlock
+									Margin="5"
+									VerticalAlignment="Center"
+									Foreground="{DynamicResource ForegroundMain}">
+									<Run
+										Text="{DynamicResource Tools_Wordlist_Index}" /> <Run
+										Text=":" /></TextBlock>
+								<controls:NumericUpDown
+									NumericUpDown.Name="splitIndex"
+									FrameworkElement.MaxWidth="82"
+									FrameworkElement.VerticalAlignment="Center"
+									FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+									Control.FontSize="13"
+									Control.Foreground="{DynamicResource ForegroundMain}"
+									NumericUpDown.Minimum="1"
+									TextBlock.TextAlignment="Center"
+									NumericUpDown.Value="1" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+									x:Name="splitIndex" />
+							</DockPanel>
+						</StackPanel>
+						<DockPanel
+							Grid.Row="2"
+							Margin="0,10,0,5">
+							<TextBlock
+								Margin="5,0,0,0"
+								VerticalAlignment="Center"
+								Foreground="{DynamicResource ForegroundMain}">
+								<Run
+									Text="{DynamicResource Tools_Wordlist_Splited}" /> <Run
+									Text=":" /></TextBlock>
+							<TextBlock
+								Name="splited"
+								Margin="5,1,0,0"
+								VerticalAlignment="Center"
+								Foreground="{DynamicResource ForegroundGood}">0</TextBlock>
+						</DockPanel>
+					</Grid>
+				</GroupBox>
+				<GroupBox
+					Grid.Column="2"
+					MinWidth="209"
+					Margin="0,15,10,0"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource BackgroundMain}"
+					Foreground="{DynamicResource ForegroundBad}"
+					Header="{DynamicResource Tools_Wordlist_ChangeSeparator}"
+					Style="{StaticResource GroupBoxTab}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="auto" />
+							<RowDefinition
+								Height="auto" />
+							<RowDefinition
+								Height="auto" />
+						</Grid.RowDefinitions>
+						<Button
+							Grid.Row="0"
+							Margin="5"
+							HorizontalAlignment="Stretch"
+							IconElement.Geometry="M96.628086,422.98771 C89.393272,419.37657 82.463222,413.12178 42.962995,374.55173 C17.602466,349.78841 2.8718412,334.67472 1.7422205,332.25902 C-0.24764932,328.00367 0.15912941,323.02107 2.8285617,318.95251 C4.6325282,316.20303 65.265306,256.88212 80.330115,243.12781 C85.373552,238.5231 91.75,233.46482 94.5,231.88719 C103.52713,226.70847 113.56718000000001,228.57909 117.67889,236.20578 C119.19089,239.01036 119.50972,242.80716 119.82387,261.75 L120.19287,284 L195.03973000000002,284 L269.88659,284 L271.4433,281.77749 C272.79955,279.84117 273,273.39707 273,231.73204 L273,183.90909000000002 L275.45455,181.45455 L277.90909,179 L317.95455,179 C356.49471,179 358.07421999999997,179.0742 359.97456,180.97456 C361.06057,182.06056999999998 362.19926,183.97307 362.50499,185.22456 C362.81071,186.47605 362.93465000000003,227.47735 362.78042,276.33855 L362.5,365.1771 L360.13922,367.08855 C357.8445,368.94651 354.45377,369 238.97238,369 L120.16634,369 L119.83272000000001,391.25 C119.54435000000001,410.482 119.24734000000001,414.00651 117.64309000000002,417.23424 C113.97686000000002,424.61059 104.87302000000001,427.10303 96.62808600000001,422.98771 M152.02544,245.02544 C150.93943000000002,243.93943000000002 149.80074,242.02693 149.49501,240.77544 C149.18929,239.52395 149.06535,198.52265 149.21958,149.66145 L149.5,60.8229 L151.86078,58.91145 C154.1555,57.05349 157.54623,57 273.02762,57 L391.83366,57 L392.16728,34.75 C392.54025,9.8758077 393.23141,6.874200399999999 399.4745,3.0157625999999986 C406.38962999999995,-1.2580226000000012 414.90294,1.0974418999999986 426.10805,10.384739 C438.80206,20.906103 508.46315,89.9153 510.25778,93.746986 C512.24791,97.99608199999999 511.84076000000005,102.98021 509.17144,107.04561999999999 C507.40297000000004,109.73902999999999 444.41306000000003,171.34409 430.61784,183.87221 C426.15303,187.92692 420.25,192.5352 417.5,194.11282 C408.47286,199.29153 398.43281,197.4209 394.32111,189.79422 C392.80911,186.98964 392.49028,183.19284 392.17613,164.25 L391.80713,142 L316.96027,142 L242.11341,142 L240.55669999999998,144.22251 C239.20045,146.15883 239,152.60293 239,194.26796 L239,242.09090999999998 L236.54545,244.54545 L234.09091,247 L194.04545000000002,247 C155.50529,247 153.92578000000003,246.9258 152.02544,245.02544"
+							IconElement.Width="18"
+							Content="{DynamicResource Change}"
+							Click="ChangeSeparator_Click" />
+						<StackPanel
+							Grid.Row="1"
+							Margin="0,6,0,7">
+							<DockPanel>
+								<TextBlock
+									Margin="5,0,0,0"
+									VerticalAlignment="Center"
+									Foreground="{DynamicResource ForegroundMain}">
+									<Run
+										Text="{DynamicResource Tools_Wordlist_CurrentSeparator}" /> <Run
+										Text=":" /></TextBlock>
+								<TextBox
+									Name="currentSepTextBox"
+									Width="55"
+									Height="33"
+									Margin="8,0,0,0"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Center"
+									FontSize="13"
+									Foreground="{DynamicResource ForegroundMain}"
+									Text=":"
+									TextAlignment="Center" />
+							</DockPanel>
+							<DockPanel
+								Margin="0,7,0,5">
+								<TextBlock
+									Margin="5,0,0,0"
+									VerticalAlignment="Center"
+									Foreground="{DynamicResource ForegroundMain}">
+									<Run
+										Text="{DynamicResource Tools_Wordlist_NewSeparator}" /> <Run
+										Text=":" /></TextBlock>
+								<TextBox
+									Name="newSepTextBox"
+									Width="55"
+									Height="33"
+									Margin="8,0,0,0"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Center"
+									FontSize="13"
+									Foreground="{DynamicResource ForegroundMain}"
+									Text=""
+									TextAlignment="Center" />
+							</DockPanel>
+						</StackPanel>
+						<DockPanel
+							Grid.Row="2"
+							Margin="0,0,0,5">
+							<TextBlock
+								Margin="5,0,0,0"
+								VerticalAlignment="Center"
+								Foreground="{DynamicResource ForegroundMain}">
+								<Run
+									Text="{DynamicResource Tools_Wordlist_Changed}" /> <Run
+									Text=":" /></TextBlock>
+							<TextBlock
+								Name="changed"
+								Margin="5,0,0,0"
+								VerticalAlignment="Center"
+								Foreground="{DynamicResource ForegroundGood}">0</TextBlock>
+						</DockPanel>
+					</Grid>
+				</GroupBox>
+			</Grid>
+			<StackPanel
+				Grid.Row="2"
+				VerticalAlignment="Bottom">
+				<DockPanel
+					Margin="3,12,0,5">
+					<TextBlock
+						FontSize="13"
+						FontWeight="Bold"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource Tools_Wordlist_Loaded}" /> <Run
+							Text=":" /></TextBlock>
+					<TextBlock
+						Name="loaded"
+						Margin="5,0,0,0"
+						FontSize="13"
+						FontWeight="Bold"
+						Foreground="{DynamicResource ForegroundOcrRate}">0</TextBlock>
+				</DockPanel>
+			</StackPanel>
+		</Grid>
+	</ScrollViewer>
+</Page>

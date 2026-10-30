@@ -1,0 +1,124 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.Settings.Core.General" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="CoreSettingsGeneral" xmlns:core="clr-namespace:SilverBulletPro.Views.Main.Settings.Core">
+	<ScrollViewer>
+		<Grid
+			Margin="10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="0.2*" />
+			</Grid.ColumnDefinitions>
+			<StackPanel
+				Grid.Column="0">
+				<DockPanel
+					HorizontalAlignment="Left"
+					Dock="Top">
+					<TextBlock
+						Margin="5"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource CoreSettings_General_WaitTimeAfterBotEnd}" /> <Run
+							Text=":" /></TextBlock>
+					<NumericUpDown
+						FrameworkElement.MinWidth="70"
+						FrameworkElement.Margin="10,0,0,0"
+						FrameworkElement.HorizontalAlignment="Right"
+						Control.Background="{DynamicResource BackgroundSecondary}"
+						FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+						Control.Foreground="{DynamicResource ForegroundMain}"
+						NumericUpDown.Value="{Binding WaitTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+				</DockPanel>
+				<DockPanel
+					Dock="Top" />
+				<DockPanel
+					Margin="0,5,0,0"
+					HorizontalAlignment="Left"
+					Dock="Top">
+					<TextBlock
+						Margin="5"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource CoreSettings_General_MaxNumberOfHits}" /> <Run
+							Text=":" /></TextBlock>
+					<NumericUpDown
+						FrameworkElement.MinWidth="70"
+						FrameworkElement.Margin="10,0,0,0"
+						FrameworkElement.HorizontalAlignment="Right"
+						Control.Background="{DynamicResource BackgroundSecondary}"
+						FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+						Control.Foreground="{DynamicResource ForegroundMain}"
+						NumericUpDown.Value="{Binding MaxHits, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+				</DockPanel>
+				<TextBlock
+					Margin="5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource CoreSettings_General_RunnerBotsDisplayMode}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="botsDisplayModeComboBox"
+					Background="{DynamicResource BackgroundSecondary}"
+					DockPanel.Dock="Top"
+					Foreground="{DynamicResource ForegroundMain}"
+					SelectionChanged="botsDisplayModeCombobox_SelectionChanged" />
+				<TextBlock
+					Margin="5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource CoreSettings_General_DefaultHttpRequestLib}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="defaultHttpRequestModeComboBox"
+					Background="{DynamicResource BackgroundSecondary}"
+					DockPanel.Dock="Top"
+					Foreground="{DynamicResource ForegroundMain}"
+					SelectionChanged="DefaultHttpRequestModeComboBox_SelectionChanged" />
+				<CheckBox
+					Margin="0,10,0,0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					VerticalContentAlignment="Center"
+					Content="{DynamicResource CoreSettings_General_EnableBotLog}"
+					Foreground="{DynamicResource ForegroundMain}"
+					IsChecked="{Binding EnableBotLog}" />
+				<CheckBox
+					Margin="0,5,0,0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					VerticalContentAlignment="Center"
+					Content="{DynamicResource CoreSettings_General_SaveLastResponseSource}"
+					Foreground="{DynamicResource ForegroundMain}"
+					IsChecked="{Binding SaveLastSource}" />
+				<CheckBox
+					Margin="0,5,0,0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					VerticalContentAlignment="Center"
+					Content="{DynamicResource CoreSettings_General_SendDataInProcessToCheckOnAbort}"
+					Foreground="{DynamicResource ForegroundMain}"
+					IsChecked="{Binding SendToCheckOnAbort}" />
+				<CheckBox
+					Margin="0,5,0,0"
+					HorizontalAlignment="Left"
+					Content="{DynamicResource CoreSettings_General_RemoveDuplicateWordlist}"
+					Foreground="{DynamicResource ForegroundMain}"
+					IsChecked="{Binding RemoveDuplicateWordlist}" />
+				<CheckBox
+					Margin="0,5,0,0"
+					HorizontalAlignment="Left"
+					Content="{DynamicResource CoreSettings_General_RestrictBlocksToCWD}"
+					Foreground="{DynamicResource ForegroundMain}"
+					ToolTip="{DynamicResource CoreSettings_General_RestrictBlocksToCWDTip}"
+					IsChecked="{Binding RestrictBlocksToCWD}" />
+			</StackPanel>
+		</Grid>
+	</ScrollViewer>
+</Page>

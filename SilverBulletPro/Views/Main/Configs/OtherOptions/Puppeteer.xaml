@@ -1,0 +1,198 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.Configs.OtherOptions.Puppeteer" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="ConfigOtherOptionsPuppeteer" xmlns:otheroptions="clr-namespace:SilverBulletPro.Views.Main.Configs.OtherOptions">
+	<Grid
+		Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<StackPanel>
+			<CheckBox
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_Puppeteer_AlwaysOpen}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding PuppeteerAlwaysOpen}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_Puppeteer_AlwaysQuit}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding PuppeteerAlwaysQuit}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_Puppeteer_HeadlessMode}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding PuppeteerHeadless}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_Puppeteer_DismissDialogs}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding PuppeteerDismissDialogs}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_Puppeteer_LoadOnlyDucAndScript}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding PuppeteerLoadOnlyDocAndScript}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_Puppeteer_IgnoreHttpsErrors}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding PuppeteerIgnoreHttpsErrors}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_Puppeteer_DefaultProfileDirectory}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding PuppeteerDefaultProfileDirectory}" />
+		</StackPanel>
+		<StackPanel
+			Grid.Row="1"
+			Margin="2,15,0,0">
+			<TextBlock
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource OtherOptions_Puppeteer_QuitTheBrowserWhenTheBotEndsWithOneOfTheseStatuses}" /> <Run
+					Text=":" /></TextBlock>
+			<Grid
+				Margin="0,5,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<ComboBox
+					Name="quitBrowserStatusesComboBox"
+					Margin="0,0,0,0"
+					BorderElement.CornerRadius="3"
+					IsEditable="True"
+					ItemsSource="{Binding PuppeteerQuitBrowserStatuses}" />
+				<Button
+					Grid.Column="1"
+					Width="auto"
+					Height="20"
+					Margin="9,0,5,0"
+					Padding="0"
+					IconElement.Geometry="M512,960 C230.39999999999998,960 0,729.6 0,448 C0,166.39999999999998 230.4,-64 512,-64 C793.6,-64 1024,166.4 1024,448 C1024,729.6 793.6,960 512,960 M832,384 L576,384 L576,128 L448,128 L448,384 L192,384 L192,512 L448,512 L448,768 L576,768 L576,512 L832,512 L832,384"
+					Background="#00FFFFFF"
+					Style="{StaticResource ButtonIcon}"
+					Click="AddQuitBrowserStatusesButton_Click" />
+				<Button
+					Grid.Column="2"
+					Width="auto"
+					Height="20"
+					Margin="0,0,6,0"
+					Padding="0"
+					IconElement.Geometry="M256,8 C119,8 8,119 8,256 C8,393 119,504 256,504 C393,504 504,393 504,256 C504,119 393,8 256,8 M124,296 C117.4,296 112,290.6 112,284 L112,228 C112,221.4 117.4,216 124,216 L388,216 C394.6,216 400,221.4 400,228 L400,284 C400,290.6 394.6,296 388,296 L124,296"
+					Background="#00FFFFFF"
+					Style="{StaticResource ButtonIcon}"
+					Click="RemoveQuitBrowserStatusesButton_Click" />
+			</Grid>
+		</StackPanel>
+		<StackPanel
+			Grid.Row="2"
+			Margin="2,7,0,0">
+			<TextBlock
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource OtherOptions_Puppeteer_CommandLineArgs}" /> <Run
+					Text=":" /></TextBlock>
+			<Grid
+				Margin="0,5,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<ComboBox
+					Name="commandLineArgsComboBox"
+					Margin="0,0,0,0"
+					BorderElement.CornerRadius="3"
+					IsEditable="True"
+					ItemsSource="{Binding PuppeteerCmdLineArgs}" />
+				<Button
+					Grid.Column="1"
+					Width="auto"
+					Height="20"
+					Margin="9,0,5,0"
+					Padding="0"
+					IconElement.Geometry="M512,960 C230.39999999999998,960 0,729.6 0,448 C0,166.39999999999998 230.4,-64 512,-64 C793.6,-64 1024,166.4 1024,448 C1024,729.6 793.6,960 512,960 M832,384 L576,384 L576,128 L448,128 L448,384 L192,384 L192,512 L448,512 L448,768 L576,768 L576,512 L832,512 L832,384"
+					Background="#00FFFFFF"
+					Foreground="{DynamicResource ForegroundMain}"
+					Style="{StaticResource ButtonIcon}"
+					Click="AddCommandLineArgButton_Click" />
+				<Button
+					Grid.Column="2"
+					Width="auto"
+					Height="20"
+					Margin="0,0,6,0"
+					Padding="0"
+					IconElement.Geometry="M256,8 C119,8 8,119 8,256 C8,393 119,504 256,504 C393,504 504,393 504,256 C504,119 393,8 256,8 M124,296 C117.4,296 112,290.6 112,284 L112,228 C112,221.4 117.4,216 124,216 L388,216 C394.6,216 400,221.4 400,228 L400,284 C400,290.6 394.6,296 388,296 L124,296"
+					Background="#00FFFFFF"
+					Foreground="{DynamicResource ForegroundMain}"
+					Style="{StaticResource ButtonIcon}"
+					Click="RemoveCommandLineArgButton_Click" />
+			</Grid>
+		</StackPanel>
+		<StackPanel
+			Grid.Row="3"
+			Margin="2,7,0,0">
+			<TextBlock
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource OtherOptions_Puppeteer_BlockedUrls}" /> <Run
+					Text=":" /></TextBlock>
+			<Grid
+				Margin="0,5,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition
+						Width="auto" />
+				</Grid.ColumnDefinitions>
+				<ComboBox
+					Name="blockedUrlsComboBox"
+					Margin="0,0,0,0"
+					BorderElement.CornerRadius="3"
+					Foreground="{DynamicResource ForegroundMain}"
+					IsEditable="True"
+					ItemsSource="{Binding PuppeteerBlockedUrls}" />
+				<Button
+					Grid.Column="1"
+					Width="auto"
+					Height="20"
+					Margin="9,0,5,0"
+					Padding="0"
+					IconElement.Geometry="M512,960 C230.39999999999998,960 0,729.6 0,448 C0,166.39999999999998 230.4,-64 512,-64 C793.6,-64 1024,166.4 1024,448 C1024,729.6 793.6,960 512,960 M832,384 L576,384 L576,128 L448,128 L448,384 L192,384 L192,512 L448,512 L448,768 L576,768 L576,512 L832,512 L832,384"
+					Background="#00FFFFFF"
+					Style="{StaticResource ButtonIcon}"
+					Click="AddBlockedUrlsButton_Click" />
+				<Button
+					Grid.Column="2"
+					Width="auto"
+					Height="20"
+					Margin="0,0,6,0"
+					Padding="0"
+					IconElement.Geometry="M256,8 C119,8 8,119 8,256 C8,393 119,504 256,504 C393,504 504,393 504,256 C504,119 393,8 256,8 M124,296 C117.4,296 112,290.6 112,284 L112,228 C112,221.4 117.4,216 124,216 L388,216 C394.6,216 400,221.4 400,228 L400,284 C400,290.6 394.6,296 388,296 L124,296"
+					Background="#00FFFFFF"
+					Style="{StaticResource ButtonIcon}"
+					Click="RemoveBlockedUrlsButton_Click" />
+			</Grid>
+		</StackPanel>
+	</Grid>
+</Page>

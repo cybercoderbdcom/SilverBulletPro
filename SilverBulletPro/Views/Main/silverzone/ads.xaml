@@ -1,0 +1,157 @@
+<!--Class 'SilverBulletPro.Views.Main.Ads' has IComponentConnector.Connect method, but cannot be parsed.-->
+<Page
+	x:Class="SilverBulletPro.Views.Main.Ads" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:SilverBulletPro.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="clr-namespace:SilverBulletPro.Models"
+	Title="Ads" xmlns:main="clr-namespace:SilverBulletPro.Views.Main">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:Base64ToImageConverter
+				x:Key="Base64ToImageConverter" />
+			<converters:IntToBoolConverter
+				x:Key="IntToBoolConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Margin="4,10,0,0">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<controls:SearchBar
+			FrameworkElement.Margin="5,0,15,5"
+			InfoElement.Placeholder="{DynamicResource Search}"
+			Control.Background="{DynamicResource BackgroundSecondary}"
+			FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+			Control.FontSize="13.5"
+			Control.Foreground="{DynamicResource ForegroundMain}"
+			FrameworkElement.Style="{StaticResource SearchBarExtend}" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+			UIElement.IsEnabled="{Binding AdsDataList.Count, Converter={StaticResource IntToBoolConverter}, ConverterParameter=0}" />
+		<ListBox
+			Name="listBox"
+			Grid.Row="1"
+			Margin="5,5,15,0"
+			Background="#00FFFFFF"
+			BorderThickness="0"
+			Style="{StaticResource WrapPanelHorizontalListBox}"
+			ItemsSource="{Binding AdsDataList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel
+						Orientation="Horizontal" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate
+					DataType="models:SupporterModel">
+					<Card
+						FrameworkElement.MaxWidth="214"
+						FrameworkElement.Margin="8"
+						Control.BorderThickness="0"
+						UIElement.Effect="{StaticResource EffectShadow2}"
+						FrameworkElement.Height="{Binding Height}"
+						Control.Background="{Binding BackColor}"
+						Card.Footer="{Binding .}"
+						Card.Header="{x:Null}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+						<Border
+							BorderThickness="2,2,2,0"
+							CornerRadius="4 4 0 0"
+							Style="{StaticResource BorderClip}"
+							Background="{Binding LogoBackColor}"
+							BorderBrush="{Binding BorderColor}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+							<WrapPanel
+								Name="container"
+								Width="210"
+								Height="180"
+								Margin="{Binding LogoMargin}">
+								<Image
+									Width="230"
+									Height="180"
+									HorizontalAlignment="Center"
+									VerticalAlignment="Center"
+									Source="{Binding Logo, Converter={StaticResource Base64ToImageConverter}, ConverterParameter=Ads}"
+									Stretch="{Binding Stretch}" />
+								<UIElement.OpacityMask>
+									<VisualBrush>
+										<VisualBrush.Visual>
+											<Border
+												Background="#FFFFFFFF"
+												CornerRadius="3 3 0 0"
+												Width="{Binding ElementName=container, Path=ActualWidth}"
+												Height="{Binding ElementName=container, Path=ActualHeight}" />
+										</VisualBrush.Visual>
+									</VisualBrush>
+								</UIElement.OpacityMask>
+							</WrapPanel>
+						</Border>
+						<Card.FooterTemplate>
+							<DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+								<Border
+									Margin="0,-1,0,0"
+									BorderThickness="2,0,2,2"
+									CornerRadius="0 0 4 4"
+									BorderBrush="{Binding BorderColor}">
+									<Grid
+										Margin="8,7,8,9">
+										<Grid.RowDefinitions>
+											<RowDefinition
+												Height="auto" />
+											<RowDefinition
+												Height="auto" />
+											<RowDefinition
+												Height="auto" />
+										</Grid.RowDefinitions>
+										<Separator
+											Margin="-8,-41,-7,0"
+											Background="{Binding BackColor}" />
+										<TextBlock
+											Margin="0,2,0,5"
+											HorizontalAlignment="Center"
+											Style="{StaticResource TextBlockSubTitleBold}"
+											TextTrimming="CharacterEllipsis"
+											TextWrapping="NoWrap"
+											Foreground="{Binding NameForeColor}"
+											Text="{Binding Name}" />
+										<TextBlock
+											Grid.Row="1"
+											MaxHeight="38"
+											Margin="0,1,0,0"
+											HorizontalAlignment="Center"
+											VerticalAlignment="Stretch"
+											Style="{StaticResource TextBlockDefault}"
+											TextAlignment="Justify"
+											TextTrimming="CharacterEllipsis"
+											TextWrapping="Wrap"
+											Foreground="{Binding DescForeColor}"
+											Text="{Binding Description}" />
+										<Button
+											Grid.Row="2"
+											Margin="0,10,0,0"
+											HorizontalAlignment="Stretch"
+											VerticalAlignment="Stretch"
+											p18:IconElement.Geometry="{Binding Geometry}"
+											p18:IconElement.Height="{Binding GeometryHeight}"
+											p18:IconElement.Width="{Binding GeometryWidth}"
+											Background="{Binding BtnBackColor}"
+											Content="{Binding Text}"
+											Foreground="{Binding BtnForeColor}"
+											Tag="{Binding Address}" xmlns:p18="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+									</Grid>
+								</Border>
+							</DataTemplate>
+						</Card.FooterTemplate>
+					</Card>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListBox>
+		<controls:CircleProgressBar
+			CircleProgressBar.Name="progressBar"
+			Grid.RowSpan="2"
+			FrameworkElement.Width="86"
+			FrameworkElement.Height="86"
+			FrameworkElement.Margin="16,0,0,0"
+			Panel.ZIndex="1"
+			CircleProgressBar.ArcThickness="6"
+			CircleProgressBar.IsIndeterminate="True"
+			FrameworkElement.Style="{StaticResource ProgressBarInfoCircle}" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+	</Grid>
+</Page>

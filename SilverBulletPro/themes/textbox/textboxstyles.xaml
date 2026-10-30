@@ -1,0 +1,16 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<Style
+		BasedOn="{StaticResource TextBoxBaseStyle}"
+		TargetType="{:Type TextBox}"
+		p2:Key="{:Type TextBox}" xmlns:p2="http://schemas.microsoft.com/winfx/2006/xaml">
+		<Setter
+			Property="FrameworkElement.ContextMenu"
+			Value="{StaticResource MahApps.TextBox.ContextMenu}" />
+		<Setter
+			Property="Background"
+			Value="{DynamicResource BackgroundSecondary}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource ForegroundMain}" />
+	</Style>
+</ResourceDictionary>

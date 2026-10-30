@@ -1,0 +1,77 @@
+<UserControl
+	x:Class="SilverBulletPro.Views.UserControls.NumStrInputBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:SilverBulletPro.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Name="parent" xmlns:usercontrols="clr-namespace:SilverBulletPro.Views.UserControls"
+	Loaded="UserControl_Loaded">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:IncreaseNumConverter
+				x:Key="IncreaseNumConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		DataContext="{Binding ElementName=parent}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="auto" />
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="auto" />
+		</Grid.ColumnDefinitions>
+		<TextBlock
+			Margin="0,0,4,0"
+			VerticalAlignment="Center"
+			Foreground="{DynamicResource ForegroundMain}"
+			Text="{Binding Label, StringFormat= {0}:}" />
+		<NumericUpDown
+			NumericUpDown.Name="numUpDown"
+			Grid.Column="1"
+			FrameworkElement.Width="auto"
+			FrameworkElement.HorizontalAlignment="Stretch"
+			FrameworkElement.VerticalAlignment="Stretch"
+			Control.Background="{DynamicResource BackgroundSecondary}"
+			FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+			Control.FontSize="13"
+			FrameworkElement.Height="{Binding Height, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+			FrameworkElement.Margin="{Binding NumMargin}"
+			NumericUpDown.DecimalPlaces="{Binding Path=DecimalPlaces}"
+			NumericUpDown.Maximum="{Binding Path=Maximum}"
+			NumericUpDown.Minimum="{Binding Path=Minimum}"
+			TextBlock.TextAlignment="{Binding Path=TextAlignment}"
+			NumericUpDown.ValueFormat="{Binding Path=ValueFormat}"
+			NumericUpDown.Value="{Binding Path=NumericValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+			x:Name="numUpDown" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+		<TextBox
+			Name="inputTextBox"
+			Grid.Column="1"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch"
+			BorderElement.CornerRadius="4 0 0 4"
+			Background="{DynamicResource BackgroundSecondary}"
+			ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+			Style="{StaticResource TextBox.Small}"
+			Visibility="Collapsed"
+			Height="{Binding Height, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+			Text="{Binding Path=StringValue}"
+			TextAlignment="{Binding Path=TextAlignment}" />
+		<Button
+			Name="inputModeButton"
+			Grid.Column="2"
+			Width="32"
+			Height="auto"
+			Margin="5,0,0,0"
+			Padding="0,0,5,0"
+			VerticalAlignment="Stretch"
+			BorderElement.CornerRadius="0 4 4 0"
+			IconElement.Geometry="M23.75,20.5833 L52.25,20.5833 L52.25,26.9167 L41.1667,26.9167 L41.1667,58.5833 L34.8333,58.5833 L34.8333,26.9167 L23.75,26.9167 L23.75,20.5833"
+			IconElement.Width="0"
+			BorderThickness="0,1,1,1"
+			Content=""
+			DockPanel.Dock="Right"
+			FontSize="11"
+			FontWeight="DemiBold"
+			Foreground="{DynamicResource ForegroundMain}"
+			Background="{Binding ElementName=inputTextBox, Path=Background}"
+			Click="InputModeButton_Click" />
+	</Grid>
+</UserControl>

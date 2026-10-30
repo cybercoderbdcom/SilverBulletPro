@@ -1,0 +1,441 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockRequest" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockRequest" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5">
+		<StackPanel>
+			<uc:TextInputBox
+				Label="{DynamicResource Http_Url}"
+				ModesOfInput="Const,Var,Base64,Hex,CSharp,JavaScript,Python"
+				InputMode="{Binding UrlInputMode, Mode=TwoWay}"
+				Text="{Binding Url, Mode=TwoWay}" />
+			<DockPanel
+				Margin="0,5,0,0">
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_Method}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="methodCombobox"
+					SelectionChanged="methodCombobox_SelectionChanged" />
+			</DockPanel>
+			<Grid
+				Margin="0,5,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+					<ColumnDefinition
+						Width="auto" />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_ReqLib}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="httpLibComboBox"
+					Grid.Column="1"
+					Margin="2,0,0,0"
+					SelectionChanged="HttpLibComboBox_SelectionChanged" />
+				<TextBlock
+					Grid.Column="2"
+					Margin="9,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_ReqVer}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="httpVersionComboBox"
+					Grid.Column="3"
+					SelectionChanged="HttpVersionComboBox_SelectionChanged" />
+			</Grid>
+			<DockPanel
+				Margin="0,5,0,0">
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_SecurityProtocol}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="securityProtocolCombobox"
+					IsEditable="True"
+					SelectedItem="{Binding SecurityProtocol}"
+					LostFocus="SecurityProtocolCombobox_LostFocus" />
+			</DockPanel>
+			<DockPanel
+				Margin="0,5,0,0">
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_ProxyUsage}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="proxyUsageComboBox"
+					SelectedItem="{Binding ProxyUsage}"
+					SelectionChanged="proxyUsageComboBox_SelectionChanged" />
+			</DockPanel>
+			<uc:NumStrInputBox
+				Height="29"
+				Margin="1,5,0,5"
+				Label="{DynamicResource Http_ReqTimeoutMs}"
+				Minimum="1"
+				ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+				InputMode="{Binding ReqTimeoutInputMode, Mode=TwoWay}"
+				NumericValue="{Binding RequestTimeout, Mode=TwoWay}"
+				StringValue="{Binding RequestTimeoutString, Mode=TwoWay}" />
+			<DockPanel
+				Margin="3,0,0,5">
+				<CheckBox
+					HorizontalAlignment="Left"
+					Content="{DynamicResource Http_AutomaticRedirect}"
+					IsChecked="{Binding AutoRedirect}" />
+				<uc:NumStrInputBox
+					Height="29"
+					Label=""
+					Minimum="1"
+					ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+					InputMode="{Binding MaxNumberOfRedirectsInputMode, Mode=TwoWay}"
+					IsEnabled="{Binding AutoRedirect}"
+					NumericValue="{Binding MaxNumberOfRedirects, Mode=TwoWay}"
+					StringValue="{Binding MaxNumberOfRedirectsString, Mode=TwoWay}" />
+			</DockPanel>
+			<Separator
+				Height="1"
+				Margin="0,2,0,2"
+				Background="{DynamicResource BorderBrush}" />
+			<DockPanel
+				Margin="0,4,0,0"
+				HorizontalAlignment="Left">
+				<TextBlock
+					Margin="6,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_AlwaysSendContent}" /> <Run
+						Text=":" /></TextBlock>
+				<ToggleButton
+					Margin="5,0,0,0"
+					Background="{DynamicResource BackgroundMain}"
+					Style="{StaticResource ToggleButtonSwitch}"
+					IsChecked="{Binding AlwaysSendContent}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<SolidColorBrush
+								Color="{DynamicResource DarkSuccessColor}"
+								x:Key="PrimaryBrush" />
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</ToggleButton>
+			</DockPanel>
+			<DockPanel
+				Margin="0,3,0,0">
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundCustom}">
+					<Run
+						Text="{DynamicResource Http_RequestType}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="requestTypeCombobox"
+					SelectionChanged="requestTypeCombobox_SelectionChanged" />
+			</DockPanel>
+			<Grid
+				Margin="0,0,0,0">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition
+						Height="auto" />
+					<RowDefinition
+						Height="auto" />
+				</Grid.RowDefinitions>
+				<TabControl
+					Name="requestTypeTabControl"
+					Margin="0,0,0,3"
+					Background="#00FFFFFF"
+					BorderThickness="0"
+					Style="{StaticResource BaseStyle}">
+					<ItemsControl.ItemContainerStyle>
+						<Style
+							TargetType="{x:Type TabItem}">
+							<Setter
+								Property="Visibility"
+								Value="Collapsed" />
+						</Style>
+					</ItemsControl.ItemContainerStyle>
+					<TabItem
+						Name="emptyTab">
+						<StackPanel />
+					</TabItem>
+					<TabItem
+						Name="basicAuthTab">
+						<StackPanel>
+							<uc:TextInputBox
+								Margin="0,5,0,0"
+								Label="{DynamicResource Http_Username}"
+								InputMode="{Binding AuthUserInputMode, Mode=TwoWay}"
+								Text="{Binding AuthUser, Mode=TwoWay}" />
+							<uc:TextInputBox
+								Margin="0,5,0,0"
+								Label="{DynamicResource Http_Password}"
+								InputMode="{Binding AuthPassInputMode, Mode=TwoWay}"
+								Text="{Binding AuthPass, Mode=TwoWay}" />
+						</StackPanel>
+					</TabItem>
+					<TabItem
+						Name="standardTab">
+						<StackPanel>
+							<uc:TextInputBox
+								Margin="0,2,0,0"
+								Label="{DynamicResource Http_PostData}"
+								ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+								InputMode="{Binding PostDataInputMode, Mode=TwoWay}"
+								Text="{Binding PostData, Mode=TwoWay}" />
+							<DockPanel
+								Margin="0,5,0,0">
+								<TextBlock
+									Margin="4,5,5,5"
+									VerticalAlignment="Center"
+									Foreground="{DynamicResource ForegroundMain}">
+									<Run
+										Text="{DynamicResource Http_ContentType}" /> <Run
+										Text=":" /></TextBlock>
+								<ComboBox
+									Name="contentTypeCombobox"
+									IsEditable="True"
+									Text="{Binding ContentType}" />
+							</DockPanel>
+						</StackPanel>
+					</TabItem>
+					<TabItem
+						Name="multipartTab">
+						<StackPanel>
+							<uc:TextInputBox
+								Label="{DynamicResource Http_Boundary}"
+								ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+								InputMode="{Binding MultipartBoundaryInputMode, Mode=TwoWay}"
+								Text="{Binding MultipartBoundary, Mode=TwoWay}" />
+							<uc:RichTextInputBox
+								Name="rtMultipartContents"
+								Height="90"
+								Margin="0,5,0,0"
+								Label="{DynamicResource Http_MultipartContents}">
+								<uc:RichTextInputBox.RichTextBoxToolTip>
+									<TextBlock>
+										<Run
+											Text="{DynamicResource SyntaxTip}" /> :<LineBreak />STRING:fieldname:fieldvalue<LineBreak />FILE:fieldname:filepath:content-type</TextBlock>
+								</uc:RichTextInputBox.RichTextBoxToolTip>
+							</uc:RichTextInputBox>
+						</StackPanel>
+					</TabItem>
+					<TabItem
+						Name="rawTab">
+						<StackPanel>
+							<uc:TextInputBox
+								Margin="0,5,0,0"
+								EnableEncoding="True"
+								Label="{DynamicResource Http_RawData}"
+								ModesOfInput="Const,Var,Base64,Hex,CSharp,JavaScript,Python"
+								Encoding="{Binding RawDataEncoding, Mode=TwoWay}"
+								InputMode="{Binding RawDataInputMode, Mode=TwoWay}"
+								Text="{Binding RawData, Mode=TwoWay}" />
+							<DockPanel
+								Margin="0,5,0,0">
+								<TextBlock
+									Margin="4,5,5,5"
+									VerticalAlignment="Center"
+									Foreground="{DynamicResource ForegroundMain}">
+									<Run
+										Text="{DynamicResource Http_ContentType}" /> <Run
+										Text=":" /></TextBlock>
+								<ComboBox
+									Name="rawContentTypeComboBox"
+									IsEditable="True"
+									Text="{Binding ContentType}" />
+							</DockPanel>
+						</StackPanel>
+					</TabItem>
+				</TabControl>
+				<DockPanel
+					Name="urlEncodeContentPanel"
+					Grid.Row="1"
+					Margin="4,0,0,5"
+					HorizontalAlignment="Left">
+					<TextBlock
+						Margin="4,5,5,5"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource Http_UrlEncodeContent}" /> <Run
+							Text=":" /></TextBlock>
+					<ToggleButton
+						Margin="10,0,0,0"
+						Background="{DynamicResource BackgroundMain}"
+						Style="{StaticResource ToggleButtonSwitch}"
+						IsChecked="{Binding EncodeContent}">
+						<FrameworkElement.Resources>
+							<ResourceDictionary>
+								<SolidColorBrush
+									Color="{DynamicResource DarkSuccessColor}"
+									x:Key="PrimaryBrush" />
+							</ResourceDictionary>
+						</FrameworkElement.Resources>
+					</ToggleButton>
+				</DockPanel>
+			</Grid>
+			<Separator
+				Height="1"
+				Background="{DynamicResource BorderBrush}" />
+			<StackPanel>
+				<uc:RichTextInputBox
+					Name="rtCustomCookies"
+					Height="120"
+					Margin="0,5,0,0"
+					Label="{DynamicResource Http_CustomCookies}">
+					<uc:RichTextInputBox.RichTextBoxToolTip>
+						<TextBlock>
+							<Run
+								Text="{DynamicResource SyntaxTip}" /> <Run
+								Text=":" /><LineBreak />name: value</TextBlock>
+					</uc:RichTextInputBox.RichTextBoxToolTip>
+				</uc:RichTextInputBox>
+				<uc:RichTextInputBox
+					Name="rtCustomHeaders"
+					Height="120"
+					Margin="0,5,0,0"
+					Label="{DynamicResource Http_CustomHeaders}">
+					<uc:RichTextInputBox.RichTextBoxToolTip>
+						<TextBlock>
+							<Run
+								Text="{DynamicResource SyntaxTip}" /> <Run
+								Text=":" /><LineBreak />name: value</TextBlock>
+					</uc:RichTextInputBox.RichTextBoxToolTip>
+				</uc:RichTextInputBox>
+				<Separator
+					Height="1"
+					Margin="0,5,0,2"
+					Background="{DynamicResource BorderBrush}" />
+			</StackPanel>
+			<DockPanel
+				Margin="0,4,0,0"
+				HorizontalAlignment="Left">
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_ReadResponseContent}" /> <Run
+						Text=":" /></TextBlock>
+				<ToggleButton
+					Margin="22,0,0,0"
+					Background="{DynamicResource BackgroundMain}"
+					Style="{StaticResource ToggleButtonSwitch}"
+					IsChecked="{Binding ReadResponseContent}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<SolidColorBrush
+								Color="{DynamicResource DarkSuccessColor}"
+								x:Key="PrimaryBrush" />
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</ToggleButton>
+			</DockPanel>
+			<DockPanel
+				Margin="0,4,0,0"
+				HorizontalAlignment="Left">
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource Http_AppendResponseCookies}" /> <Run
+						Text=":" /></TextBlock>
+				<ToggleButton
+					Margin="7,0,0,0"
+					Background="{DynamicResource BackgroundMain}"
+					Style="{StaticResource ToggleButtonSwitch}"
+					IsChecked="{Binding AppendResponseCookies}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<SolidColorBrush
+								Color="{DynamicResource DarkSuccessColor}"
+								x:Key="PrimaryBrush" />
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</ToggleButton>
+			</DockPanel>
+			<DockPanel
+				Margin="0,5,0,0">
+				<TextBlock
+					Margin="4,5,5,5"
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundCustom}">
+					<Run
+						Text="{DynamicResource Http_ResponseType}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="responseTypeCombobox"
+					SelectionChanged="responseTypeCombobox_SelectionChanged" />
+			</DockPanel>
+			<TabControl
+				Name="responseTypeTabControl"
+				Background="#00FFFFFF"
+				BorderThickness="0"
+				Style="{StaticResource BaseStyle}">
+				<ItemsControl.ItemContainerStyle>
+					<Style
+						TargetType="{x:Type TabItem}">
+						<Setter
+							Property="Visibility"
+							Value="Collapsed" />
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+				<TabItem
+					Name="emptyTab2">
+					<StackPanel />
+				</TabItem>
+				<TabItem
+					Name="fileTab">
+					<StackPanel>
+						<uc:TextInputBox
+							Label="{DynamicResource Http_FilePath}"
+							ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+							InputMode="{Binding DlPathInputMode, Mode=TwoWay}"
+							Text="{Binding DownloadPath, Mode=TwoWay}" />
+						<CheckBox
+							Margin="5,8,0,0"
+							HorizontalAlignment="Left"
+							VerticalContentAlignment="Center"
+							Content="{DynamicResource Http_SaveAsScreenshot}"
+							IsChecked="{Binding SaveAsScreenshot}" />
+					</StackPanel>
+				</TabItem>
+				<TabItem
+					Name="base64Tab">
+					<StackPanel>
+						<uc:VarCapOutputBox
+							Name="outputVar"
+							EnableHiddenVar="True"
+							ModesOfOutput="Base64"
+							OutputMode="Base64"
+							HiddenVar="{Binding HiddenVar, Mode=TwoWay}"
+							IsCapture="{Binding IsCapture, Mode=TwoWay}"
+							Text="{Binding OutputVariable, Mode=TwoWay}" />
+					</StackPanel>
+				</TabItem>
+			</TabControl>
+		</StackPanel>
+	</Grid>
+</Page>

@@ -1,0 +1,150 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.SilverZone" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="SilverZone" xmlns:main="clr-namespace:SilverBulletPro.Views.Main"
+	Loaded="Page_Loaded">
+	<controls:TransitioningContentControl
+		FrameworkElement.Name="trans"
+		TransitioningContentControl.TransitionMode="Fade" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+		x:Name="trans">
+		<Grid
+			Margin="0">
+			<TabControl
+				Name="tabControl"
+				Background="#00FFFFFF"
+				SelectionChanged="TabControl_SelectionChanged">
+				<TabItem
+					Height="34"
+					Background="{DynamicResource BackgroundMain}"
+					Style="{StaticResource TabItemCustomStyle}">
+					<HeaderedContentControl.Header>
+						<controls:Badge
+							FrameworkElement.Name="supportersBadge"
+							FrameworkElement.Height="20"
+							BorderElement.CornerRadius="0"
+							Badge.BadgeMargin="0,-11.5,-7,0"
+							Control.BorderThickness="0"
+							Control.Foreground="{DynamicResource ForegroundBad}"
+							Control.Background="{x:Null}"
+							Control.BorderBrush="{x:Null}"
+							Badge.Value="{Binding AdsBadge}"
+							x:Name="supportersBadge">
+							<Grid
+								Margin="-5,4,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="auto" />
+									<ColumnDefinition
+										Width="auto" />
+								</Grid.ColumnDefinitions>
+								<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+									Width="20"
+									Height="19"
+									Margin="0,0,6,0"
+									HorizontalAlignment="Center"
+									Stretch="Fill"
+									Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}">
+									<Path.Data>
+										<PathGeometry
+											Figures="M 124 422.5 V 333 H 171.5 219 V 422.5 512 H 171.5 124 Z M 498.64579 380.96376 C 489.18773 373.84907 459.31296 360.34619 423.85366 347.15902 338.64933 315.47187 238.18329 289.85606 167.75 281.8603 L 157 280.63994 v -88.6762 -88.67619 l 7.75 -0.64707 C 201.58757 99.564815 270.20885 85.274772 330.5 68.123867 399.87983 48.387521 471.54759 21.43296 496.01974 5.8711588 499.03388 3.9544708 502.0625 2.0478029 502.75 1.6341188 503.74827 1.0334391 504 39.459288 504 192.44098 c 0 105.35746 -0.3375 191.5282 -0.75 191.49054 -0.4125 -0.0377 -2.48439 -1.37316 -4.60421 -2.96776 z M 86.700824 275.93711 C 35.962465 267.00375 7.2104237 236.64633 7.6760831 192.5 8.0572092 156.36776 30.837156 127.07573 68.31724 114.52343 77.035029 111.60379 91.25973 108.5162 100.75 107.48364 L 107 106.80363 V 192.40181 278 l -4.75 -0.0808 c -2.6125 -0.0444 -9.609629 -0.93637 -15.549176 -1.98213 z"
+											FillRule="NonZero" />
+									</Path.Data>
+								</Path>
+								<TextBlock
+									Grid.Column="1"
+									Margin="0,-1,0,0"
+									Text="{DynamicResource Ads}"
+									Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+							</Grid>
+						</controls:Badge>
+					</HeaderedContentControl.Header>
+					<Frame
+						BorderElement.CornerRadius=" 0 3 0 0"
+						NavigationUIVisibility="Hidden"
+						Navigated="Frame_Navigated" />
+				</TabItem>
+				<TabItem
+					Height="34"
+					Background="{DynamicResource BackgroundMain}"
+					Style="{StaticResource TabItemCustomStyle}">
+					<HeaderedContentControl.Header>
+						<controls:Badge
+							FrameworkElement.Name="verifiedMarketBadge"
+							FrameworkElement.Height="20"
+							BorderElement.CornerRadius="0"
+							Badge.BadgeMargin="0,-11.5,-7,0"
+							Control.BorderThickness="0"
+							Control.Foreground="{DynamicResource ForegroundBad}"
+							Control.Background="{x:Null}"
+							Control.BorderBrush="{x:Null}"
+							Badge.Value="{Binding VerifiedMarketBadge}"
+							x:Name="verifiedMarketBadge">
+							<Grid
+								Margin="-5,4,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="auto" />
+									<ColumnDefinition
+										Width="auto" />
+								</Grid.ColumnDefinitions>
+								<iconpacks:PackIconMaterial
+									FrameworkElement.Margin="0,-1,0,0"
+									PackIconMaterial.Kind="Shopping" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
+									Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+								<TextBlock
+									Grid.Column="1"
+									Margin="3,-1,0,0"
+									Text="{DynamicResource Market}"
+									Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+							</Grid>
+						</controls:Badge>
+					</HeaderedContentControl.Header>
+					<Frame
+						BorderElement.CornerRadius=" 0 3 0 0"
+						NavigationUIVisibility="Hidden"
+						Navigated="Frame_Navigated" />
+				</TabItem>
+				<TabItem
+					Height="34"
+					Background="{DynamicResource BackgroundMain}"
+					Style="{StaticResource TabItemCustomStyle}">
+					<HeaderedContentControl.Header>
+						<controls:Badge
+							FrameworkElement.Name="notifBadge"
+							FrameworkElement.Height="20"
+							BorderElement.CornerRadius="0"
+							Badge.BadgeMargin="0,-11.5,-8,0"
+							Control.BorderThickness="0"
+							Control.Foreground="{DynamicResource ForegroundBad}"
+							Control.Background="{x:Null}"
+							Control.BorderBrush="{x:Null}"
+							Badge.Value="{Binding NotifBadge}"
+							x:Name="notifBadge">
+							<Grid
+								Margin="-5,4,0,0">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition
+										Width="auto" />
+									<ColumnDefinition
+										Width="auto" />
+								</Grid.ColumnDefinitions>
+								<PackIconMaterial
+									FrameworkElement.Width="17"
+									PackIconMaterial.Kind="BellRing"
+									Control.Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+								<TextBlock
+									Grid.Column="1"
+									Margin="3,-1,0,0"
+									Text="{DynamicResource Notif}"
+									Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+							</Grid>
+						</controls:Badge>
+					</HeaderedContentControl.Header>
+					<Frame
+						BorderElement.CornerRadius=" 0 3 0 0"
+						NavigationUIVisibility="Hidden"
+						Navigated="Frame_Navigated" />
+				</TabItem>
+			</TabControl>
+		</Grid>
+	</controls:TransitioningContentControl>
+</Page>

@@ -1,0 +1,38 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockPuppeteerScrollBy" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockPuppeteerScrollBy" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:SafeModeCtrl
+			Grid.Row="0"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="1"
+			Height="29"
+			Margin="0,10,0,0"
+			Label="{DynamicResource Puppeteer_HorizontalScroll}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding HorizontalScrollInputMode, Mode=TwoWay}"
+			NumericValue="{Binding HorizontalScroll, Mode=TwoWay}"
+			StringValue="{Binding HorizontalScrollString, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="2"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Puppeteer_VerticalScroll}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding VerticalScrollInputMode, Mode=TwoWay}"
+			NumericValue="{Binding VerticalScroll, Mode=TwoWay}"
+			StringValue="{Binding VerticalScrollString, Mode=TwoWay}" />
+	</Grid>
+</Page>

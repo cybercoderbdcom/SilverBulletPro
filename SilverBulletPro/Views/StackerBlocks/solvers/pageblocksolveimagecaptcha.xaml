@@ -1,0 +1,139 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockSolveImageCaptcha" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockSolveImageCaptcha" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			ModesOfOutput="String"
+			OutputMode="String"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			Label="{DynamicResource Captchas_hCaptcha_Base64}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding Base64InputMode, Mode=TwoWay}"
+			Text="{Binding Base64, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="3"
+			Margin="0,5,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Captchas_LanguageGroup}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="langGroupComboBox"
+				Margin="1,0,0,0"
+				Background="{DynamicResource BackgroundSecondary}"
+				Foreground="{DynamicResource ForegroundMain}"
+				SelectedItem="{Binding LanguageGroup}" />
+		</DockPanel>
+		<DockPanel
+			Grid.Row="4"
+			Margin="0,5,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Captchas_Language}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="langComboBox"
+				Margin="1,0,0,0"
+				Background="{DynamicResource BackgroundSecondary}"
+				Foreground="{DynamicResource ForegroundMain}"
+				SelectedItem="{Binding Language}" />
+		</DockPanel>
+		<DockPanel
+			Grid.Row="5"
+			Margin="0,5,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Captchas_CharacterSet}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="characterSetComboBox"
+				Margin="1,0,0,0"
+				Background="{DynamicResource BackgroundSecondary}"
+				Foreground="{DynamicResource ForegroundMain}"
+				SelectedItem="{Binding CharacterSet}" />
+		</DockPanel>
+		<uc:NumStrInputBox
+			Grid.Row="6"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Captchas_MinLength}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding MinLengthInputMode, Mode=TwoWay}"
+			NumericValue="{Binding MinLength, Mode=TwoWay}"
+			StringValue="{Binding MinLengthString, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="7"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Captchas_MaxLength}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding MaxLengthInputMode, Mode=TwoWay}"
+			NumericValue="{Binding MaxLength, Mode=TwoWay}"
+			StringValue="{Binding MaxLengthString, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="8"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Captchas_TextInstructions}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding TextInstructionsInputMode, Mode=TwoWay}"
+			Text="{Binding TextInstructions, Mode=TwoWay}" />
+		<StackPanel
+			Grid.Row="9"
+			Margin="2,7,0,0">
+			<CheckBox
+				Margin="0,6,20,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource Captchas_IsPhrase}"
+				IsChecked="{Binding IsPhrase}" />
+			<CheckBox
+				Margin="0,8,0,0"
+				Content="{DynamicResource Captchas_CaseSensitive}"
+				IsChecked="{Binding CaseSensitive}" />
+			<CheckBox
+				Margin="0,8,0,0"
+				Content="{DynamicResource Captchas_RequiresCalculation}"
+				IsChecked="{Binding RequiresCalculation}" />
+		</StackPanel>
+	</Grid>
+</Page>

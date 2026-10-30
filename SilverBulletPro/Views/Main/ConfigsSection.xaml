@@ -1,0 +1,238 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.ConfigsSection" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="Configs" xmlns:main="clr-namespace:SilverBulletPro.Views.Main"
+	KeyDown="Page_KeyDown"
+	Loaded="Page_Loaded">
+	<controls:TransitioningContentControl
+		FrameworkElement.Name="trans"
+		Control.Background="#00FFFFFF"
+		TransitioningContentControl.TransitionMode="Fade" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+		x:Name="trans">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="auto" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<TabControl
+				Name="mainTabCtrl"
+				Grid.Row="1"
+				Width="auto"
+				Background="#00FFFFFF"
+				SelectedIndex="0"
+				SelectionChanged="TabCtrl_SelectionChanged">
+				<TabItem
+					Name="tabItemManager"
+					Background="#00FFFFFF"
+					Style="{StaticResource TabItemCustomStyle}"
+					SizeChanged="TabItem_SizeChanged">
+					<HeaderedContentControl.Header>
+						<DockPanel
+							Background="#00FFFFFF">
+							<iconpacks:PackIconFontAwesome
+								FrameworkElement.Width="19"
+								PackIconFontAwesome.Kind="UserCogSolid" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+							<TextBlock
+								Margin="5,0,0,0"
+								Text="{DynamicResource Manager}"
+								Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+						</DockPanel>
+					</HeaderedContentControl.Header>
+				</TabItem>
+				<TabItem
+					Name="tabItemStacker"
+					Background="#00FFFFFF"
+					IsEnabled="False"
+					Style="{StaticResource TabItemCustomStyle}"
+					SizeChanged="TabItem_SizeChanged">
+					<HeaderedContentControl.Header>
+						<DockPanel
+							Background="#00FFFFFF">
+							<PackIconFontAwesome
+								FrameworkElement.Width="19"
+								PackIconFontAwesome.Kind="LayerGroupSolid" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+							<TextBlock
+								Margin="5,0,0,0"
+								Text="{DynamicResource Stacker}"
+								Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+							<Button
+								Width="13"
+								Height="10"
+								Margin="5,4,-4,0"
+								Padding="0"
+								VerticalAlignment="Top"
+								IconElement.Geometry="M242.72,256 L342.78999999999996,155.93 C355.06999999999994,143.65 355.06999999999994,123.74000000000001 342.78999999999996,111.45000000000002 L320.54999999999995,89.21000000000002 C308.27,76.93000000000002 288.35999999999996,76.93000000000002 276.06999999999994,89.21000000000002 L176,189.28 L75.93,89.21 C63.650000000000006,76.93 43.74000000000001,76.93 31.45000000000001,89.21 L9.21,111.45 C-3.0699999999999985,123.73 -3.0699999999999985,143.64 9.21,155.93 L109.28,256 L9.21,356.07 C-3.0699999999999985,368.34999999999997 -3.0699999999999985,388.26 9.21,400.55 L31.45,422.79 C43.73,435.07 63.650000000000006,435.07 75.93,422.79 L176,322.72 L276.07,422.79 C288.34999999999997,435.07 308.27,435.07 320.55,422.79 L342.79,400.55 C355.07,388.27000000000004 355.07,368.36 342.79,356.07 L242.72,256"
+								IconElement.Height="8"
+								Background="#00FFFFFF"
+								BorderBrush="#00FFFFFF"
+								Content="Button"
+								Foreground="{DynamicResource ForegroundBad}"
+								Style="{StaticResource ButtonIconCircular.Small}"
+								Click="DestoryStacker_Click" />
+						</DockPanel>
+					</HeaderedContentControl.Header>
+				</TabItem>
+				<TabItem
+					Name="tabItemSettings"
+					Background="#00FFFFFF"
+					IsEnabled="False"
+					Style="{StaticResource TabItemCustomStyle}"
+					MouseLeave="TabItemSettings_MouseLeave"
+					SizeChanged="TabItem_SizeChanged">
+					<HeaderedContentControl.Header>
+						<DockPanel
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							Background="#00FFFFFF"
+							PreviewMouseDown="TabItemSettings_PreviewMouseDown">
+							<iconpacks:PackIconRemixIcon
+								FrameworkElement.Width="19"
+								PackIconRemixIcon.Kind="SettingsLine" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.RemixIcon" />
+							<TextBlock
+								Margin="5,0,0,0"
+								Text="{DynamicResource Settings}"
+								Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+							<iconpacks:PackIconUnicons
+								FrameworkElement.Width="10.5"
+								FrameworkElement.Margin="5,1,0,0"
+								Control.Background="#00FFFFFF"
+								Control.Foreground="{DynamicResource PrimaryBrush}"
+								PackIconUnicons.Kind="AngleDown" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Unicons"
+								MouseEnter="TabItemSettings_MouseEnter"
+								MouseLeave="TabItemSettings_MouseLeave_Icon" />
+						</DockPanel>
+					</HeaderedContentControl.Header>
+				</TabItem>
+				<TabItem
+					Name="tabItemSubMenu"
+					Background="#00FFFFFF"
+					IsEnabled="False"
+					Style="{StaticResource TabItemCustomStyle}"
+					Visibility="Collapsed">
+					<HeaderedContentControl.Header>
+						<DockPanel
+							Background="#00FFFFFF">
+							<iconpacks:PackIconOcticons
+								FrameworkElement.Height="16"
+								PackIconOcticons.Kind="Shield" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Octicons" />
+							<TextBlock
+								Name="textBlockTabItemSubMenu"
+								Margin="5,0,0,0"
+								Text="Settings"
+								Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" />
+						</DockPanel>
+					</HeaderedContentControl.Header>
+				</TabItem>
+			</TabControl>
+			<Border
+				Name="settingsSubMenu"
+				Grid.Row="1"
+				Margin="188,31,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				Panel.ZIndex="1"
+				Background="{DynamicResource BackgroundSecondary}"
+				BorderBrush="{DynamicResource BorderBrush}"
+				BorderThickness="1"
+				CornerRadius="0 0 1 1"
+				Visibility="Collapsed"
+				Width="{Binding ElementName=tabItemSettings, Path=ActualWidth}"
+				LostFocus="SettingsSubMenu_LostFocus"
+				MouseEnter="SettingsSubMenu_MouseEnter"
+				MouseLeave="SettingsSubMenu_MouseLeave">
+				<StackPanel>
+					<Button
+						Width="auto"
+						Height="26"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M0,2 L7,0 L14,2 L14,8.02 C14,12.69 8.69,16 7,16 C5.3100000000000005,16 0,12.69 0,8.02 L0,2 M1,2.75 L7,1 L13,2.75 L13,8.018 C13,12.104 8.449,15 7,15 C5.551,15 1,12.104 1,8.018 L1,2.75 M2,3.5 L7,2 L7,14 C5.793,14 2,11.518 2,8.015 L2,3.5"
+						IconElement.Width="13"
+						Content="{DynamicResource Proxies}"
+						Click="ButtonProxySettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M256,107 C303,107 345,129 372,163 L428,130 C389,77 327,43 256,43 C138,43 43,138 43,256 C43,367 127,457 235,468 L235,404 C163,394 107,331 107,256 C107,173 173,107 256,107 M277,468 C385,457 469,367 469,256 C469,225 463,195 451,169 L395,202 C401,219 405,237 405,256 C405,331 349,394 277,404 L277,468"
+						IconElement.Width="14"
+						Content="{DynamicResource Data}"
+						Click="ButtonDataSettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M15.8333,23.75 L40.7708,23.75 L36.0208,28.5 L17.4166,28.5 L17.4166,47.5 L58.5833,47.5 L58.5833,28.5 L50.2708,28.5 L55.0208,23.75 L60.1667,23.75 C61.9156,23.75 63.3333,25.1678 63.3333,26.9167 L63.3333,49.0833 C63.3333,50.8322 61.9156,52.25 60.1667,52.25 L15.8333,52.25 C14.0844,52.25 12.6667,50.8322 12.6667,49.0833 L12.6667,26.9167 C12.6667,25.1678 14.0844,23.75 15.8333,23.75 M55.0621,16.1879 C55.5053,16.6596 55.727,17.1679 55.727,17.7128 L55.5562,18.515 L55.0621,19.2378 L45.5648,28.735 L43.1676,31.1322 L40.868,33.4318 L38.8094,35.4905 L37.0953,37.1954 L35.8663,38.4153 L35.2563,39.0253 L34.2651,39.9311 L32.8621,41.0382 L31.3281,41.9715 C30.8075,42.2317 30.344,42.3618 29.9373,42.3618 C29.6201,42.3618 29.366,42.2663 29.1749,42.0751 C28.9837,41.884 28.8882,41.6238 28.8882,41.2944 C28.8882,40.8877 29.0183,40.4272 29.2786,39.9128 L30.2118,38.3787 L31.3098,36.9758 L32.2064,35.9937 L52.0122,16.1879 L52.735,15.6938 L53.5372,15.523 C54.0821,15.523 54.5904,15.7447 55.0621,16.1879 M27.6499,42.0751 L29.1749,43.6001 L26.125,45.125 L27.6499,42.0751"
+						IconElement.Width="14"
+						Content="{DynamicResource Input}"
+						Click="ButtonInputSettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M45,40.6429 C47.9587,40.6429 50.3571,43.0413 50.3571,46 C50.3571,48.9587 47.9587,51.3571 45,51.3571 C42.0413,51.3571 39.6429,48.9587 39.6429,46 C39.6429,43.0413 42.0413,40.6429 45,40.6429 M45,31 C50.5521,31 55.3997,34.2665 57.9933,38.75 L45.2156,39.039 L45,39.0357 C42.1237,39.0357 39.6547,40.7794 38.5923,43.2673 L32.8856,37.1529 C35.6143,33.4227 40.0242,31 45,31 M60,46 C60,54.2843 53.2843,61 45,61 L43.3967,60.9153 L47.2863,52.5803 C50.0095,51.6342 51.9643,49.0454 51.9643,46 C51.9643,43.7935 50.9381,41.8266 49.3369,40.5506 L58.1886,39.3484 C59.3438,41.4742 60,43.4105 60,46 M30,46 C30,42.7685 31.0218,39.7757 32.7601,37.3271 L38.0452,45.6323 L38.0357,46 C38.0357,49.8277 41.1236,52.9341 44.9442,52.9641 L43.1291,60.8845 C35.7278,59.9636 30,53.6507 30,46 M18,21 L58,21 L58,36.6705 C57.1478,35.4852 56.1375,34.4211 55,33.5092 L55,26 L21,26 L21,46 L29,46 C29,47.0254 29.0965,48.0283 29.2808,49 L18,49 L18,21"
+						IconElement.Width="14"
+						Content="{DynamicResource Puppeteer}"
+						Click="ButtonPuppeteerSettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M23.174,3.468 L15.758,11.79 A0.228,0.228 0 0 1 15.427999999999999,11.79L11.642,7.889999999999999 A0.228,0.228 0 0 1 11.642,7.607999999999999L12.872,6 A0.228,0.228 0 0 1 13.238,6L15.344,8.346 A0.228,0.228 0 0 0 15.686,8.346L21.626,0.25200000000000067 A0.162,0.162 0 0 0 21.5,0L0.716,0 A0.174,0.174 0 0 0 0.542,0.174L0.542,23.826 A0.174,0.174 0 0 0 0.716,24L23.282,24 A0.174,0.174 0 0 0 23.456,23.826L23.456,3.6 A0.162,0.162 0 0 0 23.174,3.468M6.932,21.366 A5.706,5.706 0 0 1 2.8820000000000006,19.926A0.222,0.222 0 0 1 2.8820000000000006,19.637999999999998L3.7640000000000007,18.401999999999997 A0.222,0.222 0 0 1 4.094,18.365999999999996A4.338,4.338 0 0 0 7.058,19.523999999999997C8.216,19.523999999999997 8.78,18.99 8.78,18.426 C8.78,16.674 3.079999999999999,17.874 3.079999999999999,14.148 C3.079999999999999,12.498 4.507999999999999,11.148 6.8359999999999985,11.148 A5.568,5.568 0 0 1 10.543999999999999,12.39A0.222,0.222 0 0 1 10.543999999999999,12.690000000000001L9.637999999999998,13.89 A0.222,0.222 0 0 1 9.319999999999999,13.926A4.29,4.29 0 0 0 6.613999999999999,12.99C5.707999999999999,12.99 5.203999999999999,13.392 5.203999999999999,13.986 C5.203999999999999,15.558 10.892,14.508 10.892,18.186 C10.898,19.998 9.607999999999999,21.366 6.9319999999999995,21.366 M19.37,17.934 A0.192,0.192 0 0 1 19.178,18.126L13.976,18.126 A0.06,0.06 0 0 0 13.916,18.192A1.986,1.986 0 0 0 16.022,19.83A3.264,3.264 0 0 0 17.822,19.229999999999997A0.192,0.192 0 0 1 18.098,19.272L18.734,20.202 A0.198,0.198 0 0 1 18.691999999999997,20.465999999999998A4.71,4.71 0 0 1 15.799999999999997,21.365999999999996A3.726,3.726 0 0 1 11.869999999999997,17.495999999999995A3.744,3.744 0 0 1 15.679999999999998,13.643999999999995C17.875999999999998,13.643999999999995 19.363999999999997,15.287999999999995 19.363999999999997,17.693999999999996 M15.686,15.186 A1.758,1.758 0 0 0 13.886,16.746A0.06,0.06 0 0 0 13.946,16.811999999999998L17.438,16.811999999999998 A0.06,0.06 0 0 0 17.497999999999998,16.746A1.698,1.698 0 0 0 15.685999999999998,15.185999999999998"
+						IconElement.Width="13"
+						Content="{DynamicResource Selenium}"
+						Click="ButtonSeleniumSettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M474.1,398.2 L289.1,212 C307.40000000000003,165 297.20000000000005,109.7 258.6,70.9 C217.9,30 156.9,21.8 108.1,44.3 L195.5,132.3 L134.5,193.70000000000002 L45,105.70000000000002 C20.7,154.70000000000002 30.9,216.10000000000002 71.5,257 C110.1,295.9 165,306.1 211.8,287.7 L396.8,473.9 C404.90000000000003,482.09999999999997 417.1,482.09999999999997 425.3,473.9 L472.1,426.9 C482.3,418.59999999999997 482.3,404.29999999999995 474.1,398.2"
+						IconElement.Width="14"
+						Content="{DynamicResource Compile}"
+						Click="ButtonCompileSettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0 0 1 1"
+						IconElement.Geometry="M8,3 A2,2 0 0 0 6,5L6,9 A2,2 0 0 1 4,11L3,11 L3,13 L4,13 A2,2 0 0 1 6,15L6,19 A2,2 0 0 0 8,21L10,21 L10,19 L8,19 L8,14 A2,2 0 0 0 6,12A2,2 0 0 0 8,10L8,5 L10,5 L10,3 M16,3 A2,2 0 0 1 18,5L18,9 A2,2 0 0 0 20,11L21,11 L21,13 L20,13 A2,2 0 0 0 18,15L18,19 A2,2 0 0 1 16,21L14,21 L14,19 L16,19 L16,14 A2,2 0 0 1 18,12A2,2 0 0 1 16,10L16,5 L14,5 L14,3 L16,3"
+						IconElement.Width="14"
+						Content="{DynamicResource Interpreter}"
+						Click="ButtonInterpreterSettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0 0 1 1"
+						IconElement.Geometry="M19,19 L12,11 L12,19 L5,19 L12,11 L12,5 L19,5 M19,3 L5,3 A2,2 0 0 0 3,5L3,19 A2,2 0 0 0 5,21L19,21 A2,2 0 0 0 21,19L21,5 A2,2 0 0 0 19,3"
+						IconElement.Width="13"
+						Content="{DynamicResource OCR}"
+						Click="ButtonOcrSettings_Click" />
+					<Button
+						Width="auto"
+						Height="27"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0 0 1 1"
+						IconElement.Geometry="M528.3,46.5 L388.5,46.5 C340.4,46.5 298.6,79.8 288.1,126.8 C277.5,79.8 235.8,46.5 187.70000000000002,46.5 L48,46.5 C21.5,46.5 0,68 0,94.5 L0,340.3 C0,366.8 21.5,388.3 48,388.3 L137.7,388.3 C239.89999999999998,388.3 270.4,412.7 285,463.3 C285.7,466.1 290.2,466.1 291,463.3 C305.7,412.7 336.2,388.3 438.3,388.3 L528,388.3 C554.5,388.3 576,366.8 576,340.3 L576,94.6 C576,68.19999999999999 554.7,46.699999999999996 528.3,46.49999999999999 M242,311.9 C242,313.79999999999995 240.5,315.4 238.5,315.4 L78.2,315.4 C76.3,315.4 74.7,313.9 74.7,311.9 L74.7,289 C74.7,287.1 76.2,285.5 78.2,285.5 L238.60000000000002,285.5 C240.50000000000003,285.5 242.10000000000002,287 242.10000000000002,289 L242.10000000000002,311.9 M242,250.99999999999997 C242,252.89999999999998 240.5,254.49999999999997 238.5,254.49999999999997 L78.2,254.49999999999997 C76.3,254.49999999999997 74.7,252.99999999999997 74.7,250.99999999999997 L74.7,228.09999999999997 C74.7,226.19999999999996 76.2,224.59999999999997 78.2,224.59999999999997 L238.60000000000002,224.59999999999997 C240.50000000000003,224.59999999999997 242.10000000000002,226.09999999999997 242.10000000000002,228.09999999999997 L242.10000000000002,251 M242,190.09999999999997 C242,191.99999999999997 240.5,193.59999999999997 238.5,193.59999999999997 L78.2,193.59999999999997 C76.3,193.59999999999997 74.7,192.09999999999997 74.7,190.09999999999997 L74.7,167.19999999999996 C74.7,165.29999999999995 76.2,163.69999999999996 78.2,163.69999999999996 L238.60000000000002,163.69999999999996 C240.50000000000003,163.69999999999996 242.10000000000002,165.19999999999996 242.10000000000002,167.19999999999996 L242.10000000000002,190.09999999999997 M501.3,311.79999999999995 C501.3,313.69999999999993 499.8,315.29999999999995 497.8,315.29999999999995 L337.5,315.29999999999995 C335.6,315.29999999999995 334,313.79999999999995 334,311.79999999999995 L334,288.9 C334,287 335.5,285.4 337.5,285.4 L497.9,285.4 C499.79999999999995,285.4 501.4,286.9 501.4,288.9 L501.4,311.79999999999995 M501.3,250.89999999999995 C501.3,252.79999999999995 499.8,254.39999999999995 497.8,254.39999999999995 L337.5,254.39999999999995 C335.6,254.39999999999995 334,252.89999999999995 334,250.89999999999995 L334,228 C334,226.1 335.5,224.5 337.5,224.5 L497.9,224.5 C499.79999999999995,224.5 501.4,226 501.4,228 L501.4,250.9 M501.3,189.99999999999994 C501.3,191.89999999999995 499.8,193.49999999999994 497.8,193.49999999999994 L337.5,193.49999999999994 C335.6,193.49999999999994 334,191.99999999999994 334,189.99999999999994 L334,167.19999999999993 C334,165.29999999999993 335.5,163.69999999999993 337.5,163.69999999999993 L497.9,163.69999999999993 C499.79999999999995,163.69999999999993 501.4,165.19999999999993 501.4,167.19999999999993 L501.4,190"
+						IconElement.Width="14"
+						Content="{DynamicResource Readme}"
+						Click="ButtonReadmeSettings_Click" />
+				</StackPanel>
+			</Border>
+		</Grid>
+	</controls:TransitioningContentControl>
+</Page>

@@ -1,0 +1,59 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockFuncDictRemove" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockFuncDictRemove" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			ModesOfOutput="String"
+			OutputMode="String"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			Label="{DynamicResource KeyValue_Dictionary}"
+			ModesOfInput="Var,CSharp,JavaScript,Python"
+			InputMode="{Binding DictionaryInputMode, Mode=TwoWay}"
+			Text="{Binding Dictionary, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Name="inputControl"
+			Grid.Row="3"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Value}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding ValueInputMode, Mode=TwoWay}"
+			Text="{Binding Value, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="4"
+			Margin="0,5,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource RemoveBy}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="removeTypeBox"
+				Background="{DynamicResource BackgroundSecondary}"
+				SelectionChanged="ComboBox_SelectionChanged" />
+		</DockPanel>
+	</Grid>
+</Page>

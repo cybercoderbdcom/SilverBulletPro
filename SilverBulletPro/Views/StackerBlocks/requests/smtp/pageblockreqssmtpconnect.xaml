@@ -1,0 +1,144 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockReqsSmtpConnect" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockReqsSmtpConnect" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			ModesOfOutput="String"
+			OutputMode="String"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			Label="{DynamicResource Smtp_Host}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding HostInputMode, Mode=TwoWay}"
+			Text="{Binding Host, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="3"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Smtp_Port}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding PortInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Port, Mode=TwoWay}"
+			StringValue="{Binding PortString, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="4"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Smtp_Timeout}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding TimeoutInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Timeout, Mode=TwoWay}"
+			StringValue="{Binding TimeoutString, Mode=TwoWay}" />
+		<DockPanel
+			Grid.Row="5"
+			Margin="-2,8,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Smtp_SslMode}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="sslModeBox"
+				Background="{DynamicResource BackgroundSecondary}"
+				SelectedItem="{Binding SslMode}" />
+		</DockPanel>
+		<DockPanel
+			Grid.Row="6"
+			Margin="-2,8,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Smtp_SslAllowedCurves}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="sslAllowedCurvesBox"
+				Background="{DynamicResource BackgroundSecondary}"
+				IsEditable="True"
+				SelectedItem="{Binding SslAllowedCurves}"
+				LostFocus="SslAllowedCurvesBox_LostFocus" />
+		</DockPanel>
+		<DockPanel
+			Grid.Row="7"
+			Margin="-2,8,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Smtp_SslAllowedSuites}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="sslAllowedSuitesBox"
+				Background="{DynamicResource BackgroundSecondary}"
+				IsEditable="True"
+				SelectedItem="{Binding SslAllowedSuites}"
+				LostFocus="SslAllowedSuitesBox_LostFocus" />
+		</DockPanel>
+		<DockPanel
+			Grid.Row="8"
+			Margin="-2,8,0,0">
+			<TextBlock
+				Margin="4,5,5,5"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource ForegroundMain}">
+				<Run
+					Text="{DynamicResource Smtp_SslAllowedVersions}" /> <Run
+					Text=":" /></TextBlock>
+			<ComboBox
+				Name="sslAllowedVersionsBox"
+				Background="{DynamicResource BackgroundSecondary}"
+				IsEditable="True"
+				SelectedItem="{Binding SslAllowedVersions}"
+				LostFocus="SslAllowedVersionsBox_LostFocus" />
+		</DockPanel>
+		<StackPanel
+			Grid.Row="9"
+			Margin="2,6,0,0">
+			<CheckBox
+				Margin="0,6,20,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource Smtp_SslAllowVulnerableSuites}"
+				IsChecked="{Binding SslAllowVulnerableSuites}" />
+			<CheckBox
+				Margin="0,8,0,0"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource Smtp_SslAcceptAllCertificates}"
+				IsChecked="{Binding SslAcceptAllCertificates}" />
+		</StackPanel>
+	</Grid>
+</Page>

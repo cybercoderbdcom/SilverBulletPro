@@ -1,0 +1,467 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.RunnerManager" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:SilverBulletPro.Converters" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="RunnerManager" xmlns:main="clr-namespace:SilverBulletPro.Views.Main"
+	Loaded="Page_Loaded">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<converters:Base64ToImageConverter
+				x:Key="Base64ToImageConverter" />
+			<ContextMenu
+				x:Key="RunnerMenu"
+				Closed="RunnerMenu_Closed"
+				ContextMenuOpening="RunnerMenu_Opening"
+				Opened="RunnerMenu_Opened">
+				<MenuItem
+					Foreground="{DynamicResource ForegroundMain}"
+					Click="startRunnerButton_Click">
+					<HeaderedItemsControl.Header>
+						<TextBlock
+							FontWeight="Bold">
+							<Run
+								Text="{DynamicResource Start}" /> <Run
+								FontWeight="Bold"
+								Text="/" /> <Run
+								Text="{DynamicResource Stop}" /></TextBlock>
+					</HeaderedItemsControl.Header>
+					<MenuItem.Icon>
+						<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+							Width="19"
+							Height="19"
+							HorizontalAlignment="Center"
+							Fill="{DynamicResource SuccessBrush}"
+							Stretch="Fill">
+							<Path.Data>
+								<PathGeometry
+									Figures="M 442.66666 801.23454 C 357.7693 795.44185 278.87747 757.40706 219.96046 693.86497 110.42363 575.72933 101.32006 393.46943 198.53712 264.9545 266.84686 174.65324 375.72211 124.53163 487.34245 132.00061 c 84.81202 5.67512 158.58423 39.19 217.62728 98.86852 89.75194 90.71794 120.02376 221.57974 79.4552 343.47624 -32.32171 97.11712 -111.94404 176.98817 -209.03993 209.6929 -29.80092 10.03782 -55.34649 15.0815 -87.50683 17.27719 -21.10972 1.44124 -22.95122 1.43795 -45.21151 -0.0809 z M 310.09259 558.99999 c 102.20037 -58.59779 129.10907 -74.61316 132.26847 -78.72288 6.38056 -8.29976 5.37494 -22.92225 -2.05856 -29.93301 -2.91918 -2.75316 -133.18367 -78.52659 -149.23629 -86.80911 -5.28323 -2.72593 -15.28056 -2.8488 -20.30694 -0.24956 -5.22348 2.70117 -10.394 9.18447 -12.03393 15.08929 -0.88288 3.17895 -1.3588 35.10654 -1.32605 88.9586 0.0539 88.57363 0.15757 90.21081 6.1406 96.94583 4.61336 5.1932 10.21542 7.71069 17.16976 7.71585 6.0523 0.004 8.93093 -1.26861 29.38294 -12.99501 z m 351.67914 9.84796 c 5.54956 -2.31875 11.07101 -8.86674 12.83624 -15.2227 1.88059 -6.77136 1.88059 -167.14583 0 -173.91719 -1.63993 -5.90483 -6.81045 -12.38812 -12.03393 -15.0893 -5.52204 -2.85556 -150.18389 -2.92168 -155.64027 -0.0712 -5.61196 2.93183 -10.54742 8.94514 -12.13545 14.78571 -2.0132 7.40423 -2.00992 167.27954 0.004 174.66666 1.61485 5.9246 5.17695 10.43282 11.19809 14.1724 3.77595 2.34515 8.1286 2.48458 77.7095 2.48928 59.2463 0.004 74.56358 -0.35188 78.06225 -1.81372 z"
+									FillRule="NonZero" />
+							</Path.Data>
+						</Path>
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem
+					Foreground="{DynamicResource ForegroundMain}"
+					Header="{DynamicResource Options}"
+					Click="RunnerSettings_Click">
+					<MenuItem.Icon>
+						<iconpacks:PackIconEvaIcons
+							FrameworkElement.Width="16"
+							Control.Foreground="{DynamicResource ForegroundOcrRate}"
+							PackIconEvaIcons.Kind="Options2" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.EvaIcons" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem
+					Foreground="{DynamicResource ForegroundMain}"
+					Header="{DynamicResource Remove}"
+					Click="removeRunnerButton_Click">
+					<MenuItem.Icon>
+						<iconpacks:PackIconForkAwesome
+							FrameworkElement.Width="19"
+							FrameworkElement.Height="17"
+							FrameworkElement.Margin="-1,0,0,0"
+							Control.Foreground="{DynamicResource DangerBrush}"
+							PackIconForkAwesome.Kind="MinusCircle" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.ForkAwesome" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<Separator />
+				<MenuItem
+					Foreground="{DynamicResource ForegroundMain}"
+					Header="Clone"
+					Click="cloneRunner_Click">
+					<MenuItem.Icon>
+						<iconpacks:PackIconFontAwesome
+							FrameworkElement.Width="15"
+							Control.Foreground="{DynamicResource ForegroundMain}"
+							PackIconFontAwesome.Kind="CloneSolid" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem
+					Foreground="{DynamicResource ForegroundMain}"
+					Header="{DynamicResource Runner_Restore}"
+					Click="restoreRunner_Click">
+					<MenuItem.Icon>
+						<iconpacks:PackIconMaterialDesign
+							FrameworkElement.Width="18"
+							FrameworkElement.Height="20"
+							FrameworkElement.Margin="-3,0,0,0"
+							Control.Foreground="{DynamicResource ForegroundMain}"
+							PackIconMaterialDesign.Kind="SettingsBackupRestore" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.MaterialDesign" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem
+					Foreground="{DynamicResource ForegroundMain}"
+					Header="Save"
+					Click="saveRunnerToTextFile_Click">
+					<MenuItem.Icon>
+						<iconpacks:PackIconBoxIcons
+							Control.Foreground="{DynamicResource ForegroundMain}"
+							PackIconBoxIcons.Kind="SolidSave" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.BoxIcons" />
+					</MenuItem.Icon>
+				</MenuItem>
+			</ContextMenu>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<controls:TransitioningContentControl
+		FrameworkElement.Name="trans"
+		TransitioningContentControl.TransitionMode="Fade" xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+		x:Name="trans">
+		<Grid
+			Background="#00FFFFFF">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="40" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<StackPanel
+				Grid.Row="0"
+				Grid.RowSpan="2"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center">
+				<TextBlock
+					Name="helpMessageLabel"
+					Margin="0,0,0,5"
+					FontSize="25"
+					FontWeight="Bold"
+					Foreground="{DynamicResource PrimaryTextBrush}"
+					TextAlignment="Center">
+					<Run
+						Text="Welcome to Silver Bullet" /> <Run
+						FontFamily="Arial"
+						FontWeight="UltraBold">Pro!</Run><LineBreak />Create a Runner to get started.</TextBlock>
+			</StackPanel>
+			<StackPanel
+				Grid.Row="0"
+				Orientation="Horizontal">
+				<Button
+					Name="addRunnerButton"
+					Width="110"
+					Height="34"
+					BorderElement.CornerRadius="5 0 0 5"
+					IconElement.Geometry="M20,14 L14,14 L14,20 L10,20 L10,14 L4,14 L4,10 L10,10 L10,4 L14,4 L14,10 L20,10 L20,14"
+					IconElement.Width="17"
+					Background="{DynamicResource BackgroundSecondary}"
+					BorderBrush="{DynamicResource BorderBrush}"
+					BorderThickness="1,1,0.5,1"
+					Content="{DynamicResource New}"
+					Foreground="{DynamicResource ForegroundMain}"
+					Click="addRunnerButton_Click" />
+				<Button
+					Name="startAllRunnersButton"
+					Width="110"
+					Height="34"
+					BorderElement.CornerRadius="0 0 0 0"
+					IconElement.Geometry="M15,10.001 C15,10.299999999999999 14.695,10.514999999999999 14.695,10.514999999999999 L6.134,15.817999999999998 C5.51,16.227 5,15.924 5,15.149 L5,4.852 C5,4.075 5.51,3.774 6.135,4.182 L14.696,9.487 C14.695,9.487 15,9.702 15,10.001"
+					IconElement.Width="13"
+					Background="{DynamicResource BackgroundSecondary}"
+					BorderBrush="{DynamicResource BorderBrush}"
+					BorderThickness="0.5,1,0.5,1"
+					Content="{DynamicResource StartAll}"
+					Foreground="{DynamicResource ForegroundMain}"
+					Click="startAllRunnersButton_Click" />
+				<Button
+					Name="stopAllRunnersButton"
+					Width="110"
+					Height="34"
+					BorderElement.CornerRadius="0 0 0 0"
+					IconElement.Geometry="M417,550 Q452,550 476,526 Q500,502 500,467 L500,133 Q500,98 476,74 Q452,50 417,50 L83,50 Q48,50 24,74 Q0,98 0,133 L0,467 Q0,502 24,526 Q48,550 83,550 L417,550"
+					IconElement.Width="13"
+					Background="{DynamicResource BackgroundSecondary}"
+					BorderBrush="{DynamicResource BorderBrush}"
+					BorderThickness="0.5,1,0.5,1"
+					Content="{DynamicResource StopAll}"
+					Foreground="{DynamicResource ForegroundMain}"
+					Click="stopAllRunnersButton_Click" />
+				<Button
+					Name="removeAllRunnersButton"
+					Width="110"
+					Height="34"
+					BorderElement.CornerRadius="0 5 5 0"
+					IconElement.Geometry="M966.4,761.6 L825.5999999999999,902.4000000000001 L511.9999999999999,582.4000000000001 L198.39999999999986,902.4000000000001 L57.59999999999985,761.6000000000001 L377.59999999999985,448.0000000000001 L57.59999999999985,134.4000000000001 L198.39999999999986,-6.39999999999992 L511.9999999999999,313.6000000000001 L825.5999999999999,-6.39999999999992 L966.3999999999999,134.4000000000001 L646.3999999999999,448.0000000000001"
+					IconElement.Width="14"
+					Background="{DynamicResource BackgroundSecondary}"
+					BorderBrush="{DynamicResource BorderBrush}"
+					BorderThickness="0.5,1,1,1"
+					Content="{DynamicResource RemoveAll}"
+					Foreground="{DynamicResource ForegroundMain}"
+					Click="removeAllRunnersButton_Click" />
+				<Label
+					Margin="5,0,0,0"
+					VerticalAlignment="Center"
+					Content="{DynamicResource RunnerTip}"
+					Foreground="{DynamicResource ForegroundMenuSelected}" />
+			</StackPanel>
+			<ScrollViewer
+				Grid.Row="1"
+				VerticalScrollBarVisibility="Auto"
+				ScrollChanged="ScrollViewer_ScrollChanged">
+				<ItemsControl
+					Name="runnersControl"
+					ItemsSource="{Binding RunnersCollection}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Margin="0,10"
+								Orientation="Vertical" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<!--Unknown connection ID: 17-->
+							<Border
+								Grid.RowSpan="2"
+								BorderBrush="{DynamicResource ForegroundMain}"
+								BorderThickness="1"
+								ContextMenu="{StaticResource RunnerMenu}"
+								CornerRadius="2"
+								Tag="{Binding Id}">
+								<FrameworkElement.Style>
+									<Style
+										TargetType="{x:Type Border}">
+										<Setter
+											Property="Background"
+											Value="#00FFFFFF" />
+										<Style.Triggers>
+											<Trigger
+												Property="UIElement.IsMouseOver"
+												Value="True">
+												<Setter
+													Property="Background"
+													Value="{DynamicResource BackgroundSecondary}" />
+											</Trigger>
+										</Style.Triggers>
+									</Style>
+								</FrameworkElement.Style>
+								<Grid
+									Name="runnerInstanceGrid"
+									Tag="{Binding Id}">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="*" />
+										<ColumnDefinition
+											Width="40" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition
+											Height="*" />
+										<RowDefinition
+											Height="*" />
+									</Grid.RowDefinitions>
+									<WrapPanel
+										Grid.Row="0"
+										Grid.Column="0"
+										Grid.ColumnSpan="2"
+										Margin="0,0,0,-3"
+										HorizontalAlignment="Left">
+										<Ellipse
+											Width="32"
+											Height="29"
+											Margin="4,5,2,4"
+											HorizontalAlignment="Left"
+											RenderOptions.BitmapScalingMode="HighQuality"
+											SnapsToDevicePixels="True"
+											Stroke="{DynamicResource BorderBrush}">
+											<Shape.Fill>
+												<ImageBrush
+													Stretch="Fill"
+													ImageSource="{Binding ViewModel.Icon, Converter={StaticResource Base64ToImageConverter}}" />
+											</Shape.Fill>
+										</Ellipse>
+										<!--Unknown connection ID: 18-->
+										<TextBlock
+											Grid.Column="1"
+											Margin="5,5,2,5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundMain}"
+											Tag="{Binding Id}">
+											<Run
+												Text="{DynamicResource Config}" /> <Run
+												Text=":" /></TextBlock>
+										<!--Unknown connection ID: 19-->
+										<TextBlock
+											Grid.Column="2"
+											Margin="5,5,11,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											TextTrimming="None"
+											Text="{Binding ViewModel.ConfigName}"
+											ToolTip="{Binding ViewModel.ConfigName}" />
+										<!--Unknown connection ID: 20-->
+										<TextBlock
+											Grid.Column="3"
+											Margin="5,5,2,5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundMain}">
+											<Run
+												Text="{DynamicResource Wordlist}" /> <Run
+												Text=":" /></TextBlock>
+										<!--Unknown connection ID: 21-->
+										<TextBlock
+											Grid.Column="4"
+											Margin="5,5,11,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											TextTrimming="CharacterEllipsis"
+											Text="{Binding ViewModel.Options.WordlistName}" />
+										<!--Unknown connection ID: 22-->
+										<TextBlock
+											Grid.Column="5"
+											Margin="5,5,4,5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundMain}">
+											<Run
+												Text="{DynamicResource Bots}" /> <Run
+												Text=":" /></TextBlock>
+										<!--Unknown connection ID: 23-->
+										<TextBlock
+											Grid.Column="6"
+											Margin="5,5,11,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											Text="{Binding ViewModel.Options.BotsAmount, Mode=TwoWay}" />
+										<!--Unknown connection ID: 24-->
+										<TextBlock
+											Grid.Column="7"
+											Margin="5,5,3,5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundMain}">
+											<Run
+												Text="{DynamicResource Proxies}" /> <Run
+												Text=":" /></TextBlock>
+										<!--Unknown connection ID: 25-->
+										<TextBlock
+											Grid.Column="8"
+											Margin="5,5,11,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											Text="{Binding ViewModel.Options.ProxyMode, Mode=TwoWay}" />
+										<TextBlock
+											Grid.Column="9"
+											Margin="5,5,0,5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundRetry}"
+											Text="STATUS: " />
+										<TextBlock
+											Grid.Column="10"
+											Margin="3,5,40,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundRetry}"
+											TextTrimming="CharacterEllipsis"
+											Text="{Binding ViewModel.WorkerStatus}" />
+									</WrapPanel>
+									<WrapPanel
+										Grid.Row="1"
+										Grid.Column="0"
+										Orientation="Horizontal">
+										<TextBlock
+											Margin="5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundGood}">
+											<Run
+												Text="{DynamicResource Hits}" /> <Run
+												Text=":" /></TextBlock>
+										<TextBlock
+											Margin="3,5,6,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundGood}"
+											Text="{Binding ViewModel.HitCount}" />
+										<!--Unknown connection ID: 26-->
+										<TextBlock
+											Margin="5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundCustom}">
+											<Run
+												Text="{DynamicResource Custom}" /> <Run
+												Text=":" /></TextBlock>
+										<TextBlock
+											Margin="3,5,6,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundCustom}"
+											Text="{Binding ViewModel.CustomCount}" />
+										<TextBlock
+											Margin="5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundToCheck}">
+											<Run
+												Text="{DynamicResource ToCheck}" /> <Run
+												Text=":" /></TextBlock>
+										<TextBlock
+											Margin="3,5,5,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundToCheck}"
+											Text="{Binding ViewModel.ToCheckCount}" />
+										<TextBlock
+											Margin="5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundMain}">
+											<Run
+												Text="{DynamicResource Progress}" /> <Run
+												Text=":" /></TextBlock>
+										<TextBlock
+											Margin="5,5,3,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											Text="{Binding ViewModel.ProgressCount}" />
+										<Label
+											Content="/" />
+										<TextBlock
+											Margin="3,5,5,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											Text="{Binding ViewModel.Options.WordlistSize}" />
+										<Label
+											Content="(" />
+										<TextBlock
+											Margin="2,5,2,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											Text="{Binding ViewModel.Progress}" />
+										<Label
+											Content="% )" />
+										<TextBlock
+											Margin="5"
+											VerticalAlignment="Center"
+											FontWeight="Bold"
+											Foreground="{DynamicResource ForegroundMain}"
+											ToolTip="{DynamicResource Runner_ChecksPerMinuteTip}">
+											<Run
+												Text="{DynamicResource CPM}" /> <Run
+												Text=":" /></TextBlock>
+										<TextBlock
+											Margin="4,5,2,5"
+											VerticalAlignment="Center"
+											Foreground="{DynamicResource ForegroundMain}"
+											Text="{Binding ViewModel.CPM}" />
+									</WrapPanel>
+									<WrapPanel
+										Grid.RowSpan="2"
+										Grid.Column="1">
+										<!--Unknown connection ID: 27-->
+										<Button
+											Name="runnerMenu"
+											Height="30"
+											Padding="8,5,4,5"
+											BorderElement.CornerRadius="0 0 0 4"
+											IconElement.Geometry="M62.5,137.5 A12.5,12.5 1 1 1 62.5,162.5A12.5,12.5 0 0 1 62.5,137.5M62.5,112.5 A37.5,37.5 1 1 0 62.5,187.5A37.5,37.5 0 0 0 62.5,112.5M237.5,112.5 A37.5,37.5 1 1 0 237.5,187.5A37.5,37.5 0 0 0 237.5,112.5M237.5,137.5 A12.5,12.5 1 1 1 237.5,162.5A12.5,12.5 0 0 1 237.5,137.5M150,112.5 A37.5,37.5 1 1 0 150,187.5A37.5,37.5 0 0 0 150,112.5M150,137.5 A12.5,12.5 1 1 1 150,162.5A12.5,12.5 0 0 1 150,137.5"
+											IconElement.Width="22"
+											Background="#00AA80"
+											Foreground="{DynamicResource ForegroundMain}"
+											Tag="{Binding Id}" />
+									</WrapPanel>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</ScrollViewer>
+		</Grid>
+	</controls:TransitioningContentControl>
+</Page>

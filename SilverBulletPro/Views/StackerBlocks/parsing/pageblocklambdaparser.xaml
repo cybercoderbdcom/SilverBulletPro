@@ -1,0 +1,64 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockLambdaParser" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="PageBlockLambdaParser" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks"
+	Loaded="Page_Loaded"
+	Unloaded="Page_Unloaded">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<uc:VarCapOutputBox
+			Name="outputVar"
+			EnableHiddenVar="True"
+			EnableOutputMode="True"
+			ModesOfOutput="String,ListString,Dictionary,ByteArray,Base64,Hex"
+			HiddenVar="{Binding HiddenVar, Mode=TwoWay}"
+			IsCapture="{Binding IsCapture, Mode=TwoWay}"
+			OutputMode="{Binding OutputType, Mode=TwoWay}"
+			Text="{Binding VariableName, Mode=TwoWay}" />
+		<uc:SafeModeCtrl
+			Grid.Row="1"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="2"
+			Margin="0,10,0,0"
+			InputFontSize="13"
+			Label="{DynamicResource Lambda_Expression}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding ExpInputMode, Mode=TwoWay}"
+			Text="{Binding Expression, Mode=TwoWay}" />
+		<CheckBox
+			Grid.Row="3"
+			Margin="0,10,0,5"
+			Content="{DynamicResource Lambda_UseLocalVariables}"
+			IsChecked="{Binding UseLocalVars}" />
+		<CheckBox
+			Grid.Row="4"
+			Margin="0,5,0,5"
+			Content="{DynamicResource Lambda_UseGlobalVariables}"
+			IsChecked="{Binding UseGlobalVars}" />
+		<uc:RichTextInputBox
+			Name="rtContextVariables"
+			Grid.Row="5"
+			Margin="0,4,0,0"
+			Label="{DynamicResource Lambda_ContextVariables}">
+			<uc:RichTextInputBox.RichTextBoxToolTip>
+				<TextBlock>Syntax:<LineBreak />variable name: variable value</TextBlock>
+			</uc:RichTextInputBox.RichTextBoxToolTip>
+		</uc:RichTextInputBox>
+	</Grid>
+</Page>

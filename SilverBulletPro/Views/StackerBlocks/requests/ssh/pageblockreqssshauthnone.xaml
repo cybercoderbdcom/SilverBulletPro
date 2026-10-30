@@ -1,0 +1,79 @@
+<Page
+	x:Class="SilverBulletPro.Views.StackerBlocks.PageBlockReqsSshAuthNone" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:uc="clr-namespace:SilverBulletPro.Views.UserControls"
+	Title="pageBlockReqsSshAuthNone" xmlns:stackerblocks="clr-namespace:SilverBulletPro.Views.StackerBlocks">
+	<Grid
+		Margin="5,5,8,5">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+			<RowDefinition
+				Height="auto" />
+		</Grid.RowDefinitions>
+		<uc:SafeModeCtrl
+			Grid.Row="0"
+			Margin="0,6,0,0"
+			HorizontalAlignment="Left"
+			SafeMode="{Binding SafeMode, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="1"
+			Margin="0,10,0,0"
+			Label="{DynamicResource Ssh_Host}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding HostInputMode, Mode=TwoWay}"
+			Text="{Binding Host, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="2"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Ssh_Port}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding PortInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Port, Mode=TwoWay}"
+			StringValue="{Binding PortString, Mode=TwoWay}" />
+		<uc:TextInputBox
+			Grid.Row="3"
+			Height="30"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Ssh_Username}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding UserInputMode, Mode=TwoWay}"
+			Text="{Binding Username, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="4"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Ssh_Timeout}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding TimeoutInputMode, Mode=TwoWay}"
+			NumericValue="{Binding Timeout, Mode=TwoWay}"
+			StringValue="{Binding TimeoutString, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="5"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Ssh_ChannelTimeout}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding ChTimeoutInputMode, Mode=TwoWay}"
+			NumericValue="{Binding ChTimeout, Mode=TwoWay}"
+			StringValue="{Binding ChTimeoutString, Mode=TwoWay}" />
+		<uc:NumStrInputBox
+			Grid.Row="6"
+			Height="29"
+			Margin="0,5,0,0"
+			Label="{DynamicResource Ssh_RetryAttempts}"
+			ModesOfInput="Const,Var,CSharp,JavaScript,Python"
+			InputMode="{Binding RetryAttemptsInputMode, Mode=TwoWay}"
+			NumericValue="{Binding RetryAttempts, Mode=TwoWay}"
+			StringValue="{Binding RetryAttemptsString, Mode=TwoWay}" />
+	</Grid>
+</Page>

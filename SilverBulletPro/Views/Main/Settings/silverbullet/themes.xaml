@@ -1,0 +1,406 @@
+<!--Class 'SilverBulletPro.Views.Main.Settings.Themes' has IComponentConnector.Connect method, but cannot be parsed.-->
+<Page
+	x:Class="SilverBulletPro.Views.Main.Settings.Themes" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	Title="SBSettingsThemes" xmlns:settings="clr-namespace:SilverBulletPro.Views.Main.Settings">
+	<ScrollViewer
+		CanContentScroll="True">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="137*" />
+				<ColumnDefinition
+					Width="123*" />
+				<ColumnDefinition
+					Width="130*" />
+			</Grid.ColumnDefinitions>
+			<StackPanel
+				Grid.Column="0"
+				Margin="5">
+				<Label
+					FontWeight="Bold">
+					<DockPanel>
+						<iconpacks:PackIconFontAwesome
+							PackIconFontAwesome.Kind="PaintBrushSolid" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" />
+						<TextBlock
+							Margin="5,0,0,0"
+							Text="{DynamicResource SBSettings_Themes_Colors}" />
+					</DockPanel>
+				</Label>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_BackgroundMain}" /> <Run
+							Text=":" /></TextBlock>
+					<toolkit:ColorPicker
+						FrameworkElement.Name="BackgroundMain"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns:toolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_BackgroundSecondary}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="BackgroundSecondary"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<Separator
+					Margin="0,6" />
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundMain}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundMain"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundGood}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundGood"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundBad}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundBad"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundCustom}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundCustom"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundRetry}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundRetry"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundToCheck}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundToCheck"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundMenuSel}" />
+					</TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundMenuSelected"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_ForegroundMainMenuSel}" />
+					</TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="ForegroundMainTabCtrlSelectedItem"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<Separator
+					Margin="0,6" />
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_PrimaryBrush}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="PrimaryBrush"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_PrimaryTextBrush}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="PrimaryTextBrush"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_BorderBrush}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="BorderBrush"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_MainBar}" /> <Run
+							Text=":" /></TextBlock>
+					<ColorPicker
+						FrameworkElement.Name="MainBar"
+						FrameworkElement.Width="100"
+						FrameworkElement.HorizontalAlignment="Right" xmlns="clr-namespace:Xceed.Wpf.Toolkit;assembly=DotNetProjects.Wpf.Extended.Toolkit" />
+				</DockPanel>
+				<Grid
+					Margin="5,10,0,0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<Button
+						Name="loadThemeButton"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="4 0 0 0"
+						IconElement.Geometry="M512,320 C512,320 448,412.65 448,448 C448,483.35 476.66,512 512,512 C547.3399999999999,512 576,483.35 576,448 C576,412.65 512,320 512,320 M502.63,217.06 L294.94,9.37 C288.69,3.12 280.5,0 272.31,0 C264.12,0 255.93,3.12 249.69,9.37 L168.11,90.95 L81.93,4.76 C75.68,-1.4900000000000002 65.55000000000001,-1.4900000000000002 59.31,4.76 L36.69,27.38 C30.449999999999996,33.629999999999995 30.449999999999996,43.76 36.69,50 L122.88,136.18 L28.11999999999999,230.94 C-9.370000000000012,268.42 -9.370000000000012,329.2 28.11999999999999,366.69 L145.31,483.88 C164.05,502.62 188.62,512 213.18,512 C237.75,512 262.31,502.63 281.05,483.88 L502.62,262.31 C515.12,249.81 515.12,229.56 502.63,217.06 M386.40999999999997,288.03 L65.93,288.03 C67.29,284.19 69.5,280.04999999999995 73.36000000000001,276.2 L86.51000000000002,263.05 L168.12,181.44 L226.72,240.04 C239.21,252.53 259.47,252.53 271.96,240.04 C284.44999999999993,227.54999999999998 284.45,207.29 271.96,194.79999999999998 L213.36,136.2 L272.31,77.24999999999999 L434.75,239.69 L386.40999999999997,288.03"
+						IconElement.Width="17"
+						BorderThickness="1"
+						Content="{DynamicResource SBSettings_Themes_BtnLoad}" />
+					<Button
+						Name="saveThemeButton"
+						Grid.Column="1"
+						HorizontalAlignment="Stretch"
+						VerticalAlignment="Stretch"
+						BorderElement.CornerRadius="0 4 0 0"
+						IconElement.Geometry="M10,19 L10.14,18.86 C8.9,18.5 8,17.36 8,16 A3,3 0 0 1 11,13C12.36,13 13.5,13.9 13.86,15.14 L20,9 L20,7 L16,3 L4,3 C2.89,3 2,3.9 2,5 L2,19 A2,2 0 0 0 4,21L10,21 L10,19 M4,5 L14,5 L14,9 L4,9 L4,5 M20.04,12.13 C19.9,12.13 19.76,12.19 19.65,12.3 L18.65,13.3 L20.7,15.35 L21.7,14.35 C21.92,14.14 21.92,13.79 21.7,13.58 L20.42,12.3 C20.31,12.19 20.18,12.13 20.04,12.13 M18.07,13.88 L12,19.94 L12,22 L14.06,22 L20.12,15.93 L18.07,13.88"
+						IconElement.Width="16"
+						BorderThickness="1"
+						Content="{DynamicResource SBSettings_Themes_BtnSave}" />
+				</Grid>
+				<Button
+					Name="resetButton"
+					Margin="5,0,0,0"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					BorderElement.CornerRadius="0 0 4 4"
+					IconElement.Geometry="M6,0 C2.69,0 0,2.69 0,6 L0,7 C0,7.55 0.45,8 1,8 L1,13 C1,14.1 3.24,15 6,15 C8.76,15 11,14.1 11,13 L11,8 C11.55,8 12,7.55 12,7 L12,6 C12,2.69 9.31,0 6,0 M9,10 L9,10.5 C9,10.78 8.78,11 8.5,11 C8.22,11 8,10.78 8,10.5 L8,10 C8,9.72 7.78,9.5 7.5,9.5 C7.22,9.5 7,9.72 7,10 L7,12.5 C7,12.78 6.78,13 6.5,13 C6.22,13 6,12.78 6,12.5 L6,10.5 C6,10.22 5.78,10 5.5,10 C5.22,10 5,10.22 5,10.5 L5,11 C5,11.55 4.55,12 4,12 C3.45,12 3,11.55 3,11 L3,10 C2.45,10 2,9.55 2,9 L2,7.2 C2.91,7.69 4.359999999999999,8 6,8 C7.64,8 9.09,7.69 10,7.2 L10,9 C10,9.55 9.55,10 9,10 M6,7 C4.32,7 2.88,6.59 2.29,6 C2.88,5.41 4.32,5 6,5 C7.68,5 9.120000000000001,5.41 9.71,6 C9.120000000000001,6.59 7.6800000000000015,7 6.000000000000001,7 M6,4 C3.24,4 1,4.89 1,6 C1,3.24 3.24,1 6,1 C8.76,1 11,3.24 11,6 C11,4.9 8.76,4 6,4"
+					IconElement.Width="14"
+					BorderThickness="1"
+					Content="{DynamicResource SBSettings_Themes_BtnReset}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Column="1"
+				Margin="10,5,5,5">
+				<Label
+					Margin="-5,0,0,5"
+					FontWeight="Bold">
+					<DockPanel>
+						<iconpacks:PackIconMaterial
+							PackIconMaterial.Kind="FileImage" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+						<TextBlock
+							Margin="3,0,0,0"
+							Text="{DynamicResource SBSettings_Themes_Images}" />
+					</DockPanel>
+				</Label>
+				<CheckBox
+					Name="useImagesCheckbox"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					VerticalContentAlignment="Center"
+					Content="{DynamicResource SBSettings_Themes_UseImages}"
+					IsChecked="{Binding UseImage}" />
+				<DockPanel
+					Margin="-4,5,0,0"
+					Dock="Top">
+					<TextBlock
+						Margin="5,8,5,5"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_Opacity}" /> <Run
+							Text=":" /></TextBlock>
+					<NumericUpDown
+						NumericUpDown.Name="backgroundImageOpacityUpDown"
+						FrameworkElement.Height="27"
+						FrameworkElement.MinWidth="70"
+						FrameworkElement.Margin="8,5,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						Control.Background="{DynamicResource BackgroundSecondary}"
+						FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+						Control.Foreground="{DynamicResource ForegroundMain}"
+						NumericUpDown.Maximum="100"
+						NumericUpDown.Minimum="0"
+						NumericUpDown.Value="{Binding BackgroundImageOpacity}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+				</DockPanel>
+				<Separator
+					Margin="0,10" />
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_BackgroundImage}" /> <Run
+							Text=":" /></TextBlock>
+					<Button
+						Width="34"
+						Height="28"
+						Padding="5,0,0,0"
+						BorderElement.CornerRadius="0 3 0 0"
+						IconElement.Geometry="M278.6,256 L346.8,187.8 C353,181.60000000000002 353,171.4 346.8,165.20000000000002 C340.6,159.00000000000003 330.40000000000003,159.00000000000003 324.2,165.20000000000002 L256,233.4 L187.8,165.2 C181.60000000000002,159 171.4,159 165.20000000000002,165.2 C162.10000000000002,168.29999999999998 160.50000000000003,172.39999999999998 160.50000000000003,176.5 C160.50000000000003,180.6 162.10000000000002,184.7 165.20000000000002,187.8 L233.40000000000003,256 L165.20000000000005,324.2 C162.10000000000005,327.3 160.50000000000006,331.4 160.50000000000006,335.5 C160.50000000000006,339.6 162.10000000000005,343.7 165.20000000000005,346.8 C171.40000000000003,353 181.60000000000005,353 187.80000000000004,346.8 L256.00000000000006,278.6 L324.20000000000005,346.8 C330.40000000000003,353 340.6,353 346.80000000000007,346.8 C353.00000000000006,340.6 353.00000000000006,330.40000000000003 346.80000000000007,324.2 L278.6,256"
+						IconElement.Width="13.5"
+						BorderThickness="0,1,1,0"
+						DockPanel.Dock="Right" />
+					<Button
+						Width="35"
+						Height="28"
+						Padding="5,0,0,0"
+						HorizontalAlignment="Right"
+						BorderElement.CornerRadius="3 0 0 0"
+						IconElement.Geometry="M384,121.941 L384,128 L256,128 L256,0 L262.059,0 A24,24 0 0 1 279.029,7.029L376.97,104.97 A24.002,24.002 0 0 1 384,121.941M248,160 C234.8,160 224,149.2 224,136 L224,0 L24,0 C10.745,0 0,10.745 0,24 L0,488 C0,501.255 10.745,512 24,512 L360,512 C373.255,512 384,501.255 384,488 L384,160 L248,160 M112.54499999999999,176 C139.05499999999998,176 160.545,197.49 160.545,224 C160.545,250.51 139.05499999999998,272 112.54499999999999,272 C86.035,272 64.54499999999999,250.51 64.54499999999999,224 C64.54499999999999,197.49 86.03599999999999,176 112.54499999999999,176 M320.54499999999996,416 L64.54499999999996,416 L65.02999999999996,367.515 L104.545,328 C109.231,323.314 116.344,323.799 121.03,328.485 L160.545,368 L264.06,264.485 C268.746,259.79900000000004 276.344,259.79900000000004 281.031,264.485 L320.545,304 L320.545,416"
+						IconElement.Width="13"
+						BorderThickness="1,1,0,0" />
+				</DockPanel>
+				<TextBox
+					BorderElement.CornerRadius="3 0 3 3"
+					DockPanel.Dock="Left"
+					IsReadOnly="True"
+					Text="{Binding BackgroundImage}" />
+				<Image
+					Name="backgroundImagePreview"
+					Width="87"
+					Height="60"
+					Margin="0,10,0,0"
+					Source="/Images/Themes/empty.png" />
+				<Separator
+					Margin="0,10" />
+				<DockPanel>
+					<TextBlock
+						Margin="5"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_BackgroundLogo}" /> <Run
+							Text=":" /></TextBlock>
+					<Button
+						Width="34"
+						Height="28"
+						Padding="5,0,0,0"
+						BorderElement.CornerRadius="0 3 0 0"
+						IconElement.Geometry="M278.6,256 L346.8,187.8 C353,181.60000000000002 353,171.4 346.8,165.20000000000002 C340.6,159.00000000000003 330.40000000000003,159.00000000000003 324.2,165.20000000000002 L256,233.4 L187.8,165.2 C181.60000000000002,159 171.4,159 165.20000000000002,165.2 C162.10000000000002,168.29999999999998 160.50000000000003,172.39999999999998 160.50000000000003,176.5 C160.50000000000003,180.6 162.10000000000002,184.7 165.20000000000002,187.8 L233.40000000000003,256 L165.20000000000005,324.2 C162.10000000000005,327.3 160.50000000000006,331.4 160.50000000000006,335.5 C160.50000000000006,339.6 162.10000000000005,343.7 165.20000000000005,346.8 C171.40000000000003,353 181.60000000000005,353 187.80000000000004,346.8 L256.00000000000006,278.6 L324.20000000000005,346.8 C330.40000000000003,353 340.6,353 346.80000000000007,346.8 C353.00000000000006,340.6 353.00000000000006,330.40000000000003 346.80000000000007,324.2 L278.6,256"
+						IconElement.Width="13.5"
+						BorderThickness="0,1,1,0"
+						DockPanel.Dock="Right" />
+					<Button
+						Width="35"
+						Height="28"
+						Padding="5,0,0,0"
+						HorizontalAlignment="Right"
+						BorderElement.CornerRadius="3 0 0 0"
+						IconElement.Geometry="M384,121.941 L384,128 L256,128 L256,0 L262.059,0 A24,24 0 0 1 279.029,7.029L376.97,104.97 A24.002,24.002 0 0 1 384,121.941M248,160 C234.8,160 224,149.2 224,136 L224,0 L24,0 C10.745,0 0,10.745 0,24 L0,488 C0,501.255 10.745,512 24,512 L360,512 C373.255,512 384,501.255 384,488 L384,160 L248,160 M112.54499999999999,176 C139.05499999999998,176 160.545,197.49 160.545,224 C160.545,250.51 139.05499999999998,272 112.54499999999999,272 C86.035,272 64.54499999999999,250.51 64.54499999999999,224 C64.54499999999999,197.49 86.03599999999999,176 112.54499999999999,176 M320.54499999999996,416 L64.54499999999996,416 L65.02999999999996,367.515 L104.545,328 C109.231,323.314 116.344,323.799 121.03,328.485 L160.545,368 L264.06,264.485 C268.746,259.79900000000004 276.344,259.79900000000004 281.031,264.485 L320.545,304 L320.545,416"
+						IconElement.Width="13"
+						BorderThickness="1,1,0,0" />
+				</DockPanel>
+				<TextBox
+					BorderElement.CornerRadius="3 0 3 3"
+					DockPanel.Dock="Left"
+					IsReadOnly="True"
+					Text="{Binding BackgroundLogo}" />
+				<Image
+					Name="backgroundLogoPreview"
+					Width="87"
+					Height="80"
+					Margin="0,10,0,0"
+					Source="/Images/Themes/empty.png" />
+			</StackPanel>
+			<StackPanel
+				Grid.Column="2"
+				Margin="20,5,5,5">
+				<Label
+					Margin="-5,0,0,0"
+					FontWeight="Bold">
+					<DockPanel>
+						<PackIconMaterial
+							FrameworkElement.Width="18"
+							FrameworkElement.VerticalAlignment="Center"
+							PackIconMaterial.Kind="CardPlusOutline" xmlns="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" />
+						<TextBlock
+							Margin="5,0,0,0"
+							Text="{DynamicResource SBSettings_Themes_Additional}" />
+					</DockPanel>
+				</Label>
+				<CheckBox
+					Margin="0,5,0,0"
+					VerticalAlignment="Center"
+					VerticalContentAlignment="Center"
+					Content="{DynamicResource SBSettings_Themes_EnableSnow}"
+					IsChecked="{Binding EnableSnow}" />
+				<DockPanel
+					Margin="0,8,0,0">
+					<TextBlock
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Foreground="{DynamicResource ForegroundMain}">
+						<Run
+							Text="{DynamicResource SBSettings_Themes_SnowAmount}" /> <Run
+							Text=":" /></TextBlock>
+					<NumericUpDown
+						FrameworkElement.Width="70"
+						FrameworkElement.Margin="10,0,0,0"
+						FrameworkElement.HorizontalAlignment="Left"
+						Control.Foreground="{DynamicResource ForegroundMain}"
+						NumericUpDown.Maximum="100"
+						NumericUpDown.Minimum="1"
+						NumericUpDown.Value="{Binding SnowAmount}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+				</DockPanel>
+			</StackPanel>
+		</Grid>
+	</ScrollViewer>
+</Page>

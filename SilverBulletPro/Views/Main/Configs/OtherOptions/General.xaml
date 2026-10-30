@@ -1,0 +1,234 @@
+<Page
+	x:Class="SilverBulletPro.Views.Main.Configs.OtherOptions.General" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Title="ConfigOtherOptionsGeneral" xmlns:otheroptions="clr-namespace:SilverBulletPro.Views.Main.Configs.OtherOptions"
+	Loaded="Page_Loaded">
+	<ScrollViewer
+		Margin="8,5,8,5"
+		CanContentScroll="True"
+		HorizontalScrollBarVisibility="Disabled"
+		VerticalScrollBarVisibility="Auto">
+		<StackPanel>
+			<StackPanel>
+				<TextBlock
+					Margin="4,0,0,3"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource OtherOptions_General_Name}" /> <Run
+						Text=":" /></TextBlock>
+				<TextBox
+					Margin="0,3,0,0"
+					Foreground="{DynamicResource ForegroundMain}"
+					Text="{Binding Name}" />
+			</StackPanel>
+			<StackPanel
+				Grid.Row="1"
+				Margin="0,10,0,0">
+				<TextBlock
+					Margin="2,0,0,0"
+					Foreground="{DynamicResource ForegroundRetry}">
+					<iconpacks:PackIconForkAwesome
+						FrameworkElement.Margin="0,0,0,-3"
+						FrameworkElement.VerticalAlignment="Center"
+						PackIconForkAwesome.Kind="PencilSquareOutline" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.ForkAwesome" /> <Run
+						Text="{DynamicResource OtherOptions_General_Author}" /> <Run
+						Text=":" /></TextBlock>
+				<TextBox
+					Margin="0,5,0,0"
+					Foreground="{DynamicResource ForegroundMain}"
+					Text="{Binding Author}" />
+			</StackPanel>
+			<StackPanel
+				Margin="0,10,0,0">
+				<TextBlock
+					Margin="2,0,0,0"
+					Foreground="{DynamicResource ForegroundMain}">
+					<iconpacks:PackIconBoxIcons
+						FrameworkElement.Height="14.5"
+						FrameworkElement.Margin="0,0,1,-3"
+						FrameworkElement.VerticalAlignment="Center"
+						PackIconBoxIcons.Kind="RegularCategoryAlt" xmlns:iconpacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.BoxIcons" /> <Run
+						Text="{DynamicResource OtherOptions_General_Category}" /> <Run
+						Text=":" /></TextBlock>
+				<ComboBox
+					Name="categoryComboBox"
+					Margin="0,5,0,0"
+					Foreground="{DynamicResource ForegroundMain}"
+					Text="{Binding Category}" />
+			</StackPanel>
+			<StackPanel
+				Margin="0,10,0,0">
+				<TextBlock
+					Margin="1,0,0,0"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Ellipse
+						Name="ellipse"
+						Width="20"
+						Height="20"
+						Margin="0,0,1,-5"
+						RenderOptions.BitmapScalingMode="HighQuality"
+						Stretch="Fill"
+						Visibility="Collapsed">
+						<Shape.Fill>
+							<ImageBrush
+								x:Name="icon" />
+						</Shape.Fill>
+					</Ellipse> <Run
+						Text="{DynamicResource OtherOptions_General_Icon}" /> <Run
+						Text=":" /></TextBlock>
+				<Grid
+					Margin="0,5,0,0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition
+							Width="auto" />
+					</Grid.ColumnDefinitions>
+					<TextBox
+						Name="iconTextBox"
+						Height="30"
+						Margin="0,0,0,0"
+						BorderElement.CornerRadius="3 0 0 3"
+						AllowDrop="True"
+						Foreground="{DynamicResource ForegroundMain}"
+						TextWrapping="NoWrap"
+						ToolTip="Drag and drop the icon in this textBox OR paste base64 icon in this textBox"
+						Drop="TextBox_Drop"
+						PreviewDragOver="TextBox_PreviewDragOver" />
+					<Button
+						Grid.Column="1"
+						Width="71"
+						BorderElement.CornerRadius="0"
+						IconElement.Geometry="M550,650 L550,950 L650,950 L650,650 L950,650 L950,550 L650,550 L650,250 L550,250 L550,550 L250,550 L250,650"
+						IconElement.Width="14"
+						BorderThickness="0.5,1,0.5,1"
+						Content="{DynamicResource OtherOptions_General_SetIcon}"
+						Click="SetIconButton_Click" />
+					<Button
+						Name="previewButton"
+						Grid.Column="2"
+						Width="90"
+						BorderElement.CornerRadius="0 3 3 0"
+						IconElement.Geometry="M96,416 Q82,416 73,407 Q64,398 64,384 L64,128 Q64,114 73,105 Q82,96 96,96 L416,96 Q430,96 439,105 Q448,114 448,128 L448,384 Q448,398 439,407 Q430,416 416,416 L96,416 M184,240 Q204,240 218,226 Q232,212 232,192 Q232,172 218,158 Q204,144 184,144 Q164,144 150,158 Q136,172 136,192 Q136,212 150,226 Q164,240 184,240 M400,368 L400,304 L336,240 L240,336 L184,279 L96,368 L400,368"
+						IconElement.Width="14"
+						BorderThickness="0.5,1,1,1"
+						Content="{DynamicResource OtherOptions_General_Preview}" />
+				</Grid>
+			</StackPanel>
+			<StackPanel
+				Margin="0,7,-2,0">
+				<TextBlock
+					Margin="2,0,0,0"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource OtherOptions_General_StatusesForWhichBotWillContinue}" /> <Run
+						Text=":" /></TextBlock>
+				<Grid
+					Margin="0,5,5,0">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition
+							Width="auto" />
+						<ColumnDefinition
+							Width="auto" />
+					</Grid.ColumnDefinitions>
+					<ComboBox
+						Name="continueOnStatusesComboBox"
+						BorderElement.CornerRadius="3"
+						Foreground="{DynamicResource ForegroundMain}"
+						IsEditable="True"
+						ItemsSource="{Binding ContinueOnStatuses}" />
+					<Button
+						Grid.Column="1"
+						Width="auto"
+						Height="20"
+						Margin="11,0,5,0"
+						Padding="0"
+						IconElement.Geometry="M512,960 C230.39999999999998,960 0,729.6 0,448 C0,166.39999999999998 230.4,-64 512,-64 C793.6,-64 1024,166.4 1024,448 C1024,729.6 793.6,960 512,960 M832,384 L576,384 L576,128 L448,128 L448,384 L192,384 L192,512 L448,512 L448,768 L576,768 L576,512 L832,512 L832,384"
+						Background="#00FFFFFF"
+						Foreground="{DynamicResource ForegroundMain}"
+						Style="{StaticResource ButtonIcon}"
+						Click="AddContinueOnStatuses_Click" />
+					<Button
+						Grid.Column="2"
+						Width="auto"
+						Height="20"
+						Margin="0,0,6,0"
+						Padding="0"
+						IconElement.Geometry="M256,8 C119,8 8,119 8,256 C8,393 119,504 256,504 C393,504 504,393 504,256 C504,119 393,8 256,8 M124,296 C117.4,296 112,290.6 112,284 L112,228 C112,221.4 117.4,216 124,216 L388,216 C394.6,216 400,221.4 400,228 L400,284 C400,290.6 394.6,296 388,296 L124,296"
+						Background="#00FFFFFF"
+						Foreground="{DynamicResource ForegroundMain}"
+						Style="{StaticResource ButtonIcon}"
+						Click="RemoveContinueOnStatuses_Click" />
+				</Grid>
+			</StackPanel>
+			<DockPanel
+				Margin="0,8,0,0">
+				<TextBlock
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource OtherOptions_General_SuggestedAmountOfBots}" /> <Run
+						Text=":" /></TextBlock>
+				<NumericUpDown
+					FrameworkElement.MinWidth="81"
+					FrameworkElement.Margin="21,2,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+					Control.Foreground="{DynamicResource ForegroundMain}"
+					NumericUpDown.Minimum="1"
+					NumericUpDown.Value="{Binding SuggestedBots}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+			</DockPanel>
+			<DockPanel
+				Margin="0,2,0,0">
+				<TextBlock
+					VerticalAlignment="Center"
+					Foreground="{DynamicResource ForegroundMain}">
+					<Run
+						Text="{DynamicResource OtherOptions_General_MaximumCPM}" /> <Run
+						Text=":" /></TextBlock>
+				<NumericUpDown
+					FrameworkElement.MinWidth="80"
+					FrameworkElement.Margin="10,2,0,0"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.ContextMenu="{StaticResource MahApps.TextBox.ContextMenu}"
+					Control.Foreground="{DynamicResource ForegroundMain}"
+					NumericUpDown.Minimum="0"
+					NumericUpDown.Value="{Binding MaxCPM}" xmlns="clr-namespace:HandyControl.Controls;assembly=HandyControl" />
+			</DockPanel>
+			<CheckBox
+				Margin="0,5,0,8"
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_General_SaveEmptyCaptures}"
+				IsChecked="{Binding SaveEmptyCaptures}" />
+			<CheckBox
+				HorizontalAlignment="Left"
+				Content="{DynamicResource OtherOptions_General_SaveHitsToTextFileInsteadOfDB}"
+				IsChecked="{Binding SaveHitsToTextFile}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				VerticalContentAlignment="Center"
+				Content="{DynamicResource OtherOptions_General_SaveRequiredPlugins}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding SaveRequiredPlugins}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				VerticalContentAlignment="Center"
+				Content="{DynamicResource OtherOptions_General_SaveImportedLibraries}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding SaveImportedLibraries}" />
+			<CheckBox
+				Margin="0,5,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				VerticalContentAlignment="Center"
+				Content="{DynamicResource OtherOptions_General_SaveCsScript}"
+				Foreground="{DynamicResource ForegroundMain}"
+				IsChecked="{Binding SaveCsScriptCompilerTab}" />
+		</StackPanel>
+	</ScrollViewer>
+</Page>

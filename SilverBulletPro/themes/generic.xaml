@@ -1,0 +1,16 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="TabControl/TabItemStyles.xaml" />
+		<ResourceDictionary
+			Source="ComboBox/ComboBoxStyles.xaml" />
+		<ResourceDictionary
+			Source="RichTextBox/RichTextBoxStyles.xaml" />
+		<ResourceDictionary
+			Source="TextBox/TextBoxStyles.xaml" />
+		<ResourceDictionary
+			Source="SearchBar/SearchBarStyles.xaml" />
+		<ResourceDictionary
+			Source="GridSplitter/GridSplitterStyles.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

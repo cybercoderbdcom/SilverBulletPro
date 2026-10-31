@@ -45,34 +45,56 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
-
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Setup NuGet CLI
+      - name: Setup NuGet CLI (Latest)
         uses: NuGet/setup-nuget@v2
+        with:
+          nuget-version: 'latest'
 
       - name: Cache NuGet Packages
         uses: actions/cache@v4
         with:
-          path: ~/.nuget/packages
+          path: |
+            ~/.nuget/packages
+            packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/packages.config') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: Clean Committed Visual Studio Cache (.vs)
+      - name: Clean Visual Studio Cache & Normalize Project Properties
         shell: pwsh
         run: |
-          Get-ChildItem -Path . -Include ".vs" -Recurse -Directory -Force | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+          # Remove committed .vs directories so stale IDE caches do not interfere
+          Get-ChildItem -Path . -Include ".vs" -Recurse -Directory -Force |
+            Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+
+          # Replace non-numeric <LangVersion> values (e.g. 'latest' or 'default') with numeric '12.0' to prevent MSB4086
+          if (Test-Path "${{ env.PROJECT_FILE }}") {
+            $csproj = Get-Content "${{ env.PROJECT_FILE }}" -Raw
+            $csproj = $csproj -replace '<LangVersion>[^<]+</LangVersion>', '<LangVersion>12.0</LangVersion>'
+            Set-Content -Path "${{ env.PROJECT_FILE }}" -Value $csproj -Encoding UTF8
+          }
 
       - name: Restore Dependencies
         shell: pwsh
         run: |
-          nuget restore "${{ env.SOLUTION_FILE }}" -NonInteractive
+          # 1. If packages.config exists, restore directly without invoking MSBuild on the .sln
+          $pkgConfigs = Get-ChildItem -Path . -Filter "packages.config" -Recurse
+          foreach ($cfg in $pkgConfigs) {
+            Write-Host "Restoring $($cfg.FullName)..."
+            nuget restore $cfg.FullName -PackagesDirectory "packages" -NonInteractive
+          }
+
+          # 2. Restore any MSBuild PackageReference items natively using MSBuild 18
+          msbuild "${{ env.PROJECT_FILE }}" `
+            /t:Restore `
+            /p:RestorePackagesConfig=true `
+            /p:Configuration="${{ env.BUILD_CONFIGURATION }}" `
+            /p:Platform="AnyCPU" `
+            /p:LangVersion=12.0 `
+            /v:minimal
 
       - name: Determine Version Number
         id: version
@@ -85,13 +107,8 @@ jobs:
           } else {
             $rawTag = "v1.0.0-ci.${{ github.run_number }}"
           }
-          $cleanVer = $rawTag.TrimStart('v', 'V') -replace '-.*$', ''
-          if ($cleanVer -notmatch '^\d+\.\d+\.\d+(\.\d+)?$') {
-            $cleanVer = "1.0.0.0"
-          }
           "tag=$rawTag" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-          "numeric=$cleanVer" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
-          Write-Host "Resolved Tag: $rawTag | Assembly Version: $cleanVer"
+          Write-Host "Resolved Tag: $rawTag"
 
       - name: Build Solution with MSBuild
         shell: pwsh
@@ -100,7 +117,7 @@ jobs:
             /t:Build `
             /p:Configuration="${{ env.BUILD_CONFIGURATION }}" `
             /p:Platform="${{ env.BUILD_PLATFORM }}" `
-            /p:LangVersion=latest `
+            /p:LangVersion=12.0 `
             /p:DebugSymbols=false `
             /p:DebugType=None `
             /p:AllowedReferenceRelatedFileExtensions=none `
@@ -111,11 +128,11 @@ jobs:
         id: package
         shell: pwsh
         run: |
-          $binDir = Get-ChildItem -Path "SilverBulletPro/bin/${{ env.BUILD_CONFIGURATION }}" -Recurse -Filter "SilverBulletPro.exe" |
+          $binDir = Get-ChildItem -Path "SilverBulletPro/bin" -Recurse -Filter "SilverBulletPro.exe" |
                     Select-Object -First 1 -ExpandProperty DirectoryName
 
           if (-not $binDir) {
-            Write-Error "Could not locate compiled SilverBulletPro.exe in SilverBulletPro/bin/${{ env.BUILD_CONFIGURATION }}"
+            Write-Error "Could not locate compiled SilverBulletPro.exe under SilverBulletPro/bin"
             exit 1
           }
 

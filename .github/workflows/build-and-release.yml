@@ -17,13 +17,15 @@ on:
         description: "Optional tag name to create a GitHub Release (e.g., v1.0.0). Leave empty for CI build only."
         required: false
         default: ""
+      target_framework:
+        description: "Optional TargetFramework override (e.g., net8.0-windows or net6.0-windows). Leave empty for auto-detect."
+        required: false
+        default: ""
 
 permissions:
   contents: write
 
 env:
-  SOLUTION_PATH: SilverBulletPro.sln
-  PROJECT_PATH: SilverBulletPro/SilverBulletPro.csproj
   APP_NAME: SilverBulletPro
   BUILD_CONFIG: Release
 
@@ -36,73 +38,167 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Locate solution and project files
+      - name: Locate SilverBulletPro.csproj
         id: locate
         shell: pwsh
         run: |
-          $sln = Get-ChildItem -Filter "SilverBulletPro.sln" -Recurse -Depth 2 | Select-Object -First 1
           $csproj = Get-ChildItem -Filter "SilverBulletPro.csproj" -Recurse -Depth 3 | Select-Object -First 1
-
           if (-not $csproj) {
             Write-Error "SilverBulletPro.csproj not found in repository."
             exit 1
           }
-
-          $isSdkStyle = (Select-String -Path $csproj.FullName -Pattern '<Project\s+Sdk=' -Quiet)
           Write-Host "Found project: $($csproj.FullName)"
-          Write-Host "SDK-Style Project: $isSdkStyle"
-
-          "sln_path=$($sln.FullName)" >> $env:GITHUB_OUTPUT
           "csproj_path=$($csproj.FullName)" >> $env:GITHUB_OUTPUT
-          "is_sdk_style=$isSdkStyle" >> $env:GITHUB_OUTPUT
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             6.0.x
+            7.0.x
             8.0.x
+            9.0.x
 
-      - name: Setup NuGet (for legacy .NET Framework projects)
-        if: steps.locate.outputs.is_sdk_style == 'False'
-        uses: nuget/setup-nuget@v2
+      - name: Sanitize SilverBulletPro.csproj (Fix MSB4086)
+        shell: pwsh
+        run: |
+          $csprojPath = "${{ steps.locate.outputs.csproj_path }}"
+          $raw = Get-Content -Path $csprojPath -Raw
 
-      - name: Setup MSBuild (for legacy .NET Framework projects)
-        if: steps.locate.outputs.is_sdk_style == 'False'
-        uses: microsoft/setup-msbuild@v2
+          Write-Host "=== Original Project Header & Framework Tags ==="
+          Select-String -Path $csprojPath -Pattern '<Project\b|<Import\b|<TargetFramework|<OutputType|<UseWPF|<UseWindowsForms' |
+            ForEach-Object { Write-Host "$($_.LineNumber): $($_.Line.Trim())" }
 
-      - name: Restore and Build (SDK-Style .NET)
-        if: steps.locate.outputs.is_sdk_style == 'True'
+          # Resolve TargetFramework (input override > existing XML > net8.0-windows fallback)
+          $overrideTfm = "${{ inputs.target_framework }}".Trim()
+          $tfm = "net8.0-windows"
+
+          if ($overrideTfm -ne "") {
+            $tfm = $overrideTfm
+          } elseif ($raw -match '<TargetFramework>\s*([^<\s]+)\s*</TargetFramework>') {
+            $detected = $Matches[1].Trim()
+            if ($detected -match '^net\d+\.\d+$') {
+              $tfm = "$detected-windows"
+            } else {
+              $tfm = $detected
+            }
+          } elseif ($raw -match '<TargetFrameworkVersion>\s*v?(\d+\.\d+)\s*</TargetFrameworkVersion>') {
+            $ver = $Matches[1].Trim()
+            if ($ver -match '^3\.') {
+              $tfm = "netcoreapp$ver"
+            } elseif ([version]$ver -ge [version]"5.0") {
+              $tfm = "net$ver-windows"
+            } else {
+              $tfm = "net8.0-windows"
+            }
+          }
+          Write-Host "Resolved TargetFramework: $tfm"
+
+          # Strip legacy MSBuild XML namespace so DOM edits work cleanly
+          $cleanRaw = $raw -replace '\s+xmlns=["'']http://schemas\.microsoft\.com/developer/msbuild/2003["'']', ''
+
+          [xml]$xml = $cleanRaw
+          $proj = $xml.Project
+
+          # Convert root <Project> element to clean SDK-style
+          $proj.RemoveAttribute("ToolsVersion")
+          $proj.RemoveAttribute("DefaultTargets")
+          $proj.SetAttribute("Sdk", "Microsoft.NET.Sdk")
+
+          # Remove ALL legacy <Import> elements (primary trigger for MSB4086)
+          $imports = @($proj.SelectNodes("//Import"))
+          foreach ($imp in $imports) {
+            $null = $imp.ParentNode.RemoveChild($imp)
+          }
+
+          # Remove conflicting legacy properties
+          $tagsToRemove = @(
+            "TargetFrameworkIdentifier",
+            "TargetFrameworkVersion",
+            "TargetFrameworkProfile",
+            "TargetFrameworks",
+            "TargetFramework",
+            "ProjectTypeGuids",
+            "OldToolsVersion",
+            "FileUpgradeFlags",
+            "UpgradeBackupLocation",
+            "OutputType",
+            "UseWPF",
+            "UseWindowsForms",
+            "EnableDefaultItems",
+            "EnableDefaultApplicationDefinition",
+            "GenerateAssemblyInfo",
+            "AllowUnsafeBlocks",
+            "LangVersion",
+            "EnableWindowsTargeting"
+          )
+          foreach ($tag in $tagsToRemove) {
+            $nodes = @($proj.SelectNodes("//PropertyGroup/$tag"))
+            foreach ($n in $nodes) {
+              $null = $n.ParentNode.RemoveChild($n)
+            }
+          }
+
+          # Insert clean top-level PropertyGroup
+          $pg = $xml.CreateElement("PropertyGroup")
+          $props = [ordered]@{
+            "OutputType"                         = "WinExe"
+            "TargetFramework"                    = $tfm
+            "UseWPF"                             = "true"
+            "UseWindowsForms"                    = "true"
+            "EnableDefaultItems"                 = "false"
+            "EnableDefaultApplicationDefinition" = "false"
+            "GenerateAssemblyInfo"               = "false"
+            "AllowUnsafeBlocks"                  = "true"
+            "LangVersion"                        = "latest"
+            "EnableWindowsTargeting"             = "true"
+          }
+          foreach ($k in $props.Keys) {
+            $el = $xml.CreateElement($k)
+            $el.InnerText = $props[$k]
+            $null = $pg.AppendChild($el)
+          }
+          $null = $proj.PrependChild($pg)
+
+          # Write sanitized .csproj (UTF-8 without BOM)
+          $settings = New-Object System.Xml.XmlWriterSettings
+          $settings.Indent = $true
+          $settings.Encoding = New-Object System.Text.UTF8Encoding($false)
+          $settings.OmitXmlDeclaration = $true
+          $writer = [System.Xml.XmlWriter]::Create($csprojPath, $settings)
+          try {
+            $xml.Save($writer)
+          } finally {
+            $writer.Dispose()
+          }
+
+          Write-Host "=== Sanitized Project Header (first 25 lines) ==="
+          Get-Content -Path $csprojPath -TotalCount 25 | ForEach-Object { Write-Host $_ }
+
+          Write-Host "=== Detected References ==="
+          $refs = @($xml.Project.SelectNodes("//Reference | //PackageReference"))
+          Write-Host "Total References/PackageReferences: $($refs.Count)"
+          $refs | ForEach-Object {
+            $hint = $_.SelectSingleNode("HintPath")
+            $hintText = if ($hint) { " -> $($hint.InnerText)" } else { "" }
+            Write-Host "  [$($_.Name)] $($_.Include)$hintText"
+          }
+
+      - name: Restore dependencies
+        shell: pwsh
+        run: |
+          dotnet restore "${{ steps.locate.outputs.csproj_path }}"
+
+      - name: Build and Publish
         shell: pwsh
         run: |
           $outDir = Join-Path $env:GITHUB_WORKSPACE "publish_out"
-          dotnet restore "${{ steps.locate.outputs.csproj_path }}"
           dotnet publish "${{ steps.locate.outputs.csproj_path }}" `
             -c ${{ env.BUILD_CONFIG }} `
             -o "$outDir" `
-            --no-restore
-
-      - name: Restore and Build (Legacy .NET Framework MSBuild)
-        if: steps.locate.outputs.is_sdk_style == 'False'
-        shell: pwsh
-        run: |
-          $slnPath = "${{ steps.locate.outputs.sln_path }}"
-          $csprojPath = "${{ steps.locate.outputs.csproj_path }}"
-          $outDir = "$($env:GITHUB_WORKSPACE -replace '\\','/')/publish_out/"
-
-          if ($slnPath -and (Test-Path $slnPath)) {
-            nuget restore "$slnPath"
-          } else {
-            nuget restore "$csprojPath"
-          }
-
-          msbuild "$csprojPath" `
-            /t:Build `
-            /p:Configuration=${{ env.BUILD_CONFIG }} `
-            /p:OutDir="$outDir" `
+            --no-restore `
             /p:DebugType=None `
-            /p:DebugSymbols=false `
-            /m
+            /p:DebugSymbols=false
 
       - name: Package Release ZIP and Checksum
         id: package
@@ -117,7 +213,6 @@ jobs:
             exit 1
           }
 
-          # Determine version label
           if ($env:GITHUB_REF_TYPE -eq "tag") {
             $version = $env:GITHUB_REF_NAME
           } elseif ("${{ inputs.release_tag }}" -ne "") {
@@ -139,7 +234,6 @@ jobs:
           Write-Host "SHA256: $hash"
 
           "version=$version" >> $env:GITHUB_OUTPUT
-          "zip_path=$zipPath" >> $env:GITHUB_OUTPUT
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
